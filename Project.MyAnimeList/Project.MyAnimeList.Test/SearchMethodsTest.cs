@@ -8,12 +8,13 @@ namespace Project.MyAnimeList.Test
 {
 	public class SearchMethodsTest : CredentialCollectionTest
 	{
-		public SearchMethods SearchMethods { get; }
+		// Sut => System Under Test
+		public SearchMethods Sut { get; }
 
 		public SearchMethodsTest(CredentialContextFixture credentialContextFixture)
 			: base(credentialContextFixture)
 		{
-			SearchMethods = new SearchMethods(credentialContextFixture.CredentialContext);
+			Sut = new SearchMethods(credentialContextFixture.CredentialContext);
 		}
 
 		[Fact]
@@ -49,7 +50,7 @@ namespace Project.MyAnimeList.Test
 		[InlineData("Full Metal")]
 		public void TestSearchAnimeReturnsNotEmpty(string searchTerm)
 		{
-			string response = SearchMethods.SearchAnime(searchTerm);
+			string response = Sut.SearchAnime(searchTerm);
 
 			Assert.False(string.IsNullOrEmpty(response));
 		}
@@ -59,7 +60,7 @@ namespace Project.MyAnimeList.Test
 		[InlineData("Full Metal")]
 		public void TestSearchMangaReturnsNotEmpty(string searchTerm)
 		{
-			string response = SearchMethods.SearchManga(searchTerm);
+			string response = Sut.SearchManga(searchTerm);
 
 			Assert.False(string.IsNullOrEmpty(response));
 		}
