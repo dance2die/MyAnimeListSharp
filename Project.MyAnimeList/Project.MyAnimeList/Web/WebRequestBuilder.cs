@@ -3,7 +3,7 @@ using System.Net;
 
 namespace Project.MyAnimeList.Web
 {
-	public static class WebRequestBuilder
+	internal static class WebRequestBuilder
 	{
 		public static HttpWebRequest BuildWebRequest(RequestParameters requestParameters)
 		{

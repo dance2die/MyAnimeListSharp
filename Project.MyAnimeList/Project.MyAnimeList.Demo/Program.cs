@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Net;
 using Project.MyAnimeList.Auth;
 using Project.MyAnimeList.Facade;
 using Project.MyAnimeList.Web;
@@ -24,12 +23,6 @@ namespace Project.MyAnimeList.Demo
 			string responseFromServer  = new AccountMethods(requestParameters).VerifyCredentials();
 
 			Console.WriteLine(responseFromServer);
-		}
-
-		private static HttpWebRequest CreateCredentialWebRequest(ICredentialContext credential)
-		{
-			RequestParameters requestParameters = new VerifyCredentialsRequestParameters(credential);
-			return WebRequestBuilder.BuildWebRequest(requestParameters);
 		}
 	}
 }
