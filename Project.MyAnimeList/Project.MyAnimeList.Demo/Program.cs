@@ -1,6 +1,8 @@
 ﻿using System;
-using System.IO;
 using System.Net;
+using Project.MyAnimeList.Auth;
+using Project.MyAnimeList.Facade;
+using Project.MyAnimeList.Web;
 
 namespace Project.MyAnimeList.Demo
 {
@@ -18,8 +20,6 @@ namespace Project.MyAnimeList.Demo
 
 		private static void TestCredentials(ICredentialContext credential)
 		{
-			//HttpWebRequest request = CreateCredentialWebRequest(credential);
-			//string responseFromServer = GetResponseText(request);
 			RequestParameters requestParameters = new VerifyCredentialsRequestParameters(credential);
 			string responseFromServer  = new AccountMethods(requestParameters).VerifyCredentials();
 
@@ -30,34 +30,6 @@ namespace Project.MyAnimeList.Demo
 		{
 			RequestParameters requestParameters = new VerifyCredentialsRequestParameters(credential);
 			return WebRequestBuilder.BuildWebRequest(requestParameters);
-		}
-	}
-
-	public class AccountMethods : MyAnimeListMethods
-	{
-		public AccountMethods(RequestParameters requestParameters)
-		{
-			RequestParameters = requestParameters;
-		}
-
-		public string VerifyCredentials()
-		{
-			return GetResponseText(WebRequestBuilder.BuildWebRequest(RequestParameters));
-		}
-	}
-
-	public abstract class MyAnimeListMethods
-	{
-		public RequestParameters RequestParameters { get; set; }
-
-		protected string GetResponseText(HttpWebRequest request)
-		{
-			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
-			using (Stream responseStream = response.GetResponseStream())
-			using (StreamReader reader = new StreamReader(responseStream))
-			{
-				return reader.ReadToEnd();
-			}
 		}
 	}
 }

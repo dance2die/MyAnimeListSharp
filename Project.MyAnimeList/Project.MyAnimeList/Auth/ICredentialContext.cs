@@ -1,4 +1,4 @@
-﻿namespace Project.MyAnimeList
+﻿namespace Project.MyAnimeList.Auth
 {
 	public interface ICredentialContext
 	{

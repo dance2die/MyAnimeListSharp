@@ -1,4 +1,6 @@
-﻿namespace Project.MyAnimeList.Test
+﻿using Project.MyAnimeList.Auth;
+
+namespace Project.MyAnimeList.Test
 {
 	/// <remarks>
 	/// http://xunit.github.io/docs/shared-context.html

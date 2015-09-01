@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Net;
 
-namespace Project.MyAnimeList
+namespace Project.MyAnimeList.Web
 {
 	public static class WebRequestBuilder
 	{

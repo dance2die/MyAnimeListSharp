@@ -1,4 +1,6 @@
-﻿namespace Project.MyAnimeList
+﻿using Project.MyAnimeList.Auth;
+
+namespace Project.MyAnimeList.Web
 {
 	public class VerifyCredentialsRequestParameters : RequestParameters
 	{

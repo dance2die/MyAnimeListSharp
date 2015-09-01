@@ -40,16 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CredentialContext.cs" />
-    <Compile Include="ICredentialContext.cs" />
+    <Compile Include="Auth\CredentialContext.cs" />
+    <Compile Include="Facade\AccountMethods.cs" />
+    <Compile Include="Facade\MyAnimeListMethods.cs" />
+    <Compile Include="Auth\ICredentialContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RequestParameters.cs" />
-    <Compile Include="VerifyCredentialsRequestParameters.cs" />
-    <Compile Include="WebRequestBuilder.cs" />
+    <Compile Include="Web\RequestParameters.cs" />
+    <Compile Include="Web\VerifyCredentialsRequestParameters.cs" />
+    <Compile Include="Web\WebRequestBuilder.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Facade\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
