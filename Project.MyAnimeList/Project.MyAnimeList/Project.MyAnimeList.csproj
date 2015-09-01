@@ -44,6 +44,7 @@
     <Compile Include="Facade\AccountMethods.cs" />
     <Compile Include="Facade\MyAnimeListMethods.cs" />
     <Compile Include="Auth\ICredentialContext.cs" />
+    <Compile Include="Facade\SearchMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Web\RequestParameters.cs" />
     <Compile Include="Web\VerifyCredentialsRequestParameters.cs" />
