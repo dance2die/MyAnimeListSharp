@@ -1,12 +1,17 @@
 using System.IO;
 using System.Net;
-using Project.MyAnimeList.Web;
+using Project.MyAnimeList.Auth;
 
 namespace Project.MyAnimeList.Facade
 {
 	public abstract class MyAnimeListMethods
 	{
-		public RequestParameters RequestParameters { get; set; }
+		public ICredentialContext CredentialContext { get; set; }
+
+		protected MyAnimeListMethods(ICredentialContext credentialContext)
+		{
+			CredentialContext = credentialContext;
+		}
 
 		protected string GetResponseText(HttpWebRequest request)
 		{

@@ -1,17 +1,19 @@
+using Project.MyAnimeList.Auth;
 using Project.MyAnimeList.Web;
 
 namespace Project.MyAnimeList.Facade
 {
 	public class AccountMethods : MyAnimeListMethods
 	{
-		public AccountMethods(RequestParameters requestParameters)
+		public AccountMethods(ICredentialContext credentialContext)
+			: base(credentialContext)
 		{
-			RequestParameters = requestParameters;
 		}
 
 		public string VerifyCredentials()
 		{
-			return GetResponseText(WebRequestBuilder.BuildWebRequest(RequestParameters));
+			RequestParameters requestParameters = new VerifyCredentialsRequestParameters(CredentialContext);
+			return GetResponseText(WebRequestBuilder.BuildWebRequest(requestParameters));
 		}
 	}
 }

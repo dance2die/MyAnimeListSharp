@@ -1,7 +1,6 @@
 ﻿using System;
 using Project.MyAnimeList.Auth;
 using Project.MyAnimeList.Facade;
-using Project.MyAnimeList.Web;
 
 namespace Project.MyAnimeList.Demo
 {
@@ -19,8 +18,7 @@ namespace Project.MyAnimeList.Demo
 
 		private static void TestCredentials(ICredentialContext credential)
 		{
-			RequestParameters requestParameters = new VerifyCredentialsRequestParameters(credential);
-			string responseFromServer  = new AccountMethods(requestParameters).VerifyCredentials();
+			string responseFromServer  = new AccountMethods(credential).VerifyCredentials();
 
 			Console.WriteLine(responseFromServer);
 		}
