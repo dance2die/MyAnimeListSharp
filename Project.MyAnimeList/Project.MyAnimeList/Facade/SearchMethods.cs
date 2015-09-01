@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Project.MyAnimeList.Auth;
+﻿using Project.MyAnimeList.Auth;
 using Project.MyAnimeList.Web;
 
 namespace Project.MyAnimeList.Facade
