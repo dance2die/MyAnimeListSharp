@@ -2,9 +2,9 @@ using Project.MyAnimeList.Auth;
 
 namespace Project.MyAnimeList.Web
 {
-	public class SearchAnimeRequestParameters : RequestParameters
+	public abstract class SearchRequestParameters : RequestParameters
 	{
-		public override string BaseUri { get; set; } = "http://myanimelist.net/api/anime/search.xml";
+		public abstract override string BaseUri { get; set; }
 		public override string HttpMethod { get; set; } = "GET";
 
 		public string SearchTerm
@@ -13,8 +13,8 @@ namespace Project.MyAnimeList.Web
 			set { QueryProperties["q"] = value; }
 		}
 
-		public SearchAnimeRequestParameters(ICredentialContext credentialContext, string searchTerm)
-			: base(credentialContext)
+		protected SearchRequestParameters(ICredentialContext credential, string searchTerm) 
+			: base(credential)
 		{
 			SearchTerm = searchTerm;
 		}

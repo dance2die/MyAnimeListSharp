@@ -13,7 +13,12 @@ namespace Project.MyAnimeList.Facade
 
 		public string SearchAnime(string searchTerm)
 		{
-			return GetResponseText(new SearchAnimeRequestParameters(CredentialContext, searchTerm));
+			return GetResponseText(new AnimeSearchRequestParameters(CredentialContext, searchTerm));
+		}
+
+		public string SearchManga(string searchTerm)
+		{
+			return GetResponseText(new MangaSearchRequestParameters(CredentialContext, searchTerm));
 		}
 	}
 }

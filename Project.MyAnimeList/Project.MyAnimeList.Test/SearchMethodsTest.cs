@@ -36,7 +36,7 @@ namespace Project.MyAnimeList.Test
 		{
 			// I need to learn how to do mocking....
 			RequestParameters requestParameters = 
-				new SearchAnimeRequestParameters(CredentialContextFixture.CredentialContext,"full metal");
+				new AnimeSearchRequestParameters(CredentialContextFixture.CredentialContext,"full metal");
 			var sut = new RequestUriBuilder(requestParameters);
 
 			var actual = sut.GetRequestUri();
@@ -50,6 +50,16 @@ namespace Project.MyAnimeList.Test
 		public void TestSearchAnimeReturnsNotEmpty(string searchTerm)
 		{
 			string response = SearchMethods.SearchAnime(searchTerm);
+
+			Assert.False(string.IsNullOrEmpty(response));
+		}
+
+		[Theory]
+		[InlineData("Naruto")]
+		[InlineData("Full Metal")]
+		public void TestSearchMangaReturnsNotEmpty(string searchTerm)
+		{
+			string response = SearchMethods.SearchManga(searchTerm);
 
 			Assert.False(string.IsNullOrEmpty(response));
 		}
