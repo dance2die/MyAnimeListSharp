@@ -7,7 +7,8 @@ namespace Project.MyAnimeList.Web
 	{
 		public static HttpWebRequest BuildWebRequest(RequestParameters requestParameters)
 		{
-			HttpWebRequest result = WebRequest.Create(requestParameters.RequestUri) as HttpWebRequest;
+			string requestUri = new RequestUriBuilder(requestParameters).GetRequestUri();
+			HttpWebRequest result = WebRequest.Create(requestUri) as HttpWebRequest;
 			if (result == null)
 				throw new InvalidOperationException("Could not create web request");
 

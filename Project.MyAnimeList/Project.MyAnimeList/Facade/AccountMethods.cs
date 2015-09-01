@@ -12,8 +12,7 @@ namespace Project.MyAnimeList.Facade
 
 		public string VerifyCredentials()
 		{
-			RequestParameters requestParameters = new VerifyCredentialsRequestParameters(CredentialContext);
-			return GetResponseText(WebRequestBuilder.BuildWebRequest(requestParameters));
+			return GetResponseText(new VerifyCredentialsRequestParameters(CredentialContext));
 		}
 	}
 }

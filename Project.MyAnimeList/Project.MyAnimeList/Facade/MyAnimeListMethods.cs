@@ -1,6 +1,7 @@
 using System.IO;
 using System.Net;
 using Project.MyAnimeList.Auth;
+using Project.MyAnimeList.Web;
 
 namespace Project.MyAnimeList.Facade
 {
@@ -13,8 +14,13 @@ namespace Project.MyAnimeList.Facade
 			CredentialContext = credentialContext;
 		}
 
-		protected string GetResponseText(HttpWebRequest request)
+		/// <summary>
+		/// Template method to return response text
+		/// </summary>
+		protected string GetResponseText(RequestParameters requestParameters)
 		{
+			var request = WebRequestBuilder.BuildWebRequest(requestParameters);
+
 			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
 			using (Stream responseStream = response.GetResponseStream())
 			using (StreamReader reader = new StreamReader(responseStream))
