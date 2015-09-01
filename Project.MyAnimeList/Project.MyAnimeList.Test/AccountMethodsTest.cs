@@ -3,14 +3,11 @@ using Xunit;
 
 namespace Project.MyAnimeList.Test
 {
-	[Collection("Credential collection")]
-	public class AccountMethodsTest
+	public class AccountMethodsTest : CredentialCollectionTest
 	{
-		public CredentialContextFixture CredentialContextFixture { get; set; }
-
-		public AccountMethodsTest(CredentialContextFixture credentialContextFixture)
+		public AccountMethodsTest(CredentialContextFixture credentialContextFixture) 
+			: base(credentialContextFixture)
 		{
-			CredentialContextFixture = credentialContextFixture;
 		}
 
 		[Fact]
