@@ -8,7 +8,7 @@ namespace Project.MyAnimeList.Test
 {
 	public class SearchMethodsTest : CredentialCollectionTest
 	{
-		public SearchMethods SearchMethods { get; private set; }
+		public SearchMethods SearchMethods { get; }
 
 		public SearchMethodsTest(CredentialContextFixture credentialContextFixture)
 			: base(credentialContextFixture)
