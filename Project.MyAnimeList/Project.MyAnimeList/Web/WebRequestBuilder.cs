@@ -43,7 +43,7 @@ namespace Project.MyAnimeList.Web
 
 		private void WritePostBody(HttpWebRequest request)
 		{
-			string postBody = GetEncodedString(RequestParameters.PostBodyProperties);
+			string postBody = GetJoinedString(RequestParameters.PostBodyProperties);
 			if (string.IsNullOrWhiteSpace(postBody)) return;
 
 			using (Stream requestStream = request.GetRequestStream())
@@ -53,9 +53,11 @@ namespace Project.MyAnimeList.Web
 			}
 		}
 
-		private string GetEncodedString(IDictionary<string, string> dictionary)
+		private string GetJoinedString(IDictionary<string, string> dictionary)
 		{
-			return new DictionaryToStringJoiner().Join(dictionary);
+			// Don't encode and just return the input as it is.
+			Func<string, string> doNotEncode = input => input;
+			return new DictionaryToStringJoiner().Join(dictionary, doNotEncode);
 		}
 	}
 }

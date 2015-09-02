@@ -19,7 +19,8 @@ namespace Project.MyAnimeList.Facade
 		/// </summary>
 		protected string GetResponseText(RequestParameters requestParameters)
 		{
-			var request = WebRequestBuilder.BuildWebRequest(requestParameters);
+			var requestBuilder = new WebRequestBuilder(requestParameters);
+			var request = requestBuilder.BuildWebRequest();
 
 			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
 			using (Stream responseStream = response.GetResponseStream())

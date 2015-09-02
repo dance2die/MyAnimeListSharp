@@ -8,11 +8,16 @@ namespace Project.MyAnimeList.Util
 	{
 		public string Join(IDictionary<string, string> parameters, string separator = "&")
 		{
+			return Join(parameters, Uri.EscapeDataString, separator);
+		}
+
+		public string Join(IDictionary<string, string> parameters, Func<string, string> encode, string separator = "&")
+		{
 			var array = (from key in parameters.Keys
 				let value = parameters[key]
 				orderby key
 				where string.IsNullOrWhiteSpace(value) == false
-				select $"{Uri.EscapeDataString(key)}={Uri.EscapeDataString(value)}").ToArray();
+				select $"{encode(key)}={encode(value)}").ToArray();
 
 			return string.Join(separator, array);
 		}
