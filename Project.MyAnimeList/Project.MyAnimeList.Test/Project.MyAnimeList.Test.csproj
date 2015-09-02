@@ -70,6 +70,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AccountMethodsTest.cs" />
+    <Compile Include="AnimeListMethodsTest.cs" />
     <Compile Include="CredentialCollectionTest.cs" />
     <Compile Include="CredentialContextCollection.cs" />
     <Compile Include="CredentialContextFixture.cs" />
