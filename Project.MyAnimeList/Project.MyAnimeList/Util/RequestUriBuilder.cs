@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Project.MyAnimeList.Util;
 
 namespace Project.MyAnimeList.Web
@@ -15,9 +16,13 @@ namespace Project.MyAnimeList.Web
 		public string GetRequestUri()
 		{
 			var queryString = GetEncodedString(_requestParameters.QueryProperties);
-			if (string.IsNullOrWhiteSpace(queryString))
+			if (string.IsNullOrWhiteSpace(queryString) && !_requestParameters.Id.HasValue)
 				return _requestParameters.BaseUri;
-			return $"{_requestParameters.BaseUri}?{queryString}";
+
+			string relativeUri = _requestParameters.Id.HasValue ? $"/{_requestParameters.Id.Value}.xml" : string.Empty;
+			string queryUri = string.IsNullOrWhiteSpace(queryString) ? string.Empty : $"?{queryString}";
+            //return $"{new Uri(new Uri(_requestParameters.BaseUri), relativeUri).AbsoluteUri}{queryUri}";
+			return $"{_requestParameters.BaseUri}{relativeUri}{queryUri}";
 		}
 
 		private string GetEncodedString(IDictionary<string, string> dictionary)
