@@ -15,7 +15,7 @@ namespace Project.MyAnimeList.Test
 		/// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
 		/// </summary>
 		private readonly int? _id = 123;
-		private readonly string _data = 
+		private readonly string _data =
 			@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
 				<entry>
 					<episode>9</episode>
@@ -74,35 +74,12 @@ namespace Project.MyAnimeList.Test
 		[Fact]
 		public void TestAddAnimeRequestUpdate()
 		{
-			// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
-			// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
-			int? id = 28907;
-			string data = 
-@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
-<entry>
-	<episode>9</episode>
-	<status>1</status>
-	<score>9</score>
-	<downloaded_episodes></downloaded_episodes>
-	<storage_type></storage_type>
-	<storage_value></storage_value>
-	<times_rewatched></times_rewatched>
-	<rewatch_value></rewatch_value>
-	<date_start></date_start>
-	<date_finish></date_finish>
-	<priority></priority>
-	<enable_discussion></enable_discussion>
-	<enable_rewatching></enable_rewatching>
-	<comments></comments>
-	<fansub_group></fansub_group>
-	<tags>test tag, 2nd tag</tags>
-</ entry>";
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
-			var actual = sut.UpdateAnime(id, data);
+			var actual = sut.UpdateAnime(_id, _data);
 
 			_output.WriteLine("Actual: {0}", actual);
-            Assert.False(string.IsNullOrEmpty(actual));
+			Assert.False(string.IsNullOrEmpty(actual));
 		}
 	}
 }
