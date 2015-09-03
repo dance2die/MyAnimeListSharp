@@ -14,7 +14,7 @@ namespace Project.MyAnimeList.Test
 		/// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
 		/// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
 		/// </summary>
-		private readonly int? _id = 123;
+		private readonly int? _id = 28907;
 		private readonly string _data =
 			@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
 				<entry>
