@@ -83,5 +83,17 @@ namespace Project.MyAnimeList.Test
 			//Assert.False(string.IsNullOrEmpty(actualResponseString));
 			Assert.Contains("There was a MySQL Error", actualResponseString);
 		}
+
+		[Fact]
+		public void TestDeleteAnimeRequest()
+		{
+			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+
+			var actualResponseString = sut.DeleteAnime(ID);
+
+			_output.WriteLine("Actual: {0}", actualResponseString);
+			//Assert.False(string.IsNullOrEmpty(actualResponseString));
+			Assert.Equal("Deleted", actualResponseString);
+		}
 	}
 }
