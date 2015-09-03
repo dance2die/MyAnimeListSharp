@@ -9,7 +9,6 @@ namespace Project.MyAnimeList.Web
 		public AddAnimeRequestParameters(ICredentialContext credentialContext, int? id, string data)
 			: base(credentialContext, id, data)
 		{
-			
 		}
 	}
 }
