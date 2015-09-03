@@ -14,7 +14,8 @@ namespace Project.MyAnimeList.Test
 		/// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
 		/// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
 		/// </summary>
-		private readonly int? _id = 28907;
+		private const int ID = 28907;
+
 		private readonly string _data =
 			@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
 				<entry>
@@ -45,7 +46,7 @@ namespace Project.MyAnimeList.Test
 		[Fact]
 		public void TestAddAnimeRequestParametersMethod()
 		{
-			var sut = new AddAnimeRequestParameters(CredentialContextFixture.CredentialContext, _id, _data);
+			var sut = new AddAnimeRequestParameters(CredentialContextFixture.CredentialContext, ID, _data);
 
 			Assert.Equal("POST", sut.HttpMethod);
 		}
@@ -53,12 +54,12 @@ namespace Project.MyAnimeList.Test
 		[Fact]
 		public void TestAddAnimeRequestParametersBaseUri()
 		{
-			var requestParameters = new AddAnimeRequestParameters(CredentialContextFixture.CredentialContext, _id, _data);
+			var requestParameters = new AddAnimeRequestParameters(CredentialContextFixture.CredentialContext, ID, _data);
 			var sut = new RequestUriBuilder(requestParameters);
 
 			var actualUri = sut.GetRequestUri();
 
-			Assert.Equal($"http://myanimelist.net/api/animelist/add/{_id.Value}.xml", actualUri);
+			Assert.Equal($"http://myanimelist.net/api/animelist/add/{ID}.xml", actualUri);
 		}
 
 		[Fact]
@@ -68,18 +69,19 @@ namespace Project.MyAnimeList.Test
 
 			//string uniqueId = sut.AddAnime(id, data);
 			//Assert.False(string.IsNullOrEmpty(uniqueId));
-			Assert.Throws<WebException>(() => sut.AddAnime(_id, _data));
+			Assert.Throws<WebException>(() => sut.AddAnime(ID, _data));
 		}
 
 		[Fact]
-		public void TestAddAnimeRequestUpdate()
+		public void TestAddAnimeRequestUpdateReturnsMySQLError()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
-			var actual = sut.UpdateAnime(_id, _data);
+			var actualResponseString = sut.UpdateAnime(ID, _data);
 
-			_output.WriteLine("Actual: {0}", actual);
-			Assert.False(string.IsNullOrEmpty(actual));
+			_output.WriteLine("Actual: {0}", actualResponseString);
+			//Assert.False(string.IsNullOrEmpty(actualResponseString));
+			Assert.Contains("There was a MySQL Error", actualResponseString);
 		}
 	}
 }
