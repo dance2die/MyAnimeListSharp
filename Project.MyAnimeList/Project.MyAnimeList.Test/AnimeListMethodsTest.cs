@@ -73,7 +73,7 @@ namespace Project.MyAnimeList.Test
 		}
 
 		[Fact]
-		public void TestAddAnimeRequestUpdateReturnsMySQLError()
+		public void TestUpdateAnimeRequestUpdateReturnsMySQLError()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
