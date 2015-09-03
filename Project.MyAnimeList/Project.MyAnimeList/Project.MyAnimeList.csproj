@@ -43,6 +43,8 @@
     <Compile Include="Auth\CredentialContext.cs" />
     <Compile Include="Facade\AnimeListMethods.cs" />
     <Compile Include="Facade\AccountMethods.cs" />
+    <Compile Include="Web\DeleteAnimeRequestParameters.cs" />
+    <Compile Include="Web\UpdateAnimeRequestParameters.cs" />
     <Compile Include="Web\AddAnimeRequestParameters.cs" />
     <Compile Include="Web\AnimeSearchRequestParameters.cs" />
     <Compile Include="Web\CrudRequestParameters.cs" />

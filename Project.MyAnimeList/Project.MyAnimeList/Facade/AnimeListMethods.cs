@@ -25,24 +25,4 @@ namespace Project.MyAnimeList.Facade
 			return GetResponseText(new DeleteAnimeRequestParameters(CredentialContext, id));
 		}
 	}
-
-	public class DeleteAnimeRequestParameters : CrudRequestParameters
-	{
-		public override string BaseUri { get; set; } = "http://myanimelist.net/api/animelist/delete";
-
-		public DeleteAnimeRequestParameters(ICredentialContext credential, int? id, string data = "") 
-			: base(credential, id, data)
-		{
-		}
-	}
-
-	public class UpdateAnimeRequestParameters : CrudRequestParameters
-	{
-		public override string BaseUri { get; set; } = "http://myanimelist.net/api/animelist/update";
-
-		public UpdateAnimeRequestParameters(ICredentialContext credentialContext, int? id, string data)
-			: base(credentialContext, id, data)
-		{
-		}
-	}
 }
