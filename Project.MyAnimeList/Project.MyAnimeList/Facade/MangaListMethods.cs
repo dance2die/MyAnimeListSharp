@@ -20,5 +20,10 @@ namespace Project.MyAnimeList.Facade
 		{
 			return GetResponseText(new UpdateMangaRequestParameters(CredentialContext, id, data));
 		}
+
+		public string DeleteManga(int id)
+		{
+			return GetResponseText(new DeleteMangaRequestParameters(CredentialContext, id));
+		}
 	}
 }

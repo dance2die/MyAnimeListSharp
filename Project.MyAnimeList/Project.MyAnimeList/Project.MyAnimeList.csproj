@@ -43,6 +43,7 @@
     <Compile Include="Auth\CredentialContext.cs" />
     <Compile Include="Facade\AnimeListMethods.cs" />
     <Compile Include="Facade\AccountMethods.cs" />
+    <Compile Include="Web\DeleteMangaRequestParameters.cs" />
     <Compile Include="Facade\MangaListMethods.cs" />
     <Compile Include="Web\UpdateMangaRequestParameters.cs" />
     <Compile Include="Web\AddMangaRequestParameters.cs" />

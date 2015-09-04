@@ -69,7 +69,6 @@ namespace Project.MyAnimeList.Test
 			var responseString = sut.AddManga(ID, _data);
 
 			_output.WriteLine(responseString);
-			//Assert.Contains("Created", responseString);
 			Assert.False(string.IsNullOrEmpty(responseString));
 		}
 
@@ -81,20 +80,18 @@ namespace Project.MyAnimeList.Test
 			var actualResponseString = sut.UpdateManga(ID, _data);
 
 			_output.WriteLine("Actual: {0}", actualResponseString);
-			//Assert.False(string.IsNullOrEmpty(actualResponseString));
 			Assert.Equal("Updated", actualResponseString);
 		}
 
-		//[Fact]
-		//public void TestDeleteAnimeRequest()
-		//{
-		//	var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+		[Fact]
+		public void TestDeleteMangaRequest()
+		{
+			var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
 
-		//	var actualResponseString = sut.DeleteAnime(ID);
+			var actualResponseString = sut.DeleteManga(ID);
 
-		//	_output.WriteLine("Actual: {0}", actualResponseString);
-		//	//Assert.False(string.IsNullOrEmpty(actualResponseString));
-		//	Assert.Equal("Deleted", actualResponseString);
-		//}
+			_output.WriteLine("Actual: {0}", actualResponseString);
+			Assert.Equal("Deleted", actualResponseString);
+		}
 	}
 }
