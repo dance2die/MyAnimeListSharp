@@ -44,6 +44,7 @@
     <Compile Include="Facade\AnimeListMethods.cs" />
     <Compile Include="Facade\AccountMethods.cs" />
     <Compile Include="Facade\MangaListMethods.cs" />
+    <Compile Include="Web\UpdateMangaRequestParameters.cs" />
     <Compile Include="Web\AddMangaRequestParameters.cs" />
     <Compile Include="Web\DeleteAnimeRequestParameters.cs" />
     <Compile Include="Web\UpdateAnimeRequestParameters.cs" />

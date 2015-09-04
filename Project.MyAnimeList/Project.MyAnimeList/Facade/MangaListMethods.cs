@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Project.MyAnimeList.Auth;
 using Project.MyAnimeList.Web;
 
@@ -13,6 +14,11 @@ namespace Project.MyAnimeList.Facade
 		public string AddManga(int id, string data)
 		{
 			return GetResponseText(new AddMangaRequestParameters(CredentialContext, id, data));
+		}
+
+		public string UpdateManga(int id, string data)
+		{
+			return GetResponseText(new UpdateMangaRequestParameters(CredentialContext, id, data));
 		}
 	}
 }

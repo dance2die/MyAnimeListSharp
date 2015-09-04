@@ -73,17 +73,17 @@ namespace Project.MyAnimeList.Test
 			Assert.False(string.IsNullOrEmpty(responseString));
 		}
 
-		//[Fact]
-		//public void TestUpdateAnimeRequestUpdateReturnsMySQLError()
-		//{
-		//	var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+		[Fact]
+		public void TestUpdateMangaRequest()
+		{
+			var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
 
-		//	var actualResponseString = sut.UpdateAnime(ID, _data);
+			var actualResponseString = sut.UpdateManga(ID, _data);
 
-		//	_output.WriteLine("Actual: {0}", actualResponseString);
-		//	//Assert.False(string.IsNullOrEmpty(actualResponseString));
-		//	Assert.Contains("There was a MySQL Error", actualResponseString);
-		//}
+			_output.WriteLine("Actual: {0}", actualResponseString);
+			//Assert.False(string.IsNullOrEmpty(actualResponseString));
+			Assert.Equal("Updated", actualResponseString);
+		}
 
 		//[Fact]
 		//public void TestDeleteAnimeRequest()
