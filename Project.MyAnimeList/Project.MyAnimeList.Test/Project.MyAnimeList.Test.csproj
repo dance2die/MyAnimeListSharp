@@ -74,6 +74,7 @@
     <Compile Include="CredentialCollectionTest.cs" />
     <Compile Include="CredentialContextCollection.cs" />
     <Compile Include="CredentialContextFixture.cs" />
+    <Compile Include="MangaListMethodsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SearchMethodsTest.cs" />
   </ItemGroup>
