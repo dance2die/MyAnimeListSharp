@@ -1,4 +1,4 @@
-﻿using Project.MyAnimeList.Facade;
+﻿using MyAnimeListSharp.Facade;
 using Xunit;
 
 namespace Project.MyAnimeList.Test

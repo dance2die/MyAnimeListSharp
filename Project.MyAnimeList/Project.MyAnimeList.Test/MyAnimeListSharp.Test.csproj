@@ -82,9 +82,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Project.MyAnimeList\Project.MyAnimeList.csproj">
+    <ProjectReference Include="..\Project.MyAnimeList\MyAnimeListSharp.csproj">
       <Project>{23c82595-8b22-4922-bc70-dec6f364689c}</Project>
-      <Name>Project.MyAnimeList</Name>
+      <Name>MyAnimeListSharp</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

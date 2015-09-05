@@ -1,6 +1,6 @@
 using System;
 
-namespace Project.MyAnimeList.Auth
+namespace MyAnimeListSharp.Auth
 {
 	public class CredentialContext : ICredentialContext
 	{

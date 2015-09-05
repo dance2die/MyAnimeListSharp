@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using Project.MyAnimeList.Facade;
-using Project.MyAnimeList.Util;
-using Project.MyAnimeList.Web;
+using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Util;
+using MyAnimeListSharp.Web;
 using Xunit;
 
 namespace Project.MyAnimeList.Test

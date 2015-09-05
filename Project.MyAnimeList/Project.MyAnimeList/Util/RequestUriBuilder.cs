@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using Project.MyAnimeList.Util;
+﻿using System.Collections.Generic;
+using MyAnimeListSharp.Web;
 
-namespace Project.MyAnimeList.Web
+namespace MyAnimeListSharp.Util
 {
 	public class RequestUriBuilder
 	{

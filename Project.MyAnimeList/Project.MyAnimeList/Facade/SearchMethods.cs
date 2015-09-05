@@ -1,7 +1,7 @@
-﻿using Project.MyAnimeList.Auth;
-using Project.MyAnimeList.Web;
+﻿using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Web;
 
-namespace Project.MyAnimeList.Facade
+namespace MyAnimeListSharp.Facade
 {
 	public class SearchMethods : MyAnimeListMethods
 	{

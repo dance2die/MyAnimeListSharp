@@ -1,4 +1,4 @@
-﻿using Project.MyAnimeList.Auth;
+﻿using MyAnimeListSharp.Auth;
 
 namespace Project.MyAnimeList.Test
 {

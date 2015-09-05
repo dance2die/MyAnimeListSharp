@@ -7,8 +7,8 @@
     <ProjectGuid>{23C82595-8B22-4922-BC70-DEC6F364689C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Project.MyAnimeList</RootNamespace>
-    <AssemblyName>Project.MyAnimeList</AssemblyName>
+    <RootNamespace>MyAnimeListSharp</RootNamespace>
+    <AssemblyName>MyAnimeListSharp</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

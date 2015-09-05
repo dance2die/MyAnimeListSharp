@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.MyAnimeList.Demo", "Project.MyAnimeList.Demo\Project.MyAnimeList.Demo.csproj", "{476B97F4-23ED-4509-B483-19B3692EDD9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnimeListSharp.Demo", "Project.MyAnimeList.Demo\MyAnimeListSharp.Demo.csproj", "{476B97F4-23ED-4509-B483-19B3692EDD9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.MyAnimeList.Test", "Project.MyAnimeList.Test\Project.MyAnimeList.Test.csproj", "{7CF5924A-D489-4FB3-A275-BC06E5F183A5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnimeListSharp.Test", "Project.MyAnimeList.Test\MyAnimeListSharp.Test.csproj", "{7CF5924A-D489-4FB3-A275-BC06E5F183A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Project.MyAnimeList", "Project.MyAnimeList\Project.MyAnimeList.csproj", "{23C82595-8B22-4922-BC70-DEC6F364689C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnimeListSharp", "Project.MyAnimeList\MyAnimeListSharp.csproj", "{23C82595-8B22-4922-BC70-DEC6F364689C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

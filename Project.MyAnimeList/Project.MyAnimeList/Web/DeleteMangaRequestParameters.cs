@@ -1,6 +1,6 @@
-using Project.MyAnimeList.Auth;
+using MyAnimeListSharp.Auth;
 
-namespace Project.MyAnimeList.Web
+namespace MyAnimeListSharp.Web
 {
 	public class DeleteMangaRequestParameters : CrudRequestParameters
 	{

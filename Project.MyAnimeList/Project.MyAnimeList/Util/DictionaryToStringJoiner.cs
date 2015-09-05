@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Project.MyAnimeList.Util
+namespace MyAnimeListSharp.Util
 {
 	public class DictionaryToStringJoiner
 	{

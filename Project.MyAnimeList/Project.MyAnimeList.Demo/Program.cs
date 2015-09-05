@@ -1,6 +1,6 @@
 ﻿using System;
-using Project.MyAnimeList.Auth;
-using Project.MyAnimeList.Facade;
+using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Facade;
 
 namespace Project.MyAnimeList.Demo
 {

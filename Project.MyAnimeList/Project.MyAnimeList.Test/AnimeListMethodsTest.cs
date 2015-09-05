@@ -1,6 +1,7 @@
 ﻿using System.Net;
-using Project.MyAnimeList.Facade;
-using Project.MyAnimeList.Web;
+using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Util;
+using MyAnimeListSharp.Web;
 using Xunit;
 using Xunit.Abstractions;
 
