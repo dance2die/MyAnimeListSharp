@@ -3,8 +3,40 @@
 * **What**: .NET library for accessing MyAnimeList.net Web API ([API Documentation](http://myanimelist.net/modules.php?go=api))
 * **Framework**: .NET 4.5.2
 
-## Examples
-1. ### Search Manga
 
-2. ### Search Anime
+
+## How to Install
+### Nuget
+[Install-Package MyAnimeListSharp](https://www.nuget.org/packages/MyAnimeListSharp/1.0.0)
+
+
+## Examples
+### Search Manga
+			// Step 1: Enter UserName and Password information
+			ICredentialContext credential = new CredentialContext
+			{
+				UserName = "<MyAnimeList.NET UserName>",
+				Password = "<MyAnimeList.NET Password>"
+			};
+
+			// Step 2: Create a method object
+			var searchMethods = new SearchMethods(credential);
+
+			// Step 3: Search using the search term ("Full Metal" in this case)
+			string response = searchMethods.SearchAnime("Full Metal");
+
+### Search Anime
+			// Step 1: Enter UserName and Password information
+			ICredentialContext credential = new CredentialContext
+			{
+				UserName = "<MyAnimeList.NET UserName>",
+				Password = "<MyAnimeList.NET Password>"
+			};
+
+			// Step 2: Create a method object
+			var searchMethods = new SearchMethods(credential);
+
+			// Step 3: Search using the search term ("Full Metal" in this case)
+			string mangaResponse = searchMethods.SearchManga("Code Geass");
+			Console.WriteLine(mangaResponse);
 
