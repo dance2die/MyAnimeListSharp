@@ -37,7 +37,7 @@
 			// Step 2: Create a method object
 			var searchMethods = new SearchMethods(credential);
 
-			// Step 3: Search using the search term ("Full Metal" in this case)
+			// Step 3: Search using the search term ("Code Geass" in this case)
 			string mangaResponse = searchMethods.SearchManga("Code Geass");
 			Console.WriteLine(mangaResponse);
 
