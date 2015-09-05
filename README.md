@@ -44,5 +44,5 @@
 
 
 ## Note
-For some reason, Add/Update Anime returns error from MyAnimeList.NET server.
-I created unit tests under assumption that they are not functional
+For some reason, Add/Update Anime methods return errors from MyAnimeList.net server.
+I created unit tests under an assumption that they are not functional
