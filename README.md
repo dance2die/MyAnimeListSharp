@@ -46,3 +46,13 @@
 ## Note
 For some reason, Add/Update Anime methods return errors from MyAnimeList.net server.
 I created unit tests under an assumption that they are not functional
+
+
+## Overview
+### Facade of MyAnimeList Web API
+There is a 1:1 matching between the Web API and the source code.
+Note that `MyAnimeListMethods` is a base class, which is not to be usually used by your code (unless you are implementing a factory class to return different type of *Methods object instance.)
+![Image of Facade](http://i.imgur.com/iMbqzEj.png)
+
+
+
