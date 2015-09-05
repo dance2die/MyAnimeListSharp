@@ -26,10 +26,6 @@
 			string response = searchMethods.SearchAnime("Full Metal");
 			
 
-## Note
-For some reason, Add/Update Anime returns error from MyAnimeList.NET server.
-I created unit tests under assumption that they are not functional
-
 ### Search Anime
 			// Step 1: Enter UserName and Password information
 			ICredentialContext credential = new CredentialContext
@@ -45,3 +41,8 @@ I created unit tests under assumption that they are not functional
 			string mangaResponse = searchMethods.SearchManga("Code Geass");
 			Console.WriteLine(mangaResponse);
 
+
+
+## Note
+For some reason, Add/Update Anime returns error from MyAnimeList.NET server.
+I created unit tests under assumption that they are not functional
