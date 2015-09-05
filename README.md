@@ -24,6 +24,11 @@
 
 			// Step 3: Search using the search term ("Full Metal" in this case)
 			string response = searchMethods.SearchAnime("Full Metal");
+			
+
+## Note
+For some reason, Add/Update Anime returns error from MyAnimeList.NET server.
+I created unit tests under assumption that they are not functional
 
 ### Search Anime
 			// Step 1: Enter UserName and Password information
