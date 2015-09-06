@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using MyAnimeListSharp.Web;
+using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Util
 {

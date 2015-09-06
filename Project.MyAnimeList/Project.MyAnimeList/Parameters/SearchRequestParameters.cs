@@ -1,6 +1,6 @@
 using MyAnimeListSharp.Auth;
 
-namespace MyAnimeListSharp.Web
+namespace MyAnimeListSharp.Parameters
 {
 	public abstract class SearchRequestParameters : RequestParameters
 	{

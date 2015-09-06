@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using MyAnimeListSharp.Auth;
 
-namespace MyAnimeListSharp.Web
+namespace MyAnimeListSharp.Parameters
 {
 	public abstract class RequestParameters
 	{

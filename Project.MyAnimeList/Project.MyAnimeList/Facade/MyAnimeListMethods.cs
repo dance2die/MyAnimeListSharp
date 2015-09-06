@@ -1,7 +1,8 @@
 using System.IO;
 using System.Net;
 using MyAnimeListSharp.Auth;
-using MyAnimeListSharp.Web;
+using MyAnimeListSharp.Parameters;
+using MyAnimeListSharp.Util;
 
 namespace MyAnimeListSharp.Facade
 {

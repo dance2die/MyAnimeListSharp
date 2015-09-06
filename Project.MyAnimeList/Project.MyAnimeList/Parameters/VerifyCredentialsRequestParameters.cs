@@ -1,6 +1,6 @@
 ﻿using MyAnimeListSharp.Auth;
 
-namespace MyAnimeListSharp.Web
+namespace MyAnimeListSharp.Parameters
 {
 	public class VerifyCredentialsRequestParameters : RequestParameters
 	{

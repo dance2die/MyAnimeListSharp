@@ -1,5 +1,5 @@
 using MyAnimeListSharp.Auth;
-using MyAnimeListSharp.Web;
+using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Facade
 {

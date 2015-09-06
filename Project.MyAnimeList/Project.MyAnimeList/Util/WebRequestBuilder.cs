@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
-using MyAnimeListSharp.Util;
+using MyAnimeListSharp.Parameters;
 
-namespace MyAnimeListSharp.Web
+namespace MyAnimeListSharp.Util
 {
 	internal class WebRequestBuilder
 	{
