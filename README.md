@@ -29,6 +29,7 @@
 ```
 
 ### Search Anime
+```c#
 			// Step 1: Enter UserName and Password information
 			ICredentialContext credential = new CredentialContext
 			{
@@ -42,7 +43,7 @@
 			// Step 3: Search using the search term ("Code Geass" in this case)
 			string mangaResponse = searchMethods.SearchManga("Code Geass");
 			Console.WriteLine(mangaResponse);
-
+```
 
 
 ## Note
