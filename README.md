@@ -13,6 +13,7 @@
 
 ## Examples
 ### Search Manga
+```c#
 			// Step 1: Enter UserName and Password information
 			ICredentialContext credential = new CredentialContext
 			{
@@ -25,7 +26,7 @@
 
 			// Step 3: Search using the search term ("Full Metal" in this case)
 			string response = searchMethods.SearchAnime("Full Metal");
-			
+```
 
 ### Search Anime
 			// Step 1: Enter UserName and Password information
