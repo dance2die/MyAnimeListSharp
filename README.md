@@ -14,35 +14,35 @@
 ## Examples
 ### Search Manga
 ```c#
-			// Step 1: Enter UserName and Password information
-			ICredentialContext credential = new CredentialContext
-			{
-				UserName = "<MyAnimeList.NET UserName>",
-				Password = "<MyAnimeList.NET Password>"
-			};
+	// Step 1: Enter UserName and Password information
+	ICredentialContext credential = new CredentialContext
+	{
+		UserName = "<MyAnimeList.NET UserName>",
+		Password = "<MyAnimeList.NET Password>"
+	};
 
-			// Step 2: Create a method object
-			var searchMethods = new SearchMethods(credential);
+	// Step 2: Create a method object
+	var searchMethods = new SearchMethods(credential);
 
-			// Step 3: Search using the search term ("Full Metal" in this case)
-			string response = searchMethods.SearchAnime("Full Metal");
+	// Step 3: Search using the search term ("Full Metal" in this case)
+	string response = searchMethods.SearchAnime("Full Metal");
 ```
 
 ### Search Anime
 ```c#
-			// Step 1: Enter UserName and Password information
-			ICredentialContext credential = new CredentialContext
-			{
-				UserName = "<MyAnimeList.NET UserName>",
-				Password = "<MyAnimeList.NET Password>"
-			};
+	// Step 1: Enter UserName and Password information
+	ICredentialContext credential = new CredentialContext
+	{
+		UserName = "<MyAnimeList.NET UserName>",
+		Password = "<MyAnimeList.NET Password>"
+	};
 
-			// Step 2: Create a method object
-			var searchMethods = new SearchMethods(credential);
+	// Step 2: Create a method object
+	var searchMethods = new SearchMethods(credential);
 
-			// Step 3: Search using the search term ("Code Geass" in this case)
-			string mangaResponse = searchMethods.SearchManga("Code Geass");
-			Console.WriteLine(mangaResponse);
+	// Step 3: Search using the search term ("Code Geass" in this case)
+	string mangaResponse = searchMethods.SearchManga("Code Geass");
+	Console.WriteLine(mangaResponse);
 ```
 
 
