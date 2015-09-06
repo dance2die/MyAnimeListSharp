@@ -69,14 +69,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AccountMethodsTest.cs" />
-    <Compile Include="AnimeListMethodsTest.cs" />
-    <Compile Include="CredentialCollectionTest.cs" />
-    <Compile Include="CredentialContextCollection.cs" />
-    <Compile Include="CredentialContextFixture.cs" />
-    <Compile Include="MangaListMethodsTest.cs" />
+    <Compile Include="Tests\AccountMethodsTest.cs" />
+    <Compile Include="Tests\AnimeListMethodsTest.cs" />
+    <Compile Include="Tests\CredentialCollectionTest.cs" />
+    <Compile Include="Fixture\CredentialContextCollection.cs" />
+    <Compile Include="Fixture\CredentialContextFixture.cs" />
+    <Compile Include="Tests\MangaListMethodsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SearchMethodsTest.cs" />
+    <Compile Include="Tests\SearchMethodsTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

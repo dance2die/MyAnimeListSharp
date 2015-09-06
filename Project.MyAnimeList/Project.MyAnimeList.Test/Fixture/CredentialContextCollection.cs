@@ -1,6 +1,6 @@
 using Xunit;
 
-namespace Project.MyAnimeList.Test
+namespace Project.MyAnimeList.Test.Fixture
 {
 	/// <remarks>
 	/// http://xunit.github.io/docs/shared-context.html

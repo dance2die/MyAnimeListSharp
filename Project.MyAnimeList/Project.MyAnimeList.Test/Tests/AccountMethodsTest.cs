@@ -1,7 +1,8 @@
 ﻿using MyAnimeListSharp.Facade;
+using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 
-namespace Project.MyAnimeList.Test
+namespace Project.MyAnimeList.Test.Tests
 {
 	public class AccountMethodsTest : CredentialCollectionTest
 	{

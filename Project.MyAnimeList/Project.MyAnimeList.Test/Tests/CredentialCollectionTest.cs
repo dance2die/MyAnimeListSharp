@@ -1,6 +1,7 @@
-﻿using Xunit;
+﻿using Project.MyAnimeList.Test.Fixture;
+using Xunit;
 
-namespace Project.MyAnimeList.Test
+namespace Project.MyAnimeList.Test.Tests
 {
 	[Collection("Credential collection")]
 	public abstract class CredentialCollectionTest

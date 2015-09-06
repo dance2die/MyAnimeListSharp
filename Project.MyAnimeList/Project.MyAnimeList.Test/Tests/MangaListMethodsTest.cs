@@ -1,10 +1,11 @@
 ﻿using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
-using MyAnimeListSharp.Web;
+using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
 
-namespace Project.MyAnimeList.Test
+namespace Project.MyAnimeList.Test.Tests
 {
 	public class MangaListMethodsTest : CredentialCollectionTest
 	{
