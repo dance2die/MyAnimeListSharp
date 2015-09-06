@@ -64,3 +64,8 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 * [SearchMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/SearchMethods.cs)
 
 
+## Plan for the Next Release
+Another collection of facade classes to generate XML values for
+* [Anime Values](http://myanimelist.net/modules.php?go=api#animevalues)
+* [Manga Values](http://myanimelist.net/modules.php?go=api#mangavalues)
+ 
