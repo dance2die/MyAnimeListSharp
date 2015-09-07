@@ -71,6 +71,7 @@
   <ItemGroup>
     <Compile Include="Tests\AccountMethodsTest.cs" />
     <Compile Include="Tests\AnimeListMethodsTest.cs" />
+    <Compile Include="Tests\AnimeValuesTest.cs" />
     <Compile Include="Tests\CredentialCollectionTest.cs" />
     <Compile Include="Fixture\CredentialContextCollection.cs" />
     <Compile Include="Fixture\CredentialContextFixture.cs" />
