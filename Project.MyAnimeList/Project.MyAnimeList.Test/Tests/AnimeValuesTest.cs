@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Linq;
+using MyAnimeListSharp.Facade;
 using Xunit;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit.Abstractions;
@@ -49,6 +50,17 @@ namespace Project.MyAnimeList.Test.Tests
 			_output.WriteLine(XML_DECLARATION);
 			_output.WriteLine(declaration);
 			Assert.True(string.Compare(XML_DECLARATION, declaration, StringComparison.InvariantCultureIgnoreCase) == 0);
+		}
+
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		[InlineData(-100)]
+		public void TestEpisodeValueIsNotNegative(short episode)
+		{
+			var sut = new AnimeValues();
+
+			Assert.Throws<ArgumentOutOfRangeException>(() => sut.Episode = -1);
 		}
 	}
 }
