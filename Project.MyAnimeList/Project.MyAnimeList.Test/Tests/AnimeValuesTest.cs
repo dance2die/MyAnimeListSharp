@@ -163,5 +163,23 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.RewatchValue = value);
 		}
+
+		[Fact]
+		public void TestDateStart()
+		{
+			DateTime dateStart = DateTime.Now;
+			_sut.DateStart = dateStart;
+
+			Assert.Equal(dateStart, _sut.DateStart);
+		}
+
+		[Fact]
+		public void TestDateFinish()
+		{
+			DateTime dateFinish = DateTime.Now;
+			_sut.DateFinish = dateFinish;
+
+			Assert.Equal(dateFinish, _sut.DateFinish);
+		}
 	}
 }
