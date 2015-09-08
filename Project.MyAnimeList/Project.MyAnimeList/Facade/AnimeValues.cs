@@ -6,6 +6,7 @@ namespace MyAnimeListSharp.Facade
 	{
 		private short _episode;
 		private int _downloadedEpisodes;
+		private float _storageValue;
 
 		public short Episode
 		{
@@ -33,5 +34,16 @@ namespace MyAnimeListSharp.Facade
 		}
 
 		public int StorageType { get; set; }
+
+		public float StorageValue
+		{
+			get { return _storageValue; }
+			set
+			{
+				if (value < 0)
+					throw new ArgumentOutOfRangeException("StorageValue", "Storage value cannot be negative");
+				_storageValue = value;
+			}
+		}
 	}
 }

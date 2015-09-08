@@ -132,5 +132,25 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(1, sut.StorageType);
 		}
+
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		public void TestNegativeStorageValueThrowsArgumentOutOfRangeException(float value)
+		{
+			var sut = new AnimeValues();
+
+			Assert.Throws<ArgumentOutOfRangeException>(() => sut.StorageValue = value);
+		}
+
+		[Fact]
+		public void TestStorageValue()
+		{
+			var sut = new AnimeValues();
+			const float storageValue = 0.01F;
+			sut.StorageValue = storageValue;
+
+			Assert.Equal(storageValue, sut.StorageValue);
+		}
 	}
 }
