@@ -31,5 +31,7 @@ namespace MyAnimeListSharp.Facade
 				_downloadedEpisodes = value;
 			}
 		}
+
+		public int StorageType { get; set; }
 	}
 }

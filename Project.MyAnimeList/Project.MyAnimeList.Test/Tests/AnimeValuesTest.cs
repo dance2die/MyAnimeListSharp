@@ -119,5 +119,18 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(value, sut.DownloadedEpisodes);
 		}
+
+		/// <remarks>
+		/// There isn't enough documentation for this.
+		/// And also since AddAnime functionality is not implemented on the server, 
+		/// I can't even figure ou what the range of allowed values are.
+		/// </remarks>
+		[Fact]
+		public void TestStorageType()
+		{
+			var sut = new AnimeValues {StorageType = 1};
+
+			Assert.Equal(1, sut.StorageType);
+		}
 	}
 }
