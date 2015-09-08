@@ -155,5 +155,13 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.TimesRewatched = value);
 		}
+
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		public void TestNegativeRewatchValueThrowsArgumentOutOfRangeExceptoin(int value)
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.RewatchValue = value);
+		}
 	}
 }
