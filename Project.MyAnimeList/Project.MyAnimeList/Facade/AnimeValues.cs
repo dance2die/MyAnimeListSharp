@@ -1,5 +1,4 @@
 using System;
-using Project.MyAnimeList.Test.Tests;
 
 namespace MyAnimeListSharp.Facade
 {
@@ -19,5 +18,6 @@ namespace MyAnimeListSharp.Facade
 		}
 
 		public StatusEnum Status { get; set; }
+		public ScoreEnum Score { get; set; }
 	}
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Xml.Linq;
+using MyAnimeListSharp;
 using MyAnimeListSharp.Facade;
 using Xunit;
 using Project.MyAnimeList.Test.Fixture;
@@ -74,6 +75,24 @@ namespace Project.MyAnimeList.Test.Tests
 			var sut = new AnimeValues {Status = value};
 
 			Assert.Equal(value, sut.Status);
+		}
+
+		[Theory]
+		[InlineData(ScoreEnum.Appalling)]
+		[InlineData(ScoreEnum.Horrible)]
+		[InlineData(ScoreEnum.VeryBad)]
+		[InlineData(ScoreEnum.Bad)]
+		[InlineData(ScoreEnum.Average)]
+		[InlineData(ScoreEnum.Fine)]
+		[InlineData(ScoreEnum.Good)]
+		[InlineData(ScoreEnum.VeryBad)]
+		[InlineData(ScoreEnum.Great)]
+		[InlineData(ScoreEnum.MasterPiece)]
+		public void TestScore(ScoreEnum value)
+		{
+			var sut = new AnimeValues {Score = value};
+
+			Assert.Equal(value, sut.Score);
 		}
 	}
 }

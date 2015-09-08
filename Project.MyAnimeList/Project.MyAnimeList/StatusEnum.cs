@@ -1,4 +1,4 @@
-namespace Project.MyAnimeList.Test.Tests
+namespace MyAnimeListSharp
 {
 	public enum StatusEnum : short
 	{
