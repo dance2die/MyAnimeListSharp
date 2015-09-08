@@ -94,5 +94,30 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(value, sut.Score);
 		}
+
+		/// <remarks>
+		/// On MyAnimeList.net, adding a negative value for Downloaded Episodes sets the value back to 0
+		/// </remarks>
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		[InlineData(-100)]
+		public void TestIfDownloadedEpisodesIsNegativeArgumentOutOfRangeExceptionIsThrown(int downloadedEpisodes)
+		{
+			var sut = new AnimeValues();
+
+			Assert.Throws<ArgumentOutOfRangeException>(() => sut.DownloadedEpisodes = downloadedEpisodes);
+		}
+
+		[Theory]
+		[InlineData(0)]
+		[InlineData(1)]
+		[InlineData(655)]
+		public void TestDownloadedEpisodesValueAssignment(int value)
+		{
+			var sut = new AnimeValues {DownloadedEpisodes = value};
+
+			Assert.Equal(value, sut.DownloadedEpisodes);
+		}
 	}
 }

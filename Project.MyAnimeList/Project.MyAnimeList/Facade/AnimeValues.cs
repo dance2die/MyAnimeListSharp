@@ -5,6 +5,7 @@ namespace MyAnimeListSharp.Facade
 	public class AnimeValues
 	{
 		private short _episode;
+		private int _downloadedEpisodes;
 
 		public short Episode
 		{
@@ -19,5 +20,16 @@ namespace MyAnimeListSharp.Facade
 
 		public StatusEnum Status { get; set; }
 		public ScoreEnum Score { get; set; }
+
+		public int DownloadedEpisodes
+		{
+			get { return _downloadedEpisodes; }
+			set
+			{
+				if (value < 0)
+					throw new ArgumentOutOfRangeException("DownloadedEpisodes", "Downloaded Episodes value cannot be negative");
+				_downloadedEpisodes = value;
+			}
+		}
 	}
 }
