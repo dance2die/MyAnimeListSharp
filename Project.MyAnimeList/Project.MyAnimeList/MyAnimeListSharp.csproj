@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\CredentialContext.cs" />
+    <Compile Include="EnableDiscussionEnum.cs" />
     <Compile Include="Facade\AnimeListMethods.cs" />
     <Compile Include="Facade\AccountMethods.cs" />
     <Compile Include="Facade\AnimeValues.cs" />

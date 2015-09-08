@@ -190,5 +190,15 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(expected, _sut.Priority);
 		}
+
+		[Theory]
+		[InlineData(EnableDiscussionEnum.Disable)]
+		[InlineData(EnableDiscussionEnum.Enable)]
+		public void TestEnableDiscussion(EnableDiscussionEnum value)
+		{
+			_sut.EnableDiscussion = value;
+
+			Assert.Equal(value, _sut.EnableDiscussion);
+		}
 	}
 }
