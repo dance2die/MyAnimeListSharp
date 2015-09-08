@@ -231,5 +231,15 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(value, _sut.FansubGroup);
 		}
+
+		[Theory]
+		[InlineData("tag1, tag2")]
+		[InlineData("Adapted to Anime, Adapted to Movie")]
+		public void TestTags(string value)
+		{
+			_sut.Tags = value;
+
+			Assert.Equal(value, _sut.Tags);
+		}
 	}
 }
