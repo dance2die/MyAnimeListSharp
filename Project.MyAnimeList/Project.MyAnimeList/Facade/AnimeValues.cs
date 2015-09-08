@@ -1,4 +1,5 @@
 using System;
+using Project.MyAnimeList.Test.Tests;
 
 namespace MyAnimeListSharp.Facade
 {
@@ -16,5 +17,7 @@ namespace MyAnimeListSharp.Facade
 				_episode = value;
 			}
 		}
+
+		public StatusEnum Status { get; set; }
 	}
 }

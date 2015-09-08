@@ -62,5 +62,18 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Throws<ArgumentOutOfRangeException>(() => sut.Episode = -1);
 		}
+
+		[Theory]
+		[InlineData(StatusEnum.Watching)]
+		[InlineData(StatusEnum.Completed)]
+		[InlineData(StatusEnum.OnHold)]
+		[InlineData(StatusEnum.Dropped)]
+		[InlineData(StatusEnum.PlanToWatch)]
+		public void TestStatus(StatusEnum value)
+		{
+			var sut = new AnimeValues {Status = value};
+
+			Assert.Equal(value, sut.Status);
+		}
 	}
 }

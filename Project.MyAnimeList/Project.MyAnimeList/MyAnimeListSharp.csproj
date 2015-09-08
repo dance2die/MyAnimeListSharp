@@ -58,6 +58,7 @@
     <Compile Include="Parameters\SearchRequestParameters.cs" />
     <Compile Include="Facade\SearchMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StatusEnum.cs" />
     <Compile Include="Util\DictionaryToStringJoiner.cs" />
     <Compile Include="Parameters\RequestParameters.cs" />
     <Compile Include="Util\RequestUriBuilder.cs" />
