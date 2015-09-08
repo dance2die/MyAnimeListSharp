@@ -148,10 +148,12 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.Equal(storageValue, _sut.StorageValue);
 		}
 
-		[Fact]
-		public void TestTimesRewatched()
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		public void TestNegativeTimesRewatchedThrowsArgumentOutOfRangeException(int value)
 		{
-			var sut = new AnimeValues();
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.TimesRewatched = value);
 		}
 	}
 }

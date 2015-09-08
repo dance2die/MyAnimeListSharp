@@ -7,6 +7,7 @@ namespace MyAnimeListSharp.Facade
 		private short _episode;
 		private int _downloadedEpisodes;
 		private float _storageValue;
+		private int _timesRewatched;
 
 		public short Episode
 		{
@@ -43,6 +44,17 @@ namespace MyAnimeListSharp.Facade
 				if (value < 0)
 					throw new ArgumentOutOfRangeException("StorageValue", "Storage value cannot be negative");
 				_storageValue = value;
+			}
+		}
+
+		public int TimesRewatched
+		{
+			get { return _timesRewatched; }
+			set
+			{
+				if (value < 0)
+					throw new ArgumentOutOfRangeException("TimesRewatched", "TimesRewatched value cannot be negative");
+				_timesRewatched = value;
 			}
 		}
 	}
