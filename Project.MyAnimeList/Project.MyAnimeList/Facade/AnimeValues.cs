@@ -74,5 +74,6 @@ namespace MyAnimeListSharp.Facade
 		public DateTime DateFinish { get; set; }
 		public int Priority { get; set; }
 		public EnableDiscussionEnum EnableDiscussion { get; set; }
+		public EnableRewatchingEnum EnableRewatching { get; set; }
 	}
 }

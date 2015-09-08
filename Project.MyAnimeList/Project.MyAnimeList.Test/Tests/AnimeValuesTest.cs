@@ -200,5 +200,15 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(value, _sut.EnableDiscussion);
 		}
+
+		[Theory]
+		[InlineData(EnableRewatchingEnum.Disable)]
+		[InlineData(EnableRewatchingEnum.Enable)]
+		public void TestEnableRewatching(EnableRewatchingEnum value)
+		{
+			_sut.EnableRewatching = value;
+
+			Assert.Equal(value, _sut.EnableRewatching);
+		}
 	}
 }
