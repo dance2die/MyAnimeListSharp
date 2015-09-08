@@ -13,6 +13,7 @@ namespace Project.MyAnimeList.Test.Tests
 		private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""UTF-8""?>";
 
 		private readonly ITestOutputHelper _output;
+		private readonly AnimeValues _sut;
 
 		private readonly string _data =
 				XML_DECLARATION +
@@ -39,6 +40,7 @@ namespace Project.MyAnimeList.Test.Tests
 			: base(credentialContextFixture)
 		{
 			_output = output;
+			_sut = new AnimeValues();
 		}
 
 		[Fact]
@@ -59,9 +61,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[InlineData(-100)]
 		public void TestEpisodeValueIsNotNegative(short episode)
 		{
-			var sut = new AnimeValues();
-
-			Assert.Throws<ArgumentOutOfRangeException>(() => sut.Episode = -1);
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Episode = -1);
 		}
 
 		[Theory]
@@ -72,9 +72,9 @@ namespace Project.MyAnimeList.Test.Tests
 		[InlineData(StatusEnum.PlanToWatch)]
 		public void TestStatus(StatusEnum value)
 		{
-			var sut = new AnimeValues {Status = value};
+			_sut.Status = value;
 
-			Assert.Equal(value, sut.Status);
+			Assert.Equal(value, _sut.Status);
 		}
 
 		[Theory]
@@ -90,9 +90,9 @@ namespace Project.MyAnimeList.Test.Tests
 		[InlineData(ScoreEnum.MasterPiece)]
 		public void TestScore(ScoreEnum value)
 		{
-			var sut = new AnimeValues {Score = value};
+			_sut.Score = value;
 
-			Assert.Equal(value, sut.Score);
+			Assert.Equal(value, _sut.Score);
 		}
 
 		/// <remarks>
@@ -104,9 +104,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[InlineData(-100)]
 		public void TestIfDownloadedEpisodesIsNegativeArgumentOutOfRangeExceptionIsThrown(int downloadedEpisodes)
 		{
-			var sut = new AnimeValues();
-
-			Assert.Throws<ArgumentOutOfRangeException>(() => sut.DownloadedEpisodes = downloadedEpisodes);
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.DownloadedEpisodes = downloadedEpisodes);
 		}
 
 		[Theory]
@@ -115,9 +113,9 @@ namespace Project.MyAnimeList.Test.Tests
 		[InlineData(655)]
 		public void TestDownloadedEpisodesValueAssignment(int value)
 		{
-			var sut = new AnimeValues {DownloadedEpisodes = value};
+			_sut.DownloadedEpisodes = value;
 
-			Assert.Equal(value, sut.DownloadedEpisodes);
+			Assert.Equal(value, _sut.DownloadedEpisodes);
 		}
 
 		/// <remarks>
@@ -128,9 +126,9 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void TestStorageType()
 		{
-			var sut = new AnimeValues {StorageType = 1};
+			_sut.StorageType = 1;
 
-			Assert.Equal(1, sut.StorageType);
+			Assert.Equal(1, _sut.StorageType);
 		}
 
 		[Theory]
@@ -138,19 +136,22 @@ namespace Project.MyAnimeList.Test.Tests
 		[InlineData(-10)]
 		public void TestNegativeStorageValueThrowsArgumentOutOfRangeException(float value)
 		{
-			var sut = new AnimeValues();
-
-			Assert.Throws<ArgumentOutOfRangeException>(() => sut.StorageValue = value);
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.StorageValue = value);
 		}
 
 		[Fact]
 		public void TestStorageValue()
 		{
-			var sut = new AnimeValues();
 			const float storageValue = 0.01F;
-			sut.StorageValue = storageValue;
+			_sut.StorageValue = storageValue;
 
-			Assert.Equal(storageValue, sut.StorageValue);
+			Assert.Equal(storageValue, _sut.StorageValue);
+		}
+
+		[Fact]
+		public void TestTimesRewatched()
+		{
+			var sut = new AnimeValues();
 		}
 	}
 }
