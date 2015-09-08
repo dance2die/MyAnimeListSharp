@@ -181,5 +181,14 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(dateFinish, _sut.DateFinish);
 		}
+
+		[Fact]
+		public void TestPriority()
+		{
+			int expected = 1;
+			_sut.Priority = expected;
+
+			Assert.Equal(expected, _sut.Priority);
+		}
 	}
 }

@@ -72,5 +72,6 @@ namespace MyAnimeListSharp.Facade
 
 		public DateTime DateStart { get; set; }
 		public DateTime DateFinish { get; set; }
+		public int Priority { get; set; }
 	}
 }
