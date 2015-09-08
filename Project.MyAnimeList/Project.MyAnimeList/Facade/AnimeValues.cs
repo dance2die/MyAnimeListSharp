@@ -76,5 +76,6 @@ namespace MyAnimeListSharp.Facade
 		public EnableDiscussionEnum EnableDiscussion { get; set; }
 		public EnableRewatchingEnum EnableRewatching { get; set; }
 		public string Comments { get; set; }
+		public string FansubGroup { get; set; }
 	}
 }

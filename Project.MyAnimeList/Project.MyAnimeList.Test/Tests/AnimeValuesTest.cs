@@ -220,5 +220,16 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(value, _sut.Comments);
 		}
+
+		[Theory]
+		[InlineData("HorribleSubs")]
+		[InlineData("GG Fansubs")]
+		[InlineData("UTW Fansubs")]
+		public void TestFansubGroup(string value)
+		{
+			_sut.FansubGroup = value;
+
+			Assert.Equal(value, _sut.FansubGroup);
+		}
 	}
 }
