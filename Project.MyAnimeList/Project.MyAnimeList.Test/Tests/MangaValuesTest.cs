@@ -101,5 +101,20 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.DownloadedChapters = downloadedChapters);
 		}
 
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		public void TestIfRereadCountIsNegativeArgumentOutOfRangeExceptionIsThrown(int rereadCount)
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.RereadCount = rereadCount);
+		}
+
+		[Theory]
+		[InlineData(256)]
+		[InlineData(9999)]
+		public void TestIfRereadCountIsOver255ArgumentOutOfRangeExceptionIsThrown(int rereadCount)
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.RereadCount = rereadCount);
+		}
 	}
 }
