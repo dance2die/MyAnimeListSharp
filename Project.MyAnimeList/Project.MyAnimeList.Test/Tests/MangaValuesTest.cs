@@ -104,17 +104,17 @@ namespace Project.MyAnimeList.Test.Tests
 		[Theory]
 		[InlineData(-1)]
 		[InlineData(-10)]
-		public void TestIfRereadCountIsNegativeArgumentOutOfRangeExceptionIsThrown(int rereadCount)
+		public void TestIfRereadCountIsNegativeArgumentOutOfRangeExceptionIsThrown(int timesReread)
 		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.RereadCount = rereadCount);
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.TimesReread = timesReread);
 		}
 
 		[Theory]
 		[InlineData(256)]
 		[InlineData(9999)]
-		public void TestIfRereadCountIsOver255ArgumentOutOfRangeExceptionIsThrown(int rereadCount)
+		public void TestIfRereadCountIsOver255ArgumentOutOfRangeExceptionIsThrown(int timesReread)
 		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.RereadCount = rereadCount);
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.TimesReread = timesReread);
 		}
 	}
 }

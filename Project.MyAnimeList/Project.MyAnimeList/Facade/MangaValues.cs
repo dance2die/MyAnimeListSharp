@@ -8,7 +8,7 @@ namespace MyAnimeListSharp.Facade
 		private int _chapter;
 		private int _volume;
 		private int _downloadedChapters;
-		private int _rereadCount;
+		private int _timesReread;
 
 		public int Chapter
 		{
@@ -46,18 +46,18 @@ namespace MyAnimeListSharp.Facade
 			}
 		}
 
-		public int RereadCount
+		public int TimesReread
 		{
-			get { return _rereadCount; }
+			get { return _timesReread; }
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException("RereadCount", "RereadCount value cannot be negative");
+					throw new ArgumentOutOfRangeException("RereadCount", "TimesReread value cannot be negative");
 
 				// 255 is the value that is set when the value is set to above 255 on MyAnimeList.net
 				if (value > 255)
-					throw new ArgumentOutOfRangeException("RereadCount", "RereadCount value should be less than or equal to 255");
-				_rereadCount = value;
+					throw new ArgumentOutOfRangeException("RereadCount", "TimesReread value should be less than or equal to 255");
+				_timesReread = value;
 			}
 		}
 	}
