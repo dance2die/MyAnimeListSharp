@@ -61,7 +61,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[InlineData(-100)]
 		public void TestEpisodeValueIsNotNegative(short episode)
 		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Episode = -1);
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Episode = episode);
 		}
 
 		[Theory]
