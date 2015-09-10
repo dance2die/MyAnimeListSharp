@@ -31,5 +31,6 @@ namespace MyAnimeListSharp.Facade
 		}
 
 		public MangaStatus MangaStatus { get; set; }
+		public Score Score { get; set; }
 	}
 }

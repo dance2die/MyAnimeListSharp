@@ -72,5 +72,23 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.Equal(mangaStatus, _sut.MangaStatus);
 		}
 
+		[Theory]
+		[InlineData(Score.Appalling)]
+		[InlineData(Score.Horrible)]
+		[InlineData(Score.VeryBad)]
+		[InlineData(Score.Bad)]
+		[InlineData(Score.Average)]
+		[InlineData(Score.Fine)]
+		[InlineData(Score.Good)]
+		[InlineData(Score.VeryBad)]
+		[InlineData(Score.Great)]
+		[InlineData(Score.MasterPiece)]
+		public void TestScore(Score value)
+		{
+			_sut.Score = value;
+
+			Assert.Equal(value, _sut.Score);
+		}
+
 	}
 }
