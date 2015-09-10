@@ -65,30 +65,30 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Theory]
-		[InlineData(StatusEnum.Watching)]
-		[InlineData(StatusEnum.Completed)]
-		[InlineData(StatusEnum.OnHold)]
-		[InlineData(StatusEnum.Dropped)]
-		[InlineData(StatusEnum.PlanToWatch)]
-		public void TestStatus(StatusEnum value)
+		[InlineData(AnimeStatus.Watching)]
+		[InlineData(AnimeStatus.Completed)]
+		[InlineData(AnimeStatus.OnHold)]
+		[InlineData(AnimeStatus.Dropped)]
+		[InlineData(AnimeStatus.PlanToWatch)]
+		public void TestStatus(AnimeStatus value)
 		{
-			_sut.Status = value;
+			_sut.AnimeStatus = value;
 
-			Assert.Equal(value, _sut.Status);
+			Assert.Equal(value, _sut.AnimeStatus);
 		}
 
 		[Theory]
-		[InlineData(ScoreEnum.Appalling)]
-		[InlineData(ScoreEnum.Horrible)]
-		[InlineData(ScoreEnum.VeryBad)]
-		[InlineData(ScoreEnum.Bad)]
-		[InlineData(ScoreEnum.Average)]
-		[InlineData(ScoreEnum.Fine)]
-		[InlineData(ScoreEnum.Good)]
-		[InlineData(ScoreEnum.VeryBad)]
-		[InlineData(ScoreEnum.Great)]
-		[InlineData(ScoreEnum.MasterPiece)]
-		public void TestScore(ScoreEnum value)
+		[InlineData(Score.Appalling)]
+		[InlineData(Score.Horrible)]
+		[InlineData(Score.VeryBad)]
+		[InlineData(Score.Bad)]
+		[InlineData(Score.Average)]
+		[InlineData(Score.Fine)]
+		[InlineData(Score.Good)]
+		[InlineData(Score.VeryBad)]
+		[InlineData(Score.Great)]
+		[InlineData(Score.MasterPiece)]
+		public void TestScore(Score value)
 		{
 			_sut.Score = value;
 

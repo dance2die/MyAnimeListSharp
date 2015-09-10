@@ -21,8 +21,8 @@ namespace MyAnimeListSharp.Facade
 			}
 		}
 
-		public StatusEnum Status { get; set; }
-		public ScoreEnum Score { get; set; }
+		public AnimeStatus AnimeStatus { get; set; }
+		public Score Score { get; set; }
 
 		public int DownloadedEpisodes
 		{

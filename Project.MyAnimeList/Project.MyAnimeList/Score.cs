@@ -1,6 +1,6 @@
 ﻿namespace MyAnimeListSharp
 {
-	public enum ScoreEnum : short
+	public enum Score : short
 	{
 		Appalling,
 		Horrible,
