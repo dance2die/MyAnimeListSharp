@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 using MyAnimeListSharp;
+using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
 using Xunit;
 using Project.MyAnimeList.Test.Fixture;
@@ -192,9 +193,9 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Theory]
-		[InlineData(EnableDiscussionEnum.Disable)]
-		[InlineData(EnableDiscussionEnum.Enable)]
-		public void TestEnableDiscussion(EnableDiscussionEnum value)
+		[InlineData(EnableDiscussion.Disable)]
+		[InlineData(EnableDiscussion.Enable)]
+		public void TestEnableDiscussion(EnableDiscussion value)
 		{
 			_sut.EnableDiscussion = value;
 
@@ -202,9 +203,9 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Theory]
-		[InlineData(EnableRewatchingEnum.Disable)]
-		[InlineData(EnableRewatchingEnum.Enable)]
-		public void TestEnableRewatching(EnableRewatchingEnum value)
+		[InlineData(EnableRewatching.Disable)]
+		[InlineData(EnableRewatching.Enable)]
+		public void TestEnableRewatching(EnableRewatching value)
 		{
 			_sut.EnableRewatching = value;
 

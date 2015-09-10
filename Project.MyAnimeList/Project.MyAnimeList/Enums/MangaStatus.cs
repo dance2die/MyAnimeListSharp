@@ -1,4 +1,4 @@
-namespace MyAnimeListSharp
+namespace MyAnimeListSharp.Enums
 {
 	public enum MangaStatus : short
 	{

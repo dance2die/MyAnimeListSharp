@@ -1,4 +1,5 @@
 using System;
+using MyAnimeListSharp.Enums;
 
 namespace MyAnimeListSharp.Facade
 {
@@ -73,8 +74,8 @@ namespace MyAnimeListSharp.Facade
 		public DateTime DateStart { get; set; }
 		public DateTime DateFinish { get; set; }
 		public int Priority { get; set; }
-		public EnableDiscussionEnum EnableDiscussion { get; set; }
-		public EnableRewatchingEnum EnableRewatching { get; set; }
+		public EnableDiscussion EnableDiscussion { get; set; }
+		public EnableRewatching EnableRewatching { get; set; }
 		public string Comments { get; set; }
 		public string FansubGroup { get; set; }
 		public string Tags { get; set; }

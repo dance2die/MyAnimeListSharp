@@ -40,13 +40,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Auth\CredentialContext.cs" />
-    <Compile Include="EnableDiscussionEnum.cs" />
-    <Compile Include="EnableRewatchingEnum.cs" />
+    <Compile Include="Enums\EnableDiscussion.cs" />
+    <Compile Include="Enums\EnableRewatching.cs" />
     <Compile Include="Facade\AnimeListMethods.cs" />
     <Compile Include="Facade\AccountMethods.cs" />
     <Compile Include="Facade\AnimeValues.cs" />
     <Compile Include="Facade\MangaValues.cs" />
-    <Compile Include="MangaStatus.cs" />
+    <Compile Include="Enums\MangaStatus.cs" />
     <Compile Include="Parameters\DeleteMangaRequestParameters.cs" />
     <Compile Include="Facade\MangaListMethods.cs" />
     <Compile Include="Parameters\UpdateMangaRequestParameters.cs" />
@@ -62,8 +62,8 @@
     <Compile Include="Parameters\SearchRequestParameters.cs" />
     <Compile Include="Facade\SearchMethods.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Score.cs" />
-    <Compile Include="AnimeStatus.cs" />
+    <Compile Include="Enums\Score.cs" />
+    <Compile Include="Enums\AnimeStatus.cs" />
     <Compile Include="Util\DictionaryToStringJoiner.cs" />
     <Compile Include="Parameters\RequestParameters.cs" />
     <Compile Include="Util\RequestUriBuilder.cs" />
