@@ -1,4 +1,5 @@
-﻿using Project.MyAnimeList.Test.Fixture;
+﻿using MyAnimeListSharp.Facade;
+using Project.MyAnimeList.Test.Fixture;
 using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
@@ -8,7 +9,7 @@ namespace Project.MyAnimeList.Test.Tests
 		private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""UTF-8""?>";
 
 		private readonly ITestOutputHelper _output;
-		//private readonly MangaValues _sut;
+		private readonly MangaValues _sut;
 
 		private readonly string _data =
 				XML_DECLARATION +
@@ -36,6 +37,9 @@ namespace Project.MyAnimeList.Test.Tests
 			: base(credentialContextFixture)
 		{
 			_output = output;
+			_sut = new MangaValues();
 		}
+
+
 	}
 }
