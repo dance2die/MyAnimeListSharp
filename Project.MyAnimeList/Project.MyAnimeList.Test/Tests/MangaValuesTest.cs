@@ -1,8 +1,6 @@
-﻿using Xunit;
-using Project.MyAnimeList.Test.Fixture;
-using Project.MyAnimeList.Test.Tests;
+﻿using Project.MyAnimeList.Test.Fixture;
 
-namespace Project.MyAnimeList.Test
+namespace Project.MyAnimeList.Test.Tests
 {
 	public class MangaValuesTest : CredentialCollectionTest
 	{

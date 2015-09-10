@@ -71,7 +71,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="MangaValuesTest.cs" />
+    <Compile Include="Tests\MangaValuesTest.cs" />
     <Compile Include="Tests\AccountMethodsTest.cs" />
     <Compile Include="Tests\AnimeListMethodsTest.cs" />
     <Compile Include="Tests\AnimeValuesTest.cs" />
