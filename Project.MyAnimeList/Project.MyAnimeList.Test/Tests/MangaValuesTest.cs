@@ -1,5 +1,7 @@
-﻿using MyAnimeListSharp.Facade;
+﻿using System;
+using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
@@ -40,6 +42,14 @@ namespace Project.MyAnimeList.Test.Tests
 			_sut = new MangaValues();
 		}
 
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		[InlineData(-100)]
+		public void TestChapterValueIsNotNegative(int chapter)
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Chapter = chapter);
+		}
 
 	}
 }
