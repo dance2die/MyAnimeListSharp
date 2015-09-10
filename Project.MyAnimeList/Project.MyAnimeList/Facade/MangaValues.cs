@@ -1,4 +1,5 @@
 using System;
+using MyAnimeListSharp.Enums;
 
 namespace MyAnimeListSharp.Facade
 {
@@ -28,5 +29,7 @@ namespace MyAnimeListSharp.Facade
 				_volume = value;
 			}
 		}
+
+		public MangaStatus MangaStatus { get; set; }
 	}
 }

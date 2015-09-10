@@ -1,4 +1,5 @@
 ﻿using System;
+using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
@@ -56,6 +57,19 @@ namespace Project.MyAnimeList.Test.Tests
 		public void TestVolumeValueIsNotNegative(int volume)
 		{
 			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Volume = volume);
+		}
+
+		[Theory]
+		[InlineData(MangaStatus.Reading)]
+		[InlineData(MangaStatus.Completed)]
+		[InlineData(MangaStatus.OnHold)]
+		[InlineData(MangaStatus.Dropped)]
+		[InlineData(MangaStatus.PlanToRead)]
+		public void TestMangaStatus(MangaStatus mangaStatus)
+		{
+			_sut.MangaStatus = mangaStatus;
+
+			Assert.Equal(mangaStatus, _sut.MangaStatus);
 		}
 
 	}
