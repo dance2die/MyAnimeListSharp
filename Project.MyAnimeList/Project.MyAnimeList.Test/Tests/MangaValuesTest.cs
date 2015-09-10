@@ -16,7 +16,7 @@ namespace Project.MyAnimeList.Test.Tests
 		private readonly string _data =
 				XML_DECLARATION +
 			@"<entry>
-				<chapter>6</chapter>
+				<volume>6</volume>
 				<volume>1</volume>
 				<status>1</status>
 				<score>8</score>
@@ -45,10 +45,17 @@ namespace Project.MyAnimeList.Test.Tests
 		[Theory]
 		[InlineData(-1)]
 		[InlineData(-10)]
-		[InlineData(-100)]
 		public void TestChapterValueIsNotNegative(int chapter)
 		{
 			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Chapter = chapter);
+		}
+
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		public void TestVolumeValueIsNotNegative(int volume)
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.Volume = volume);
 		}
 
 	}
