@@ -15,7 +15,7 @@ namespace Project.MyAnimeList.Test.Tests
 		private readonly MangaValues _sut;
 
 		private readonly string _data =
-				XML_DECLARATION +
+			XML_DECLARATION +
 			@"<entry>
 				<volume>6</volume>
 				<volume>1</volume>
@@ -36,7 +36,7 @@ namespace Project.MyAnimeList.Test.Tests
 			</entry>";
 
 
-		public MangaValuesTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output) 
+		public MangaValuesTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output)
 			: base(credentialContextFixture)
 		{
 			_output = output;
@@ -115,6 +115,25 @@ namespace Project.MyAnimeList.Test.Tests
 		public void TestIfRereadCountIsOver255ArgumentOutOfRangeExceptionIsThrown(int timesReread)
 		{
 			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.TimesReread = timesReread);
+		}
+
+		[Fact]
+		public void TestDateStart()
+		{
+			DateTime dateStart = DateTime.Now;
+			_sut.DateStart = dateStart;
+
+			Assert.Equal(dateStart, _sut.DateStart);
+		}
+
+		[Fact]
+		public void TestDateFinish()
+		{
+			DateTime dateFinish = DateTime.Now;
+			_sut.DateFinish = dateFinish;
+
+			Assert.Equal(dateFinish, _sut.DateFinish);
+
 		}
 	}
 }

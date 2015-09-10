@@ -60,5 +60,8 @@ namespace MyAnimeListSharp.Facade
 				_timesReread = value;
 			}
 		}
+
+		public DateTime DateStart { get; set; }
+		public DateTime DateFinish { get; set; }
 	}
 }
