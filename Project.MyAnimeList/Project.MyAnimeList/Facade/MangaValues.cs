@@ -7,6 +7,7 @@ namespace MyAnimeListSharp.Facade
 	{
 		private int _chapter;
 		private int _volume;
+		private int _downloadedChapters;
 
 		public int Chapter
 		{
@@ -32,5 +33,16 @@ namespace MyAnimeListSharp.Facade
 
 		public MangaStatus MangaStatus { get; set; }
 		public Score Score { get; set; }
+
+		public int DownloadedChapters
+		{
+			get { return _downloadedChapters; }
+			set
+			{
+				if (value < 0)
+					throw new ArgumentOutOfRangeException("DownloadedChapters", "DownloadedChapters value cannot be negative");
+				_downloadedChapters = value;
+			}
+		}
 	}
 }
