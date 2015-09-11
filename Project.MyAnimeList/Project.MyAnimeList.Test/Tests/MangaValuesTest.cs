@@ -168,5 +168,15 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(value, _sut.EnableRewatching);
 		}
+
+		[Theory]
+		[InlineData("This is a comment")]
+		[InlineData("Comment2")]
+		public void TestComment(string value)
+		{
+			_sut.Comments = value;
+
+			Assert.Equal(value, _sut.Comments);
+		}
 	}
 }

@@ -66,5 +66,6 @@ namespace MyAnimeListSharp.Facade
 		public Priority Priority { get; set; }
 		public EnableDiscussion EnableDiscussion { get; set; }
 		public EnableRewatching EnableRewatching { get; set; }
+		public string Comments { get; set; }
 	}
 }
