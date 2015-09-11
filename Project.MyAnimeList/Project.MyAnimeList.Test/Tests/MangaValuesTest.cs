@@ -178,5 +178,26 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(value, _sut.Comments);
 		}
+
+		[Theory]
+		[InlineData("Yanime")]
+		[InlineData("Sense-Scans")]
+		[InlineData("Imperial Scans")]
+		public void TestScanGroup(string value)
+		{
+			_sut.ScanGroup = value;
+
+			Assert.Equal(value, _sut.ScanGroup);
+		}
+
+		[Theory]
+		[InlineData("tag1, tag2")]
+		[InlineData("Adapted to Anime, Adapted to Movie")]
+		public void TestTags(string value)
+		{
+			_sut.Tags = value;
+
+			Assert.Equal(value, _sut.Tags);
+		}
 	}
 }
