@@ -70,6 +70,7 @@
     <Compile Include="Parameters\RequestParameters.cs" />
     <Compile Include="Util\RequestUriBuilder.cs" />
     <Compile Include="Parameters\VerifyCredentialsRequestParameters.cs" />
+    <Compile Include="Util\ValuesFormatter.cs" />
     <Compile Include="Util\WebRequestBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

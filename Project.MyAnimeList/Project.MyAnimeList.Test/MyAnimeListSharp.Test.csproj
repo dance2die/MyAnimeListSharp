@@ -81,6 +81,8 @@
     <Compile Include="Tests\MangaListMethodsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\SearchMethodsTest.cs" />
+    <Compile Include="Tests\ValuesFormatterTest.cs" />
+    <Compile Include="Fixture\ValuesFormatterTestFixture.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
