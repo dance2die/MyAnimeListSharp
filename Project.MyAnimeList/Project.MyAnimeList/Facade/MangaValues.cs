@@ -9,6 +9,7 @@ namespace MyAnimeListSharp.Facade
 		private int _volume;
 		private int _downloadedChapters;
 		private int _timesReread;
+		private int _retailVolumes;
 
 		public int Chapter
 		{
@@ -69,5 +70,16 @@ namespace MyAnimeListSharp.Facade
 		public string Comments { get; set; }
 		public string ScanGroup { get; set; }
 		public string Tags { get; set; }
+
+		public int RetailVolumes
+		{
+			get { return _retailVolumes; }
+			set
+			{
+				if (value < 0)
+					throw new ArgumentOutOfRangeException("RetailVolumes", "RetailVolumes value cannot be negative");
+				_retailVolumes = value;
+			}
+		}
 	}
 }

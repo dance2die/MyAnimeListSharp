@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
@@ -198,6 +197,14 @@ namespace Project.MyAnimeList.Test.Tests
 			_sut.Tags = value;
 
 			Assert.Equal(value, _sut.Tags);
+		}
+
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		public void TestNegativeRetailVolumesThrowException(int retailVolumes)
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.RetailVolumes = retailVolumes);
 		}
 	}
 }
