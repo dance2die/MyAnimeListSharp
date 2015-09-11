@@ -15,7 +15,7 @@ namespace Project.MyAnimeList.Demo
 		private const int MANGA_ID = 67879;
 
 		private static readonly string _animeData =
-			@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
+			@"<?xml version = ""1.0"" encoding = ""UTF-8""?>
 				<entry>
 					<episode>9</episode>
 					<status>1</status>
@@ -33,10 +33,10 @@ namespace Project.MyAnimeList.Demo
 					<comments></comments>
 					<fansub_group></fansub_group>
 					<tags>test tag, 2nd tag</tags>
-				</ entry>";
+				</entry>";
 
 		private static readonly string _mangaData =
-			@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
+			@"<?xml version=""1.0"" encoding=""UTF-8""?>
 			<entry>
 				<chapter>6</chapter>
 				<volume>1</volume>
@@ -61,14 +61,22 @@ namespace Project.MyAnimeList.Demo
 		{
 			ICredentialContext credential = new CredentialContext();
 
-			//TestSearch();
+			//TestSearch(credential);
 			//TestCredentials(credential);
-			//TestAddAnime(credential);
+			TestAddAnime(credential);
 
-			TestAddManga(credential);
+			//TestAddManga(credential);
 
 			Console.WriteLine("Press ENTER to continue...");
 			Console.ReadLine();
+		}
+
+		private static void TestAddAnime(ICredentialContext credential)
+		{
+			var methods = new AnimeListMethods(credential);
+			var responseText = methods.AddAnime(ANIME_ID, _animeData);
+
+			Console.WriteLine(responseText);
 		}
 
 		private static void TestAddManga(ICredentialContext credential)
@@ -77,20 +85,14 @@ namespace Project.MyAnimeList.Demo
 			methods.AddManga(MANGA_ID, _mangaData);
 		}
 
-		private static void TestAddAnime(ICredentialContext credential)
+		private static void TestSearch(ICredentialContext credential)
 		{
-			var methods = new AnimeListMethods(credential);
-			methods.AddAnime(ANIME_ID, _animeData);
-		}
-
-		private static void TestSearch()
-		{
-			// Step 1: Enter UserName and Password information
-			ICredentialContext credential = new CredentialContext
-			{
-				UserName = "<MyAnimeList.NET UserName>",
-				Password = "<MyAnimeList.NET Password>"
-			};
+			//// Step 1: Enter UserName and Password information
+			//ICredentialContext credential = new CredentialContext
+			//{
+			//	UserName = "<MyAnimeList.NET UserName>",
+			//	Password = "<MyAnimeList.NET Password>"
+			//};
 
 			// Step 2: Create a method object
 			var searchMethods = new SearchMethods(credential);
@@ -105,11 +107,11 @@ namespace Project.MyAnimeList.Demo
 		}
 
 
-		//private static void TestCredentials(ICredentialContext credential)
-		//{
-		//	string responseFromServer  = new AccountMethods(credential).VerifyCredentials();
+		private static void TestCredentials(ICredentialContext credential)
+		{
+			string responseFromServer = new AccountMethods(credential).VerifyCredentials();
 
-		//	Console.WriteLine(responseFromServer);
-		//}
+			Console.WriteLine(responseFromServer);
+		}
 	}
 }

@@ -32,9 +32,9 @@ namespace MyAnimeListSharp.Util
 			result.Credentials = new NetworkCredential(
 				RequestParameters.Credential.UserName, RequestParameters.Credential.Password);
 
-			// credit
-			// https://github.com/LHCGreg/mal-api/blob/f6c82c95d139807a1d6259200ec7622384328bc3/MalApi/MyAnimeListApi.cs
-			result.AutomaticDecompression = DecompressionMethods.GZip;
+			//// credit
+			//// https://github.com/LHCGreg/mal-api/blob/f6c82c95d139807a1d6259200ec7622384328bc3/MalApi/MyAnimeListApi.cs
+			//result.AutomaticDecompression = DecompressionMethods.GZip;
 
 			WritePostBody(result);
 
