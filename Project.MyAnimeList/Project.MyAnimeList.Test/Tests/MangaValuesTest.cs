@@ -148,5 +148,25 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.Equal(priority, _sut.Priority);
 		}
+
+		[Theory]
+		[InlineData(EnableDiscussion.Disable)]
+		[InlineData(EnableDiscussion.Enable)]
+		public void TestEnableDiscussion(EnableDiscussion value)
+		{
+			_sut.EnableDiscussion = value;
+
+			Assert.Equal(value, _sut.EnableDiscussion);
+		}
+
+		[Theory]
+		[InlineData(EnableRewatching.Disable)]
+		[InlineData(EnableRewatching.Enable)]
+		public void TestEnableRewatching(EnableRewatching value)
+		{
+			_sut.EnableRewatching = value;
+
+			Assert.Equal(value, _sut.EnableRewatching);
+		}
 	}
 }
