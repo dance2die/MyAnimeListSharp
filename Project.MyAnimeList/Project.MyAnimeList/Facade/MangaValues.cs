@@ -3,7 +3,7 @@ using MyAnimeListSharp.Enums;
 
 namespace MyAnimeListSharp.Facade
 {
-	public class MangaValues
+	public class MangaValues : MyAnimeListValues
 	{
 		private int _chapter;
 		private int _volume;
@@ -34,7 +34,6 @@ namespace MyAnimeListSharp.Facade
 		}
 
 		public MangaStatus MangaStatus { get; set; }
-		public Score Score { get; set; }
 
 		public int DownloadedChapters
 		{
@@ -62,14 +61,7 @@ namespace MyAnimeListSharp.Facade
 			}
 		}
 
-		public DateTime DateStart { get; set; }
-		public DateTime DateFinish { get; set; }
-		public Priority Priority { get; set; }
-		public EnableDiscussion EnableDiscussion { get; set; }
-		public EnableRewatching EnableRewatching { get; set; }
-		public string Comments { get; set; }
 		public string ScanGroup { get; set; }
-		public string Tags { get; set; }
 
 		public int RetailVolumes
 		{

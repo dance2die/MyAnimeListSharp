@@ -183,10 +183,13 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.Equal(dateFinish, _sut.DateFinish);
 		}
 
-		[Fact]
-		public void TestPriority()
+		[Theory]
+		[InlineData(Priority.Low)]
+		[InlineData(Priority.Medium)]
+		[InlineData(Priority.High)]
+		[InlineData(Priority.Undefined)]
+		public void TestPriority(Priority expected)
 		{
-			int expected = 1;
 			_sut.Priority = expected;
 
 			Assert.Equal(expected, _sut.Priority);
