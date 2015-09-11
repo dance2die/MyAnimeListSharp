@@ -42,6 +42,7 @@
     <Compile Include="Auth\CredentialContext.cs" />
     <Compile Include="Enums\EnableDiscussion.cs" />
     <Compile Include="Enums\EnableRewatching.cs" />
+    <Compile Include="Enums\Priority.cs" />
     <Compile Include="Facade\AnimeListMethods.cs" />
     <Compile Include="Facade\AccountMethods.cs" />
     <Compile Include="Facade\AnimeValues.cs" />

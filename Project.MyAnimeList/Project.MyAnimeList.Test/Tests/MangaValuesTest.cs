@@ -1,9 +1,11 @@
 ﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
+using Assert = Xunit.Assert;
 
 namespace Project.MyAnimeList.Test.Tests
 {
@@ -133,7 +135,18 @@ namespace Project.MyAnimeList.Test.Tests
 			_sut.DateFinish = dateFinish;
 
 			Assert.Equal(dateFinish, _sut.DateFinish);
+		}
 
+		[Theory]
+		[InlineData(Priority.Undefined)]
+		[InlineData(Priority.Low)]
+		[InlineData(Priority.Medium)]
+		[InlineData(Priority.High)]
+		public void TestPriority(Priority priority)
+		{
+			_sut.Priority = priority;
+
+			Assert.Equal(priority, _sut.Priority);
 		}
 	}
 }

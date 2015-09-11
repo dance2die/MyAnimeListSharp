@@ -9,10 +9,12 @@ namespace Project.MyAnimeList.Demo
 		/// <summary>
 		/// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
 		/// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
+		/// http://myanimelist.net/manga/67879/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
 		/// </summary>
-		private const int ID = 28907;
+		private const int ANIME_ID = 28907;
+		private const int MANGA_ID = 67879;
 
-		private static readonly string _data =
+		private static readonly string _animeData =
 			@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
 				<entry>
 					<episode>9</episode>
@@ -33,6 +35,27 @@ namespace Project.MyAnimeList.Demo
 					<tags>test tag, 2nd tag</tags>
 				</ entry>";
 
+		private static readonly string _mangaData =
+			@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
+			<entry>
+				<chapter>6</chapter>
+				<volume>1</volume>
+				<status>1</status>
+				<score>8</score>
+				<downloaded_chapters></downloaded_chapters>
+				<times_reread></times_reread>
+				<reread_value></reread_value>
+				<date_start></date_start>
+				<date_finish></date_finish>
+				<priority>0</priority>
+				<enable_discussion></enable_discussion>
+				<enable_rereading></enable_rereading>
+				<comments></comments>
+				<scan_group></scan_group>
+				<tags></tags>
+				<retail_volumes></retail_volumes>
+			</entry>";
+
 
 		public static void Main(string[] args)
 		{
@@ -40,16 +63,24 @@ namespace Project.MyAnimeList.Demo
 
 			//TestSearch();
 			//TestCredentials(credential);
-			TestAddAnime(credential);
+			//TestAddAnime(credential);
+
+			TestAddManga(credential);
 
 			Console.WriteLine("Press ENTER to continue...");
 			Console.ReadLine();
 		}
 
+		private static void TestAddManga(ICredentialContext credential)
+		{
+			var methods = new MangaListMethods(credential);
+			methods.AddManga(MANGA_ID, _mangaData);
+		}
+
 		private static void TestAddAnime(ICredentialContext credential)
 		{
 			var methods = new AnimeListMethods(credential);
-			methods.AddAnime(ID, _data);
+			methods.AddAnime(ANIME_ID, _animeData);
 		}
 
 		private static void TestSearch()
