@@ -1,4 +1,4 @@
-﻿using System.Net;
+﻿using System;
 using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
@@ -18,8 +18,8 @@ namespace Project.MyAnimeList.Test.Tests
 		/// </summary>
 		private const int ID = 28907;
 
-		private readonly string _data =
-			@"<? xml version = ""1.0"" encoding = ""UTF -8"" ?>
+		private static readonly string _data =
+			@"<?xml version = ""1.0"" encoding = ""UTF-8""?>
 				<entry>
 					<episode>9</episode>
 					<status>1</status>
@@ -37,7 +37,7 @@ namespace Project.MyAnimeList.Test.Tests
 					<comments></comments>
 					<fansub_group></fansub_group>
 					<tags>test tag, 2nd tag</tags>
-				</ entry>";
+				</entry>";
 
 		public AnimeListMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output)
 			: base(credentialContextFixture)
@@ -69,21 +69,21 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
-			//string uniqueId = sut.AddAnime(id, data);
-			//Assert.False(string.IsNullOrEmpty(uniqueId));
-			Assert.Throws<WebException>(() => sut.AddAnime(ID, _data));
+			const string expectedSubstring = "Created";
+			var actualString = sut.AddAnime(ID, _data);
+			Assert.Contains(expectedSubstring, actualString);
 		}
 
 		[Fact]
-		public void TestUpdateAnimeRequestUpdateReturnsMySQLError()
+		public void TestUpdateAnimeRequestReturnsUpdatedText()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
 			var actualResponseString = sut.UpdateAnime(ID, _data);
-
 			_output.WriteLine("Actual: {0}", actualResponseString);
-			//Assert.False(string.IsNullOrEmpty(actualResponseString));
-			Assert.Contains("There was a MySQL Error", actualResponseString);
+
+			const string expected = "Updated";
+			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
 		}
 
 		[Fact]
@@ -92,9 +92,8 @@ namespace Project.MyAnimeList.Test.Tests
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
 			var actualResponseString = sut.DeleteAnime(ID);
-
 			_output.WriteLine("Actual: {0}", actualResponseString);
-			//Assert.False(string.IsNullOrEmpty(actualResponseString));
+
 			Assert.Equal("Deleted", actualResponseString);
 		}
 	}
