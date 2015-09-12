@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
@@ -19,26 +18,27 @@ namespace Project.MyAnimeList.Test.Tests
 		/// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
 		/// </summary>
 		private const int ID = 28907;
+		private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""UTF-8""?>";
 
-		private static readonly string _data =
-			@"<?xml version = ""1.0"" encoding = ""UTF-8""?>
+		private static readonly string _data = XML_DECLARATION +
+			@"
 				<entry>
-					<episode>9</episode>
-					<status>1</status>
-					<score>9</score>
-					<downloaded_episodes></downloaded_episodes>
-					<storage_type></storage_type>
-					<storage_value></storage_value>
-					<times_rewatched></times_rewatched>
-					<rewatch_value></rewatch_value>
-					<date_start></date_start>
-					<date_finish></date_finish>
-					<priority></priority>
-					<enable_discussion></enable_discussion>
-					<enable_rewatching></enable_rewatching>
-					<comments></comments>
-					<fansub_group></fansub_group>
-					<tags>test tag, 2nd tag</tags>
+					<episode>1</episode>
+					<status>2</status>
+					<score>3</score>
+					<downloaded_episodes>4</downloaded_episodes>
+					<storage_type>5</storage_type>
+					<storage_value>6</storage_value>
+					<times_rewatched>7</times_rewatched>
+					<rewatch_value>8</rewatch_value>
+					<date_start>01302015</date_start>
+					<date_finish>07312015</date_finish>
+					<priority>1</priority>
+					<enable_discussion>1</enable_discussion>
+					<enable_rewatching>1</enable_rewatching>
+					<comments>This is a comment</comments>
+					<fansub_group>Horrible Subs</fansub_group>
+					<tags>Test Tag1, Test Tag2</tags>
 				</entry>";
 
 		public AnimeListMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output)
