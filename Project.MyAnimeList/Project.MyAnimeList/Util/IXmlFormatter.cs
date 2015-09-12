@@ -2,8 +2,7 @@
 
 namespace MyAnimeListSharp.Util
 {
-	public interface IXmlFormatter
+	public interface IXmlFormatter : IFormatter<XDocument>
 	{
-		string Format(XDocument document);
 	}
 }

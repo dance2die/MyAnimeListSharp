@@ -6,11 +6,11 @@ namespace Project.MyAnimeList.Test.Tests
 {
 	public class DateFormatterTest
 	{
-		private readonly IDateFormatter _dateFormatter;
+		private readonly IDateTimeFormatter _dateTimeFormatter;
 
 		public DateFormatterTest()
 		{
-			_dateFormatter = new DefaultDateFormatter();
+			_dateTimeFormatter = new DefaultDateTimeFormatter();
 		}
 
 		[Fact]
@@ -21,7 +21,7 @@ namespace Project.MyAnimeList.Test.Tests
 			int year = 2015;
 			string expected = $"{month}{day}{year}";
 
-			string actual = _dateFormatter.Format(new DateTime(year, month, day));
+			string actual = _dateTimeFormatter.Format(new DateTime(year, month, day));
 
 			Assert.Equal(expected, actual);
 		}

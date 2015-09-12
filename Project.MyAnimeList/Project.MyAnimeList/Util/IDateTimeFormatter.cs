@@ -5,8 +5,7 @@ namespace MyAnimeListSharp.Util
 	/// <summary>
 	/// Format the date time to a string
 	/// </summary>
-	public interface IDateFormatter
+	public interface IDateTimeFormatter : IFormatter<DateTime>
 	{
-		string Format(DateTime dateTime);
 	}
 }

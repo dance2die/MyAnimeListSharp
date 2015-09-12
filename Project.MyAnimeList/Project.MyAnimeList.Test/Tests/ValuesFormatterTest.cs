@@ -47,7 +47,7 @@ namespace Project.MyAnimeList.Test.Tests
 		public void AnimeDataShouldMatchFormattedAnimeValuesObjectString()
 		{
 			AnimeValues values = _animeValuesFixture.Values;
-			string xmlString = _formatterFixture.Formatter.FormatAnimeValuesToString(values);
+			string xmlString = _formatterFixture.Formatter.Format(values);
 
 			var thatXmlAreIdentical = XmLfilesIdentical(_animeData, xmlString);
 			Assert.True(thatXmlAreIdentical);

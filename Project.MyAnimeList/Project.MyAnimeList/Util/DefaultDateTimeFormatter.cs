@@ -5,7 +5,7 @@ namespace MyAnimeListSharp.Util
 	/// <summary>
 	/// Date formatter which formats date according to MyAnimeList.net specification
 	/// </summary>
-	public class DefaultDateFormatter : IDateFormatter
+	public class DefaultDateTimeFormatter : IDateTimeFormatter
 	{
 		/// <summary>
 		/// Format the date time according to MyAnimeList.net specification

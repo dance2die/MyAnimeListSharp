@@ -4,9 +4,9 @@ using MyAnimeListSharp.Facade;
 
 namespace MyAnimeListSharp.Util
 {
-	public class ValuesFormatter
+	public class ValuesFormatter : IFormatter<AnimeValues>
 	{
-		private readonly IDateFormatter _dateFormatter;
+		private readonly IDateTimeFormatter _dateTimeFormatter;
 		private readonly IXmlFormatter _xmlFormatter;
 
 		/// <remarks>
@@ -14,17 +14,17 @@ namespace MyAnimeListSharp.Util
 		/// Need to learn IoC frameworks like Ninject or Castle Windsor...
 		/// </remarks>
 		public ValuesFormatter()
-			: this(new DefaultDateFormatter(), new DefaultXmlFormatter())
+			: this(new DefaultDateTimeFormatter(), new DefaultXmlFormatter())
 		{
 		}
 
-		public ValuesFormatter(IDateFormatter dateFormatter, IXmlFormatter xmlFormatter)
+		public ValuesFormatter(IDateTimeFormatter dateTimeFormatter, IXmlFormatter xmlFormatter)
 		{
-			_dateFormatter = dateFormatter;
+			_dateTimeFormatter = dateTimeFormatter;
 			_xmlFormatter = xmlFormatter;
 		}
 
-		public string FormatAnimeValuesToString(AnimeValues values)
+		public string Format(AnimeValues values)
 		{
 			XDocument document = FormatAnimeValuesToXml(values);
 			var xmlString = _xmlFormatter.Format(document);
@@ -59,8 +59,8 @@ namespace MyAnimeListSharp.Util
 					new XElement("storage_value", values.StorageValue),
 					new XElement("times_rewatched", values.TimesRewatched),
 					new XElement("rewatch_value", values.RewatchValue),
-					new XElement("date_start", _dateFormatter.Format(values.DateStart)),
-					new XElement("date_finish", _dateFormatter.Format(values.DateFinish)),
+					new XElement("date_start", _dateTimeFormatter.Format(values.DateStart)),
+					new XElement("date_finish", _dateTimeFormatter.Format(values.DateFinish)),
 					new XElement("priority", GetUnderlyingEnumValue(values.Priority)),
 					new XElement("enable_discussion", GetUnderlyingEnumValue(values.EnableDiscussion)),
 					new XElement("enable_rewatching", GetUnderlyingEnumValue(values.EnableRewatching)),
