@@ -65,7 +65,8 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void TestAddAnimeRequestThrowsWebExceptionForNotImplemented()
+		[Trait("Priority", "1")]
+		public void TestAddAnimeRequestResponseContainsCreated()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
@@ -75,6 +76,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
+		[Trait("Priority", "2")]
 		public void TestUpdateAnimeRequestReturnsUpdatedText()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
@@ -87,6 +89,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
+		[Trait("Priority", "3")]
 		public void TestDeleteAnimeRequest()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
