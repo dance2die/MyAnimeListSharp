@@ -4,7 +4,7 @@ using MyAnimeListSharp.Facade;
 
 namespace MyAnimeListSharp.Util
 {
-	public class ValuesFormatter : IFormatter<AnimeValues>
+	public class ValuesFormatter : IFormatter<AnimeValues> //, IFormatter<MangaValues>
 	{
 		private readonly IDateTimeFormatter _dateTimeFormatter;
 		private readonly IXmlFormatter _xmlFormatter;
@@ -26,18 +26,24 @@ namespace MyAnimeListSharp.Util
 
 		public string Format(AnimeValues values)
 		{
-			XDocument document = FormatAnimeValuesToXml(values);
+			XDocument document = AddContentToDocument(BuildContent(values));
 			var xmlString = _xmlFormatter.Format(document);
 			return xmlString;
 		}
 
-		private XDocument FormatAnimeValuesToXml(AnimeValues values)
+		//public string Format(MangaValues value)
+		//{
+		//	XDocument document = FormatMangaValuesToXml(values);
+		//	var xmlString = _xmlFormatter.Format(document);
+		//	return xmlString;
+		//}
+
+		private XDocument AddContentToDocument(XElement content)
 		{
 			const string standalone = null;
 			var declaration = new XDeclaration("1.0", "UTF-8", standalone);
-			XElement content = BuildContent(values);
-
 			var document = new XDocument(declaration, content);
+
 			return document;
 		}
 
