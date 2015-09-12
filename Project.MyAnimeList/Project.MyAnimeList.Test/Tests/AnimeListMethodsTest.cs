@@ -1,11 +1,12 @@
 ﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
-using Xunit.Sdk;
+using Assert = Xunit.Assert;
 
 namespace Project.MyAnimeList.Test.Tests
 {
@@ -47,7 +48,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void TestAddAnimeRequestParametersMethod()
+		public void AddAnimeRequestParametersMethodIsPost()
 		{
 			var sut = new AddAnimeRequestParameters(CredentialContextFixture.CredentialContext, ID, _data);
 
@@ -55,7 +56,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void TestAddAnimeRequestParametersBaseUri()
+		public void AddAnimeRequestParametersBaseUriIsBuiltBasedOnIdPassed()
 		{
 			var requestParameters = new AddAnimeRequestParameters(CredentialContextFixture.CredentialContext, ID, _data);
 			var sut = new RequestUriBuilder(requestParameters);
@@ -66,8 +67,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		[Trait("Priority", "1")]
-		public void TestAddAnimeRequestResponseContainsCreated()
+		public void AddAnimeRequestResponseContainsCreatedText()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
@@ -77,8 +77,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		[Trait("Priority", "2")]
-		public void TestUpdateAnimeRequestReturnsUpdatedText()
+		public void UpdateAnimeRequestReturnsUpdatedText()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
@@ -90,8 +89,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		[Trait("Priority", "3")]
-		public void TestDeleteAnimeRequest()
+		public void DeleteAnimeRequestReturnsDeletedText()
 		{
 			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 
