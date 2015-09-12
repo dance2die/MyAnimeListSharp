@@ -5,6 +5,7 @@ using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
+using Xunit.Sdk;
 
 namespace Project.MyAnimeList.Test.Tests
 {
