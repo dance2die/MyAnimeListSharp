@@ -25,7 +25,7 @@ namespace Project.MyAnimeList.Test.Tests
 			string xmlString = sut.Format(document);
 
 			string expected =
-@"<?xml version=""1.0"" encoding=""utf-16""?>
+@"<?xml version=""1.0"" encoding=""utf-8""?>
 <root>
   <person>1</person>
 </root>";
