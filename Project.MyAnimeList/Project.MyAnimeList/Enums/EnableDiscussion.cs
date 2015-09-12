@@ -1,6 +1,6 @@
 ﻿namespace MyAnimeListSharp.Enums
 {
-	public enum EnableDiscussion : short
+	public enum EnableDiscussion
 	{
 		Disable = 0,
 		Enable = 1

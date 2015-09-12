@@ -1,6 +1,6 @@
 ﻿namespace MyAnimeListSharp.Enums
 {
-	public enum EnableRewatching : short
+	public enum EnableRewatching
 	{
 		Disable = 0,
 		Enable = 1

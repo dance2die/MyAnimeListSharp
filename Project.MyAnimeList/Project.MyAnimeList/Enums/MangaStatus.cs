@@ -1,6 +1,6 @@
 namespace MyAnimeListSharp.Enums
 {
-	public enum MangaStatus : short
+	public enum MangaStatus
 	{
 		Reading = 1,
 		Completed = 2,

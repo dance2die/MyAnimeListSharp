@@ -7,7 +7,7 @@ namespace MyAnimeListSharp.Enums
 	/// Test manually against MyAnimeValue.net web api.
 	/// This is not documented.
 	/// </remarks>
-	public enum Priority : short
+	public enum Priority
 	{
 		Undefined = -1,
 		Low = 0,

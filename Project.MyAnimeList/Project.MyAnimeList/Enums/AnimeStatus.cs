@@ -1,6 +1,6 @@
 namespace MyAnimeListSharp.Enums
 {
-	public enum AnimeStatus : short
+	public enum AnimeStatus
 	{
 		Watching = 1,
 		Completed = 2,
