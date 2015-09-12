@@ -1,4 +1,8 @@
-﻿using MyAnimeListSharp.Facade;
+﻿using System.IO;
+using System.Xml;
+using System.Xml.Linq;
+using Microsoft.XmlDiffPatch;
+using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 
@@ -9,7 +13,7 @@ namespace Project.MyAnimeList.Test.Tests
 		private readonly ValuesFormatterTestFixture _formatterFixture;
 		private readonly AnimeValuesFixture _animeValuesFixture;
 
-		private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""UTF-8""?>";
+		private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""utf-8""?>";
 
 		private static readonly string _animeData =
 			XML_DECLARATION +
@@ -43,8 +47,37 @@ namespace Project.MyAnimeList.Test.Tests
 		public void AnimeDataShouldMatchFormattedAnimeValuesObjectString()
 		{
 			AnimeValues values = _animeValuesFixture.Values;
-			//_formatterFixture.Formatter.FormatToXml(values);
+			string xmlString = _formatterFixture.Formatter.FormatAnimeValuesToString(values);
+
+			var thatXmlAreIdentical = XmLfilesIdentical(_animeData, xmlString);
+			Assert.True(thatXmlAreIdentical);
 		}
 
+
+		/// <summary>
+		/// Compares two XML files to see if they are the same.
+		/// </summary>
+		/// <returns>
+		/// Returns true if two XML files are functionally identical, ignoring comments, white space, and child order.
+		/// </returns>
+		/// <remarks>http://stackoverflow.com/a/19954063/4035</remarks>
+		private static bool XmLfilesIdentical(string originalFile, string finalFile)
+		{
+			var xmldiff = new XmlDiff();
+			var r1 = XmlReader.Create(new StringReader(originalFile));
+			var r2 = XmlReader.Create(new StringReader(finalFile));
+			var sw = new StringWriter();
+			var xw = new XmlTextWriter(sw) { Formatting = Formatting.Indented };
+
+			xmldiff.Options = XmlDiffOptions.IgnorePI |
+				XmlDiffOptions.IgnoreChildOrder |
+				XmlDiffOptions.IgnoreComments |
+				XmlDiffOptions.IgnoreWhitespace;
+			bool areIdentical = xmldiff.Compare(r1, r2, xw);
+
+			string differences = sw.ToString();
+
+			return areIdentical;
+		}
 	}
 }

@@ -45,6 +45,14 @@
     <Reference Include="System" />
     <Reference Include="System.XML" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="XmlDiffPatch, Version=1.0.8.28, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+      <HintPath>..\packages\XMLDiffPatch.1.0.8.28\lib\net\XmlDiffPatch.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="XmlDiffPatch.View, Version=1.0.1493.40755, Culture=neutral">
+      <HintPath>..\packages\XMLDiffPatch.1.0.8.28\lib\net\XmlDiffPatch.View.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="xunit.abstractions, Version=2.0.0.0, Culture=neutral, PublicKeyToken=8d05b1bb7a6fdb6c, processorArchitecture=MSIL">
       <HintPath>..\packages\xunit.abstractions.2.0.0\lib\net35\xunit.abstractions.dll</HintPath>
       <Private>True</Private>
@@ -72,6 +80,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Fixture\AnimeValuesFixture.cs" />
+    <Compile Include="Tests\DateFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesTest.cs" />
     <Compile Include="Tests\AccountMethodsTest.cs" />
     <Compile Include="Tests\AnimeListMethodsTest.cs" />
@@ -84,6 +93,7 @@
     <Compile Include="Tests\SearchMethodsTest.cs" />
     <Compile Include="Tests\ValuesFormatterTest.cs" />
     <Compile Include="Fixture\ValuesFormatterTestFixture.cs" />
+    <Compile Include="Tests\XmlFormatterTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
