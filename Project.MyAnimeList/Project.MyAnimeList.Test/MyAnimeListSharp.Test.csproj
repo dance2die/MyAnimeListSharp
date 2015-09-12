@@ -71,6 +71,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Fixture\AnimeValuesFixture.cs" />
     <Compile Include="Tests\MangaValuesTest.cs" />
     <Compile Include="Tests\AccountMethodsTest.cs" />
     <Compile Include="Tests\AnimeListMethodsTest.cs" />

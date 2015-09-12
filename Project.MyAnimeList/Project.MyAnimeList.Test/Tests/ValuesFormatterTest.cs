@@ -1,15 +1,17 @@
-﻿using Project.MyAnimeList.Test.Fixture;
+﻿using MyAnimeListSharp.Facade;
+using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class ValuesFormatterTest : IClassFixture<ValuesFormatterTestFixture>
+	public class ValuesFormatterTest : IClassFixture<ValuesFormatterTestFixture>, IClassFixture<AnimeValuesFixture>
 	{
-		private readonly ValuesFormatterTestFixture _fixture;
+		private readonly ValuesFormatterTestFixture _formatterFixture;
+		private readonly AnimeValuesFixture _animeValuesFixture;
 
 		private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""UTF-8""?>";
 
-		private static readonly string _animeData = 
+		private static readonly string _animeData =
 			XML_DECLARATION +
 			@"
 				<entry>
@@ -31,9 +33,18 @@ namespace Project.MyAnimeList.Test.Tests
 					<tags>Test Tag1, Test Tag2</tags>
 				</entry>";
 
-		public ValuesFormatterTest(ValuesFormatterTestFixture fixture)
+		public ValuesFormatterTest(ValuesFormatterTestFixture formatterFixture, AnimeValuesFixture animeValuesFixture)
 		{
-			_fixture = fixture;
+			_formatterFixture = formatterFixture;
+			_animeValuesFixture = animeValuesFixture;
 		}
+
+		[Fact]
+		public void AnimeDataShouldMatchFormattedAnimeValuesObjectString()
+		{
+			AnimeValues values = _animeValuesFixture.Values;
+			//_formatterFixture.Formatter.FormatToXml(values);
+		}
+
 	}
 }
