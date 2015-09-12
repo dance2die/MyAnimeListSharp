@@ -1,6 +1,5 @@
 ﻿using System.IO;
 using System.Xml;
-using System.Xml.Linq;
 using Microsoft.XmlDiffPatch;
 using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
@@ -49,7 +48,7 @@ namespace Project.MyAnimeList.Test.Tests
 			AnimeValues values = _animeValuesFixture.Values;
 			string xmlString = _formatterFixture.Formatter.Format(values);
 
-			var thatXmlAreIdentical = XmLfilesIdentical(_animeData, xmlString);
+			var thatXmlAreIdentical = XmlFilesAreIdentical(_animeData, xmlString);
 			Assert.True(thatXmlAreIdentical);
 		}
 
@@ -61,11 +60,11 @@ namespace Project.MyAnimeList.Test.Tests
 		/// Returns true if two XML files are functionally identical, ignoring comments, white space, and child order.
 		/// </returns>
 		/// <remarks>http://stackoverflow.com/a/19954063/4035</remarks>
-		private static bool XmLfilesIdentical(string originalFile, string finalFile)
+		private static bool XmlFilesAreIdentical(string file1, string file2)
 		{
 			var xmldiff = new XmlDiff();
-			var r1 = XmlReader.Create(new StringReader(originalFile));
-			var r2 = XmlReader.Create(new StringReader(finalFile));
+			var r1 = XmlReader.Create(new StringReader(file1));
+			var r2 = XmlReader.Create(new StringReader(file2));
 			var sw = new StringWriter();
 			var xw = new XmlTextWriter(sw) { Formatting = Formatting.Indented };
 
