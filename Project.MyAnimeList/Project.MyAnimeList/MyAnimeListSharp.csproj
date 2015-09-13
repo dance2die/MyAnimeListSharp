@@ -50,6 +50,8 @@
     <Compile Include="Facade\MangaValues.cs" />
     <Compile Include="Enums\MangaStatus.cs" />
     <Compile Include="Core\MyAnimeListValues.cs" />
+    <Compile Include="Formatters\NullValuesFormatter.cs" />
+    <Compile Include="Formatters\ValuesFormatterFactory.cs" />
     <Compile Include="Parameters\DeleteMangaRequestParameters.cs" />
     <Compile Include="Facade\MangaListMethods.cs" />
     <Compile Include="Parameters\UpdateMangaRequestParameters.cs" />
