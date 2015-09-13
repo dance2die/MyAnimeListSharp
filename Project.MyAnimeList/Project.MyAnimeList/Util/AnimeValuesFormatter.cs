@@ -3,7 +3,7 @@ using MyAnimeListSharp.Facade;
 
 namespace MyAnimeListSharp.Util
 {
-	public class ValuesFormatter : IFormatter<AnimeValues> //, IFormatter<MangaValues>
+	public class AnimeValuesFormatter : IFormatter<AnimeValues> //, IFormatter<MangaValues>
 	{
 		private readonly IXmlFormatter _xmlFormatter;
 		private readonly IValuesContentBuilder<AnimeValues> _valuesContentBuilder;
@@ -11,12 +11,12 @@ namespace MyAnimeListSharp.Util
 		/// <remarks>
 		/// This would need to be replaced with Ioc calls using Ninject in next release.
 		/// </remarks>
-		public ValuesFormatter()
+		public AnimeValuesFormatter()
 			: this(new DefaultXmlFormatter(), new AnimeValuesContentBuilder())
 		{
 		}
 
-		public ValuesFormatter(IXmlFormatter xmlFormatter, IValuesContentBuilder<AnimeValues> valuesContentBuilder)
+		public AnimeValuesFormatter(IXmlFormatter xmlFormatter, IValuesContentBuilder<AnimeValues> valuesContentBuilder)
 		{
 			_valuesContentBuilder = valuesContentBuilder;
 			_xmlFormatter = xmlFormatter;
@@ -28,13 +28,6 @@ namespace MyAnimeListSharp.Util
 			var xmlString = _xmlFormatter.Format(document);
 			return xmlString;
 		}
-
-		//public string Format(MangaValues value)
-		//{
-		//	XDocument document = FormatMangaValuesToXml(values);
-		//	var xmlString = _xmlFormatter.Format(document);
-		//	return xmlString;
-		//}
 
 		private XDocument AddContentToDocument(XElement content)
 		{

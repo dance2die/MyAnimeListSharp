@@ -92,8 +92,8 @@
     <Compile Include="Tests\MangaListMethodsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tests\SearchMethodsTest.cs" />
-    <Compile Include="Tests\ValuesFormatterTest.cs" />
-    <Compile Include="Fixture\ValuesFormatterTestFixture.cs" />
+    <Compile Include="Tests\AnimeValuesFormatterTest.cs" />
+    <Compile Include="Fixture\AnimeValuesFormatterTestFixture.cs" />
     <Compile Include="Tests\XmlFormatterTest.cs" />
   </ItemGroup>
   <ItemGroup>
