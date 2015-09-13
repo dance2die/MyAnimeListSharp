@@ -72,6 +72,7 @@
     <Compile Include="Parameters\RequestParameters.cs" />
     <Compile Include="Util\IDateTimeFormatter.cs" />
     <Compile Include="Util\IFormatter.cs" />
+    <Compile Include="Util\IValuesContentBuilder.cs" />
     <Compile Include="Util\IXmlFormatter.cs" />
     <Compile Include="Util\RequestUriBuilder.cs" />
     <Compile Include="Parameters\VerifyCredentialsRequestParameters.cs" />
