@@ -4,11 +4,21 @@ namespace Project.MyAnimeList.Test.Fixture
 {
 	public class AnimeValuesFormatterTestFixture
 	{
-		public AnimeValuesFormatter Formatter { get; set; }
+		public AnimeValuesFormatter ValuesFormatter { get; set; }
 
 		public AnimeValuesFormatterTestFixture()
 		{
-			Formatter = new AnimeValuesFormatter();
+			ValuesFormatter = new AnimeValuesFormatter();
 		}
 	}
+
+	//public class MangaValuesFormatterTestFixture
+	//{
+	//	public MangaValuesFormatter Formatter { get; set; }
+
+	//	public MangaValuesFormatterTestFixture()
+	//	{
+	//		Formatter = new MangaValuesFormatter();
+	//	}
+	//}
 }

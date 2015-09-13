@@ -3,7 +3,7 @@ using MyAnimeListSharp.Facade;
 
 namespace MyAnimeListSharp.Util
 {
-	public class AnimeValuesFormatter : IFormatter<AnimeValues> //, IFormatter<MangaValues>
+	public class AnimeValuesFormatter : IFormatter<AnimeValues>
 	{
 		private readonly IXmlFormatter _xmlFormatter;
 		private readonly IValuesContentBuilder<AnimeValues> _valuesContentBuilder;
@@ -29,7 +29,7 @@ namespace MyAnimeListSharp.Util
 			return xmlString;
 		}
 
-		private XDocument AddContentToDocument(XElement content)
+		protected XDocument AddContentToDocument(XElement content)
 		{
 			const string standalone = null;
 			var declaration = new XDeclaration("1.0", "UTF-8", standalone);
