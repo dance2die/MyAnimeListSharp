@@ -1,18 +1,23 @@
-﻿using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using MyAnimeListSharp.Facade;
+﻿using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Formatters;
+using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class ValuesFormatterFactoryTest
+	public class ValuesFormatterFactoryTest : IClassFixture<ValuesFormatterFactoryFixture>
 	{
+		public ValuesFormatterFactoryFixture Fixture { get; set; }
+
+		public ValuesFormatterFactoryTest(ValuesFormatterFactoryFixture fixture)
+		{
+			Fixture = fixture;
+		}
+
 		[Fact]
 		public void ValuesFormatterFactoryReturnsAnimeValuesFormatter()
 		{
-			var sut = new ValuesFormatterFactory();
+			var sut = Fixture.Factory;
 
 			var animeValues = new AnimeValues();
 			var valuesFormatter = sut.Create(animeValues);
@@ -23,7 +28,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void ValuesFormatterFactoryReturnsMangaValuesFormatter()
 		{
-			var sut = new ValuesFormatterFactory();
+			var sut = Fixture.Factory;
 
 			var mangaValues = new MangaValues();
 			var valuesFormatter = sut.Create(mangaValues);

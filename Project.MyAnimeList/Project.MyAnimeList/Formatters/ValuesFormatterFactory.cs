@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using MyAnimeListSharp.Core;
-using MyAnimeListSharp.Facade;
-using MyAnimeListSharp.Formatters;
 
-namespace Project.MyAnimeList.Test.Tests
+namespace MyAnimeListSharp.Formatters
 {
 	public class ValuesFormatterFactory
 	{
