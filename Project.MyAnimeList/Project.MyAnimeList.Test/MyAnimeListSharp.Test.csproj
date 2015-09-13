@@ -83,6 +83,7 @@
     <Compile Include="Fixture\MangaValuesFixture.cs" />
     <Compile Include="Fixture\MangaValuesFormatterTestFixture.cs" />
     <Compile Include="Tests\DateFormatterTest.cs" />
+    <Compile Include="Tests\MangaValuesFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesTest.cs" />
     <Compile Include="Tests\AccountMethodsTest.cs" />
     <Compile Include="Tests\AnimeListMethodsTest.cs" />
