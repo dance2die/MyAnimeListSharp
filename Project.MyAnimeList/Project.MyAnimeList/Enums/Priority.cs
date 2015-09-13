@@ -1,11 +1,11 @@
 namespace MyAnimeListSharp.Enums
 {
 	/// <summary>
-	/// Priority values for Anime/Manga values.
+	///     Priority values for Anime/Manga values.
 	/// </summary>
 	/// <remarks>
-	/// Test manually against MyAnimeValue.net web api.
-	/// This is not documented.
+	///     Test manually against MyAnimeValue.net web api.
+	///     This is not documented.
 	/// </remarks>
 	public enum Priority
 	{

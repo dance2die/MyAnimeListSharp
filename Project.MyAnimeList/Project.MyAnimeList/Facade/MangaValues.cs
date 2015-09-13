@@ -1,4 +1,5 @@
 using System;
+using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
 
 namespace MyAnimeListSharp.Facade
@@ -6,11 +7,11 @@ namespace MyAnimeListSharp.Facade
 	public class MangaValues : MyAnimeListValues
 	{
 		private int _chapter;
-		private int _volume;
 		private int _downloadedChapters;
-		private int _timesReread;
-		private int _retailVolumes;
 		private int _rereadValue;
+		private int _retailVolumes;
+		private int _timesReread;
+		private int _volume;
 
 		public int Chapter
 		{

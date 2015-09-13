@@ -1,15 +1,16 @@
 using System;
+using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
 
 namespace MyAnimeListSharp.Facade
 {
 	public class AnimeValues : MyAnimeListValues
 	{
-		private short _episode;
 		private int _downloadedEpisodes;
+		private short _episode;
+		private int _rewatchValue;
 		private float _storageValue;
 		private int _timesRewatched;
-		private int _rewatchValue;
 
 		public short Episode
 		{

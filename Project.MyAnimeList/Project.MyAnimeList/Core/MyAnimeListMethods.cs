@@ -4,28 +4,28 @@ using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
 
-namespace MyAnimeListSharp.Facade
+namespace MyAnimeListSharp.Core
 {
 	public abstract class MyAnimeListMethods
 	{
-		public ICredentialContext CredentialContext { get; set; }
-
 		protected MyAnimeListMethods(ICredentialContext credentialContext)
 		{
 			CredentialContext = credentialContext;
 		}
 
+		public ICredentialContext CredentialContext { get; set; }
+
 		/// <summary>
-		/// Template method to return response text
+		///     Template method to return response text
 		/// </summary>
 		protected string GetResponseText(RequestParameters requestParameters)
 		{
 			var requestBuilder = new WebRequestBuilder(requestParameters);
 			var request = requestBuilder.BuildWebRequest();
 
-			using (HttpWebResponse response = request.GetResponse() as HttpWebResponse)
-			using (Stream responseStream = response.GetResponseStream())
-			using (StreamReader reader = new StreamReader(responseStream))
+			using (var response = request.GetResponse() as HttpWebResponse)
+			using (var responseStream = response.GetResponseStream())
+			using (var reader = new StreamReader(responseStream))
 			{
 				return reader.ReadToEnd();
 			}

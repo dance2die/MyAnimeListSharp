@@ -1,7 +1,5 @@
-﻿using System.Xml.Linq;
-using MyAnimeListSharp.ContentBuilders;
+﻿using MyAnimeListSharp.ContentBuilders;
 using MyAnimeListSharp.Facade;
-using MyAnimeListSharp.Util;
 
 namespace MyAnimeListSharp.Formatters
 {
@@ -10,7 +8,7 @@ namespace MyAnimeListSharp.Formatters
 		private readonly IValuesContentBuilder<AnimeValues> _valuesContentBuilder;
 
 		/// <remarks>
-		/// This would need to be replaced with Ioc calls using Ninject in next release.
+		///     This would need to be replaced with Ioc calls using Ninject in next release.
 		/// </remarks>
 		public AnimeValuesFormatter()
 			: this(new DefaultXmlFormatter(), new AnimeValuesContentBuilder())
@@ -25,7 +23,7 @@ namespace MyAnimeListSharp.Formatters
 
 		public override string Format(AnimeValues values)
 		{
-			XDocument document = AddContentToDocument(_valuesContentBuilder.BuildContent(values));
+			var document = AddContentToDocument(_valuesContentBuilder.BuildContent(values));
 			var xmlString = _xmlFormatter.Format(document);
 			return xmlString;
 		}

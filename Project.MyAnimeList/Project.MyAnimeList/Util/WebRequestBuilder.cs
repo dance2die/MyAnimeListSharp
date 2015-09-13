@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Net;
 using System.Text;
 using MyAnimeListSharp.Parameters;
@@ -9,17 +8,17 @@ namespace MyAnimeListSharp.Util
 {
 	internal class WebRequestBuilder
 	{
-		public RequestParameters RequestParameters { get; set; }
-
 		public WebRequestBuilder(RequestParameters requestParameters)
 		{
 			RequestParameters = requestParameters;
 		}
 
+		public RequestParameters RequestParameters { get; set; }
+
 		public HttpWebRequest BuildWebRequest()
 		{
-			string requestUri = new RequestUriBuilder(RequestParameters).GetRequestUri();
-			HttpWebRequest result = WebRequest.Create(requestUri) as HttpWebRequest;
+			var requestUri = new RequestUriBuilder(RequestParameters).GetRequestUri();
+			var result = WebRequest.Create(requestUri) as HttpWebRequest;
 			if (result == null)
 				throw new InvalidOperationException("Could not create web request");
 
@@ -43,12 +42,12 @@ namespace MyAnimeListSharp.Util
 
 		private void WritePostBody(HttpWebRequest request)
 		{
-			string postBody = GetJoinedString(RequestParameters.PostBodyProperties);
+			var postBody = GetJoinedString(RequestParameters.PostBodyProperties);
 			if (string.IsNullOrWhiteSpace(postBody)) return;
 
-			using (Stream requestStream = request.GetRequestStream())
+			using (var requestStream = request.GetRequestStream())
 			{
-				byte[] content = Encoding.ASCII.GetBytes(postBody);
+				var content = Encoding.ASCII.GetBytes(postBody);
 				requestStream.Write(content, 0, content.Length);
 			}
 		}

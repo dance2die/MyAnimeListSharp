@@ -1,11 +1,12 @@
 using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Facade
 {
 	public class MangaListMethods : MyAnimeListMethods
 	{
-		public MangaListMethods(ICredentialContext credentialContext) 
+		public MangaListMethods(ICredentialContext credentialContext)
 			: base(credentialContext)
 		{
 		}

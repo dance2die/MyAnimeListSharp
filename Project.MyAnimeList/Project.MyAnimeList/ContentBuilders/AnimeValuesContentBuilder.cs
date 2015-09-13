@@ -6,14 +6,14 @@ namespace MyAnimeListSharp.ContentBuilders
 	public class AnimeValuesContentBuilder : ValuesContentBuilder<AnimeValues>
 	{
 		/// <summary>
-		/// Build XML content according to MyAnimeList.net specification
+		///     Build XML content according to MyAnimeList.net specification
 		/// </summary>
 		/// <remarks>
-		/// http://myanimelist.net/modules.php?go=api#animevalues
+		///     http://myanimelist.net/modules.php?go=api#animevalues
 		/// </remarks>
 		public override XElement BuildContent(AnimeValues values)
 		{
-			XElement result = new XElement(
+			var result = new XElement(
 				new XElement("entry",
 					new XElement("episode", values.Episode),
 					new XElement("status", GetUnderlyingEnumValue(values.AnimeStatus)),

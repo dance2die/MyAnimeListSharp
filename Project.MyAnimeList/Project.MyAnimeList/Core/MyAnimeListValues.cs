@@ -1,10 +1,10 @@
 ﻿using System;
 using MyAnimeListSharp.Enums;
 
-namespace MyAnimeListSharp.Facade
+namespace MyAnimeListSharp.Core
 {
 	/// <summary>
-	/// Common properties between Anime/Manga values.
+	///     Common properties between Anime/Manga values.
 	/// </summary>
 	public abstract class MyAnimeListValues
 	{
