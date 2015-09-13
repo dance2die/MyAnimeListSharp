@@ -94,6 +94,7 @@
     <Compile Include="Tests\SearchMethodsTest.cs" />
     <Compile Include="Tests\AnimeValuesFormatterTest.cs" />
     <Compile Include="Fixture\AnimeValuesFormatterTestFixture.cs" />
+    <Compile Include="Tests\ValuesFormatterTest.cs" />
     <Compile Include="Tests\XmlFormatterTest.cs" />
   </ItemGroup>
   <ItemGroup>
