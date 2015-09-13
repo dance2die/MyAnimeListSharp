@@ -1,4 +1,5 @@
 ﻿using System.Xml.Linq;
+using MyAnimeListSharp.ContentBuilders;
 using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Util;
 

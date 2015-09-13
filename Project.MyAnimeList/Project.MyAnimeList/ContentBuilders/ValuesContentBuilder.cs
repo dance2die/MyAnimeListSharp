@@ -3,7 +3,7 @@ using System.Xml.Linq;
 using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Formatters;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.ContentBuilders
 {
 	public abstract class ValuesContentBuilder<T> : IValuesContentBuilder<T> where T : MyAnimeListValues
 	{

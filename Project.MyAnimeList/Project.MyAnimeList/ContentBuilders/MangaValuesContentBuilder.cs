@@ -1,7 +1,7 @@
 using System.Xml.Linq;
 using MyAnimeListSharp.Facade;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.ContentBuilders
 {
 	public class MangaValuesContentBuilder : ValuesContentBuilder<MangaValues>
 	{
