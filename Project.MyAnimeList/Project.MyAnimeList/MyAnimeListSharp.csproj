@@ -49,7 +49,7 @@
     <Compile Include="Facade\AnimeValues.cs" />
     <Compile Include="Facade\MangaValues.cs" />
     <Compile Include="Enums\MangaStatus.cs" />
-    <Compile Include="Facade\MyAnimeListValues.cs" />
+    <Compile Include="Core\MyAnimeListValues.cs" />
     <Compile Include="Parameters\DeleteMangaRequestParameters.cs" />
     <Compile Include="Facade\MangaListMethods.cs" />
     <Compile Include="Parameters\UpdateMangaRequestParameters.cs" />
@@ -60,7 +60,7 @@
     <Compile Include="Parameters\AnimeSearchRequestParameters.cs" />
     <Compile Include="Parameters\CrudRequestParameters.cs" />
     <Compile Include="Parameters\MangaSearchRequestParameters.cs" />
-    <Compile Include="Facade\MyAnimeListMethods.cs" />
+    <Compile Include="Core\MyAnimeListMethods.cs" />
     <Compile Include="Auth\ICredentialContext.cs" />
     <Compile Include="Parameters\SearchRequestParameters.cs" />
     <Compile Include="Facade\SearchMethods.cs" />
