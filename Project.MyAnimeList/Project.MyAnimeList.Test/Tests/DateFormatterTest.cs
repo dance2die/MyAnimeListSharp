@@ -1,4 +1,5 @@
 ﻿using System;
+using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Util;
 using Xunit;
 

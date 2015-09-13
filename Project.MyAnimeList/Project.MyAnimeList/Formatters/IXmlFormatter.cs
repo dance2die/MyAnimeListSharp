@@ -1,6 +1,6 @@
 ﻿using System.Xml.Linq;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.Formatters
 {
 	public interface IXmlFormatter : IFormatter<XDocument>
 	{

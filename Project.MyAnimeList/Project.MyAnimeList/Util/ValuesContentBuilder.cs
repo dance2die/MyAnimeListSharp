@@ -1,6 +1,7 @@
 using System;
 using System.Xml.Linq;
 using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Formatters;
 
 namespace MyAnimeListSharp.Util
 {

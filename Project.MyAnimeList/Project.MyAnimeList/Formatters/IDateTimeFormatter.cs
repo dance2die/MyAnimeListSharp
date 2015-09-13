@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.Formatters
 {
 	/// <summary>
 	/// Format the date time to a string

@@ -68,22 +68,22 @@
     <Compile Include="Enums\Score.cs" />
     <Compile Include="Enums\AnimeStatus.cs" />
     <Compile Include="Util\AnimeValuesContentBuilder.cs" />
-    <Compile Include="Util\DefaultDateTimeFormatter.cs" />
-    <Compile Include="Util\DefaultXmlFormatter.cs" />
+    <Compile Include="Formatters\DefaultDateTimeFormatter.cs" />
+    <Compile Include="Formatters\DefaultXmlFormatter.cs" />
     <Compile Include="Util\DictionaryToStringJoiner.cs" />
     <Compile Include="Parameters\RequestParameters.cs" />
-    <Compile Include="Util\IDateTimeFormatter.cs" />
-    <Compile Include="Util\IFormatter.cs" />
+    <Compile Include="Formatters\IDateTimeFormatter.cs" />
+    <Compile Include="Formatters\IFormatter.cs" />
     <Compile Include="Util\IValuesContentBuilder.cs" />
-    <Compile Include="Util\IXmlFormatter.cs" />
+    <Compile Include="Formatters\IXmlFormatter.cs" />
     <Compile Include="Util\MangaValuesContentBuilder.cs" />
-    <Compile Include="Util\MangaValuesFormatter.cs" />
+    <Compile Include="Formatters\MangaValuesFormatter.cs" />
     <Compile Include="Util\RequestUriBuilder.cs" />
     <Compile Include="Parameters\VerifyCredentialsRequestParameters.cs" />
     <Compile Include="Util\Utf8StringWriter.cs" />
-    <Compile Include="Util\AnimeValuesFormatter.cs" />
+    <Compile Include="Formatters\AnimeValuesFormatter.cs" />
     <Compile Include="Util\ValuesContentBuilder.cs" />
-    <Compile Include="Util\ValuesFormatter.cs" />
+    <Compile Include="Formatters\ValuesFormatter.cs" />
     <Compile Include="Util\WebRequestBuilder.cs" />
   </ItemGroup>
   <ItemGroup>

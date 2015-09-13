@@ -1,4 +1,4 @@
-﻿namespace MyAnimeListSharp.Util
+﻿namespace MyAnimeListSharp.Formatters
 {
 	public interface IFormatter<in T>
 	{

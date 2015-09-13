@@ -1,3 +1,4 @@
+using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Util;
 
 namespace Project.MyAnimeList.Test.Fixture

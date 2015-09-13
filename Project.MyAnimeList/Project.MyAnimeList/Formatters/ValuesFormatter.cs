@@ -1,7 +1,8 @@
 ﻿using System.Xml.Linq;
 using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Util;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.Formatters
 {
 	public abstract class ValuesFormatter<T> : IFormatter<T> where T : MyAnimeListValues
 	{

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.Formatters
 {
 	/// <summary>
 	/// Date formatter which formats date according to MyAnimeList.net specification

@@ -1,8 +1,9 @@
 using System.IO;
 using System.Text;
 using System.Xml.Linq;
+using MyAnimeListSharp.Util;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.Formatters
 {
 	public class DefaultXmlFormatter : IXmlFormatter
 	{
