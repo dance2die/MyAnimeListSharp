@@ -159,13 +159,21 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Theory]
-		[InlineData(EnableRewatching.Disable)]
-		[InlineData(EnableRewatching.Enable)]
-		public void TestEnableRewatching(EnableRewatching value)
+		[InlineData(EnableRereading.Disable)]
+		[InlineData(EnableRereading.Enable)]
+		public void TestEnableRereading(EnableRereading value)
 		{
-			_sut.EnableRewatching = value;
+			_sut.EnableRereading = value;
 
-			Assert.Equal(value, _sut.EnableRewatching);
+			Assert.Equal(value, _sut.EnableRereading);
+		}
+
+		[Theory]
+		[InlineData(-1)]
+		[InlineData(-10)]
+		public void TestRereadValueIsNotNegative(int value)
+		{
+			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.RereadValue = value);
 		}
 
 		[Theory]

@@ -11,14 +11,4 @@ namespace Project.MyAnimeList.Test.Fixture
 			ValuesFormatter = new AnimeValuesFormatter();
 		}
 	}
-
-	//public class MangaValuesFormatterTestFixture
-	//{
-	//	public MangaValuesFormatter Formatter { get; set; }
-
-	//	public MangaValuesFormatterTestFixture()
-	//	{
-	//		Formatter = new MangaValuesFormatter();
-	//	}
-	//}
 }

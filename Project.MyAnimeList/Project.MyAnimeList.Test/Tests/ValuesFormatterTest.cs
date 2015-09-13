@@ -7,8 +7,8 @@ using Xunit;
 namespace Project.MyAnimeList.Test.Tests
 {
 	public abstract class ValuesFormatterTest :
-		IClassFixture<AnimeValuesFormatterTestFixture>
-		//IClassFixture<MangaValuesFormatterTestFixture>
+		IClassFixture<AnimeValuesFormatterTestFixture>,
+		IClassFixture<MangaValuesFormatterTestFixture>
 	{
 		/// <summary>
 		/// Compares two XML files to see if they are the same.

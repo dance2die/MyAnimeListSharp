@@ -81,6 +81,7 @@
   <ItemGroup>
     <Compile Include="Fixture\AnimeValuesFixture.cs" />
     <Compile Include="Fixture\MangaValuesFixture.cs" />
+    <Compile Include="Fixture\MangaValuesFormatterTestFixture.cs" />
     <Compile Include="Tests\DateFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesTest.cs" />
     <Compile Include="Tests\AccountMethodsTest.cs" />

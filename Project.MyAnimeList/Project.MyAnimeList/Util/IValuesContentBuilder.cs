@@ -68,4 +68,40 @@ namespace MyAnimeListSharp.Util
 			return result;
 		}
 	}
+
+	public class MangaValuesContentBuilder : ValuesContentBuilder<MangaValues>
+	{
+		/// <summary>
+		/// Build XML content according to MyAnimeList.net specification
+		/// </summary>
+		/// <remarks>
+		/// http://myanimelist.net/modules.php?go=api#animevalues
+		/// </remarks>
+		public override XElement BuildContent(MangaValues values)
+		{
+			XElement result = new XElement(
+				new XElement("entry",
+					new XElement("chapter", values.Chapter),
+					new XElement("volume", values.Volume),
+					new XElement("status", values.MangaStatus),
+					new XElement("score", values.Score),
+					new XElement("downloaded_chapters", values.DownloadedChapters),
+					new XElement("times_reread", values.TimesReread),
+					new XElement("reread_value", values.RereadValue),
+					new XElement("date_start", values.DateStart),
+					new XElement("date_finish", values.DateFinish),
+					new XElement("priority", values.Priority),
+					new XElement("enable_discussion", values.EnableDiscussion),
+					new XElement("enable_rereading", values.EnableRereading),
+					new XElement("comments", values.Comments),
+					new XElement("scan_group", values.ScanGroup),
+					new XElement("tags", values.Tags),
+					new XElement("retail_volumes", values.RetailVolumes)
+				)
+			);
+
+			return result;
+		}
+	}
+
 }

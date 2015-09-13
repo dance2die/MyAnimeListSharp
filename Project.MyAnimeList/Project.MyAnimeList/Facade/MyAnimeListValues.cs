@@ -13,7 +13,6 @@ namespace MyAnimeListSharp.Facade
 		public DateTime DateFinish { get; set; }
 		public Priority Priority { get; set; }
 		public EnableDiscussion EnableDiscussion { get; set; }
-		public EnableRewatching EnableRewatching { get; set; }
 		public string Comments { get; set; }
 		public string Tags { get; set; }
 	}

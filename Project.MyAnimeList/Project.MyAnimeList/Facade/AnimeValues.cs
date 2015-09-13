@@ -71,5 +71,6 @@ namespace MyAnimeListSharp.Facade
 		}
 
 		public string FansubGroup { get; set; }
+		public EnableRewatching EnableRewatching { get; set; }
 	}
 }

@@ -10,6 +10,7 @@ namespace MyAnimeListSharp.Facade
 		private int _downloadedChapters;
 		private int _timesReread;
 		private int _retailVolumes;
+		private int _rereadValue;
 
 		public int Chapter
 		{
@@ -17,7 +18,7 @@ namespace MyAnimeListSharp.Facade
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException("Chapter", "Chapter value cannot be negative");
+					throw new ArgumentOutOfRangeException(nameof(Chapter), "Chapter value cannot be negative");
 				_chapter = value;
 			}
 		}
@@ -28,7 +29,7 @@ namespace MyAnimeListSharp.Facade
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException("Volume", "Volume value cannot be negative");
+					throw new ArgumentOutOfRangeException(nameof(Volume), "Volume value cannot be negative");
 				_volume = value;
 			}
 		}
@@ -41,7 +42,7 @@ namespace MyAnimeListSharp.Facade
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException("DownloadedChapters", "DownloadedChapters value cannot be negative");
+					throw new ArgumentOutOfRangeException(nameof(DownloadedChapters), "DownloadedChapters value cannot be negative");
 				_downloadedChapters = value;
 			}
 		}
@@ -52,11 +53,11 @@ namespace MyAnimeListSharp.Facade
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException("RereadCount", "TimesReread value cannot be negative");
+					throw new ArgumentOutOfRangeException(nameof(TimesReread), "TimesReread value cannot be negative");
 
 				// 255 is the value that is set when the value is set to above 255 on MyAnimeList.net
 				if (value > 255)
-					throw new ArgumentOutOfRangeException("RereadCount", "TimesReread value should be less than or equal to 255");
+					throw new ArgumentOutOfRangeException(nameof(TimesReread), "TimesReread value should be less than or equal to 255");
 				_timesReread = value;
 			}
 		}
@@ -69,9 +70,22 @@ namespace MyAnimeListSharp.Facade
 			set
 			{
 				if (value < 0)
-					throw new ArgumentOutOfRangeException("RetailVolumes", "RetailVolumes value cannot be negative");
+					throw new ArgumentOutOfRangeException(nameof(RetailVolumes), "RetailVolumes value cannot be negative");
 				_retailVolumes = value;
 			}
 		}
+
+		public int RereadValue
+		{
+			get { return _rereadValue; }
+			set
+			{
+				if (value < 0)
+					throw new ArgumentOutOfRangeException(nameof(RereadValue), "RetailVolumes value cannot be negative");
+				_rereadValue = value;
+			}
+		}
+
+		public EnableRereading EnableRereading { get; set; }
 	}
 }

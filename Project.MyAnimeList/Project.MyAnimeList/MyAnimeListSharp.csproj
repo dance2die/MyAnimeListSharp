@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="Auth\CredentialContext.cs" />
     <Compile Include="Enums\EnableDiscussion.cs" />
+    <Compile Include="Enums\EnableRereading.cs" />
     <Compile Include="Enums\EnableRewatching.cs" />
     <Compile Include="Enums\Priority.cs" />
     <Compile Include="Facade\AnimeListMethods.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Util\IFormatter.cs" />
     <Compile Include="Util\IValuesContentBuilder.cs" />
     <Compile Include="Util\IXmlFormatter.cs" />
+    <Compile Include="Util\MangaValuesFormatter.cs" />
     <Compile Include="Util\RequestUriBuilder.cs" />
     <Compile Include="Parameters\VerifyCredentialsRequestParameters.cs" />
     <Compile Include="Util\Utf8StringWriter.cs" />
