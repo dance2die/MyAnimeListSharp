@@ -1,7 +1,4 @@
-﻿using System;
-using System.Xml;
-using MyAnimeListSharp.Facade;
-using MyAnimeListSharp.Util;
+﻿using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 
@@ -11,8 +8,8 @@ namespace Project.MyAnimeList.Test.Tests
 	{
 		public SearchMethodsFixture SearchMethodsFixture { get; set; }
 
-		private const string _sampleResponseString= @"
-<?xml version=""1.0"" encoding=""utf-8"" ?>
+		private const string _sampleResponseString= 
+@"<?xml version=""1.0"" encoding=""utf-8"" ?>
 <anime>
   <entry>
     <id>71</id>
@@ -50,23 +47,26 @@ namespace Project.MyAnimeList.Test.Tests
 			SearchMethodsFixture = searchMethodsFixture;
 		}
 
-		[Fact]
-		public void InvalidAnimeResponseStringCannotBeParsed()
+		[Theory]
+		[InlineData("<root></root>")]
+		[InlineData("This is not an XML string")]
+		public void InvalidAnimeResponseStringCannotBeParsed(string testXmlString)
 		{
 			var sut = new AnimeSearchResponseParser();
 
-			const string nonXmlString = "This is not an XML string";
-			bool isParsable = sut.IsParsable(nonXmlString);
+			bool isParsable = sut.IsParsable(testXmlString);
 
 			Assert.False(isParsable);
 		}
 
-		//[Fact]
-		//public void CheckThatAnimeResponseStringIsParsable()
-		//{
-		//	var sut = new AnimeSearchResponseParser();
+		[Fact]
+		public void AnimeResponseStringIsParsable()
+		{
+			var sut = new AnimeSearchResponseParser();
 
-		//	bool is
-		//}
+			bool isParsable = sut.IsParsable(_sampleResponseString);
+
+			Assert.True(isParsable);
+		}
 	}
 }

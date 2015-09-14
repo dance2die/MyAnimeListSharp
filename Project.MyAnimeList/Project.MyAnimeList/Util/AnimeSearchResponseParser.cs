@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Xml.Linq;
 using System.Xml.Schema;
 
@@ -17,19 +18,17 @@ namespace MyAnimeListSharp.Util
 				{
 					document = XDocument.Load(reader);
 				}
-				catch
+				catch (Exception ex)
 				{
 					return false;
 				}
 
 				bool error = false;
-				document.Validate(GetXmlSchemaSet(), 
+				var xmlSchemaSet = GetXmlSchemaSet();
+				document.Validate(xmlSchemaSet,
 					// Closure: Access "error" variable from outer scope to set the return value.
-					(sender, args) =>
-					{
-						if (args.Severity == XmlSeverityType.Error)
-							error = true;
-					});
+					// This event handler is called only when a validation error occurs.
+					(sender, args) => error = true);
 
 				return !error;
 			}
