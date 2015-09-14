@@ -1,20 +1,19 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AnimeSearchResponseParserTest : 
-		IClassFixture<SearchMethodsFixture>,
-		IClassFixture<AnimeSearchResponseDeserializerFixture>
+	public class AnimeSearchResponseParserTest : IClassFixture<AnimeSearchResponseDeserializerFixture>
 	{
-		private readonly SearchMethodsFixture _searchMethodsFixture;
 		private readonly AnimeSearchResponseDeserializerFixture _animeSearchResponseDeserializerFixture;
 
 		/// <summary>
-		/// A collection of invalid anime response strings
+		/// A collection of INvalid anime response strings
 		/// </summary>
 		public static IEnumerable<object[]> InvalidAnimeResponseStrings
 		{
@@ -25,53 +24,68 @@ namespace Project.MyAnimeList.Test.Tests
 			}
 		}
 
-		public AnimeSearchResponseParserTest(
-			SearchMethodsFixture searchMethodsFixture,
-			AnimeSearchResponseDeserializerFixture animeSearchResponseDeserializerFixture)
+		/// <summary>
+		/// A collection of VALID anime response strings
+		/// </summary>
+		public static IEnumerable<object> ValidAnimeSearchResponseStrings
 		{
-			_searchMethodsFixture = searchMethodsFixture;
+			get
+			{
+				yield return new object[] { GetValidSampleAnimeSearchResponseStringFromFile() };
+				yield return new object[] { GetValidSampleAnimeSearchResponseStringFromWeb() };
+			}
+		}
+
+		public AnimeSearchResponseParserTest(AnimeSearchResponseDeserializerFixture animeSearchResponseDeserializerFixture)
+		{
 			_animeSearchResponseDeserializerFixture = animeSearchResponseDeserializerFixture;
 		}
 
 		[Theory]
 		[MemberData("InvalidAnimeResponseStrings")]
-		public void InvalidAnimeResponseStringCannotBeParsed(string testXmlString)
+		public void InvalidAnimeResponseStringCannotBeParsed(string responseString)
 		{
 			var sut = _animeSearchResponseDeserializerFixture.Deserializer;
 
-			bool isParsable = sut.IsDeserializable(testXmlString);
+			bool isParsable = sut.IsDeserializable(responseString);
 
 			Assert.False(isParsable);
 		}
 
-		[Fact]
-		public void AnimeResponseStringIsDeserializable()
+
+		[Theory]
+		[MemberData("ValidAnimeSearchResponseStrings")]
+		public void AnimeResponseStringIsDeserializable(string responseString)
 		{
 			var sut = _animeSearchResponseDeserializerFixture.Deserializer;
 
-			var validResponseString = GetValidSampleAnimeSearchResponseString();
-			bool isParsable = sut.IsDeserializable(validResponseString);
+			bool isParsable = sut.IsDeserializable(responseString);
 
 			Assert.True(isParsable);
 		}
 
-		[Fact]
-		public void ValidAnimeResponseStringIsDeserializedAsAnimeSearchResponseObjectInstance()
+		[Theory]
+		[MemberData("ValidAnimeSearchResponseStrings")]
+		public void ValidAnimeResponseStringIsDeserializedAsAnimeSearchResponseObjectInstance(string responseString)
 		{
 			var sut = _animeSearchResponseDeserializerFixture.Deserializer;
 
-			var validResponseString = GetValidSampleAnimeSearchResponseString();
-			AnimeSearchResponse response = sut.Deserialize(validResponseString);
+			AnimeSearchResponse response = sut.Deserialize(responseString);
 
 			Assert.IsType<AnimeSearchResponse>(response);
 		}
 
-		private string GetValidSampleAnimeSearchResponseString()
+		private static string GetValidSampleAnimeSearchResponseStringFromFile()
 		{
 			const string filePath = @"./Xml/SampleAnimeSearchResponse.xml";
 			var result = File.ReadAllText(filePath);
 
 			return result;
+		}
+
+		private static string GetValidSampleAnimeSearchResponseStringFromWeb()
+		{
+			return new SearchMethods(new CredentialContext()).SearchAnime("Full metal");
 		}
 	}
 }
