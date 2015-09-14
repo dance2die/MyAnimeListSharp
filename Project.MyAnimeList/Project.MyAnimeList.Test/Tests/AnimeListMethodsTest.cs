@@ -111,6 +111,18 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
+		public void UpdateAnimeUsingAnimeValuesObjectInstance()
+		{
+			var sut = _animeListMethodsFixture.AnimeListMethods;
+
+			var actualResponseString = sut.UpdateAnime(ID, _animeValuesFixture.Values);
+			_output.WriteLine("Actual: {0}", actualResponseString);
+
+			const string expected = "Updated";
+			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
+		}
+
+		[Fact]
 		public void DeleteAnimeRequestReturnsDeletedText()
 		{
 			var sut = _animeListMethodsFixture.AnimeListMethods;

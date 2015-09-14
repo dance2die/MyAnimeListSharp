@@ -29,6 +29,12 @@ namespace MyAnimeListSharp.Facade
 			return GetResponseText(new UpdateAnimeRequestParameters(CredentialContext, id, data));
 		}
 
+		public string UpdateAnime(int iD, AnimeValues animeValues)
+		{
+			string data = GetDataStringFromAnimeValues(animeValues);
+			return UpdateAnime(iD, data);
+		}
+
 		public string DeleteAnime(int id)
 		{
 			return GetResponseText(new DeleteAnimeRequestParameters(CredentialContext, id));
