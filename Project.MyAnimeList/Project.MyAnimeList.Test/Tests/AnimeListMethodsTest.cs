@@ -79,24 +79,28 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void AddAnimeRequestResponseContainsCreatedText()
 		{
-			//var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 			var sut = _animeListMethodsFixture.AnimeListMethods;
 
 			const string expectedSubstring = "Created";
 			var actualString = sut.AddAnime(ID, _data);
+
 			Assert.Contains(expectedSubstring, actualString);
 		}
 
-		//[Fact]
-		//public void AddAnimeUsingAnimeValuesObjectInstance()
-		//{
-			
-		//}
+		[Fact]
+		public void AddAnimeUsingAnimeValuesObjectInstance()
+		{
+			var sut = _animeListMethodsFixture.AnimeListMethods;
+
+			const string expectedSubstring = "Created";
+			var actualString = sut.AddAnime(ID, _animeValuesFixture.Values);
+
+			Assert.Contains(expectedSubstring, actualString);
+		}
 
 		[Fact]
 		public void UpdateAnimeRequestReturnsUpdatedText()
 		{
-			//var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 			var sut = _animeListMethodsFixture.AnimeListMethods;
 
 			var actualResponseString = sut.UpdateAnime(ID, _data);
@@ -109,7 +113,6 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void DeleteAnimeRequestReturnsDeletedText()
 		{
-			//var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
 			var sut = _animeListMethodsFixture.AnimeListMethods;
 
 			var actualResponseString = sut.DeleteAnime(ID);
