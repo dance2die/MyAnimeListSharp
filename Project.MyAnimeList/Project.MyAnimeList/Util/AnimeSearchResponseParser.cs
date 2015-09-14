@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
 using System.Xml.Schema;
+using System.Xml.Serialization;
 
 namespace MyAnimeListSharp.Util
 {
@@ -41,6 +43,14 @@ namespace MyAnimeListSharp.Util
 			string schemaUri = @"./Xml/AnimeSearchResponse.xsd";
 
 			result.Add(targetNamespace, schemaUri);
+			return result;
+		}
+
+		public AnimeSearchResponse Parse(string responseString)
+		{
+			var xmlSerializer = new XmlSerializer(typeof(AnimeSearchResponse));
+			var result = xmlSerializer.Deserialize(new StringReader(responseString)) as AnimeSearchResponse;
+
 			return result;
 		}
 	}

@@ -72,6 +72,7 @@
     <Compile Include="ContentBuilders\AnimeValuesContentBuilder.cs" />
     <Compile Include="Formatters\DefaultDateTimeFormatter.cs" />
     <Compile Include="Formatters\DefaultXmlFormatter.cs" />
+    <Compile Include="Util\AnimeSearchResponse.cs" />
     <Compile Include="Util\AnimeSearchResponseParser.cs" />
     <Compile Include="Util\DictionaryToStringJoiner.cs" />
     <Compile Include="Parameters\RequestParameters.cs" />

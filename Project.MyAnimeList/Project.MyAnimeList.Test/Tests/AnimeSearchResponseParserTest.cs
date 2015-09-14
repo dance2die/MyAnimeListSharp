@@ -43,10 +43,21 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			var sut = new AnimeSearchResponseParser();
 
-			var responseString = GetSampleAnimeSearchResponseString();
-			bool isParsable = sut.IsParsable(responseString);
+			var validResponseString = GetSampleAnimeSearchResponseString();
+			bool isParsable = sut.IsParsable(validResponseString);
 
 			Assert.True(isParsable);
+		}
+
+		[Fact]
+		public void ValidAnimeResponseStringIsParsedAsAnimeSearchResponseObjectInstance()
+		{
+			var sut = new AnimeSearchResponseParser();
+
+			var validResponseString = GetSampleAnimeSearchResponseString();
+			AnimeSearchResponse response = sut.Parse(validResponseString);
+
+			Assert.IsType<AnimeSearchResponse>(response);
 		}
 
 		private string GetSampleAnimeSearchResponseString()
