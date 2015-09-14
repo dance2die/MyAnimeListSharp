@@ -1,6 +1,7 @@
 using System.IO;
 using System.Net;
 using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
 
@@ -29,6 +30,14 @@ namespace MyAnimeListSharp.Core
 			{
 				return reader.ReadToEnd();
 			}
+		}
+
+		protected string GetDataStringFromMyAnimeListValues<T>(T values) where T : MyAnimeListValues
+		{
+			var formatterFactory = new ValuesFormatterFactory();
+			var formatter = formatterFactory.Create(values);
+
+			return formatter.Format(values);
 		}
 	}
 }

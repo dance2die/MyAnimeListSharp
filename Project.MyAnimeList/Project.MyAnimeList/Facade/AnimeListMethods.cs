@@ -1,7 +1,5 @@
-using System;
 using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Core;
-using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Facade
@@ -20,7 +18,7 @@ namespace MyAnimeListSharp.Facade
 
 		public string AddAnime(int? id, AnimeValues animeValues)
 		{
-			string data = GetDataStringFromAnimeValues(animeValues);
+			string data = GetDataStringFromMyAnimeListValues(animeValues);
 			return AddAnime(id, data);
 		}
 
@@ -31,21 +29,13 @@ namespace MyAnimeListSharp.Facade
 
 		public string UpdateAnime(int iD, AnimeValues animeValues)
 		{
-			string data = GetDataStringFromAnimeValues(animeValues);
+			string data = GetDataStringFromMyAnimeListValues(animeValues);
 			return UpdateAnime(iD, data);
 		}
 
 		public string DeleteAnime(int id)
 		{
 			return GetResponseText(new DeleteAnimeRequestParameters(CredentialContext, id));
-		}
-
-		private string GetDataStringFromAnimeValues(AnimeValues animeValues)
-		{
-			var formatterFactory = new ValuesFormatterFactory();
-			var formatter = formatterFactory.Create(animeValues);
-
-			return formatter.Format(animeValues);
 		}
 	}
 }
