@@ -6,9 +6,12 @@ using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AnimeSearchResponseParserTest : IClassFixture<SearchMethodsFixture>
+	public class AnimeSearchResponseParserTest : 
+		IClassFixture<SearchMethodsFixture>,
+		IClassFixture<AnimeSearchResponseDeserializerFixture>
 	{
-		public SearchMethodsFixture SearchMethodsFixture { get; set; }
+		private readonly SearchMethodsFixture _searchMethodsFixture;
+		private readonly AnimeSearchResponseDeserializerFixture _animeSearchResponseDeserializerFixture;
 
 		/// <summary>
 		/// A collection of invalid anime response strings
@@ -22,16 +25,19 @@ namespace Project.MyAnimeList.Test.Tests
 			}
 		}
 
-		public AnimeSearchResponseParserTest(SearchMethodsFixture searchMethodsFixture)
+		public AnimeSearchResponseParserTest(
+			SearchMethodsFixture searchMethodsFixture,
+			AnimeSearchResponseDeserializerFixture animeSearchResponseDeserializerFixture)
 		{
-			SearchMethodsFixture = searchMethodsFixture;
+			_searchMethodsFixture = searchMethodsFixture;
+			_animeSearchResponseDeserializerFixture = animeSearchResponseDeserializerFixture;
 		}
 
 		[Theory]
 		[MemberData("InvalidAnimeResponseStrings")]
 		public void InvalidAnimeResponseStringCannotBeParsed(string testXmlString)
 		{
-			var sut = new AnimeSearchResponseDeserializer();
+			var sut = _animeSearchResponseDeserializerFixture.Deserializer;
 
 			bool isParsable = sut.IsDeserializable(testXmlString);
 
@@ -41,9 +47,9 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void AnimeResponseStringIsDeserializable()
 		{
-			var sut = new AnimeSearchResponseDeserializer();
+			var sut = _animeSearchResponseDeserializerFixture.Deserializer;
 
-			var validResponseString = GetSampleAnimeSearchResponseString();
+			var validResponseString = GetValidSampleAnimeSearchResponseString();
 			bool isParsable = sut.IsDeserializable(validResponseString);
 
 			Assert.True(isParsable);
@@ -52,15 +58,15 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void ValidAnimeResponseStringIsDeserializedAsAnimeSearchResponseObjectInstance()
 		{
-			var sut = new AnimeSearchResponseDeserializer();
+			var sut = _animeSearchResponseDeserializerFixture.Deserializer;
 
-			var validResponseString = GetSampleAnimeSearchResponseString();
+			var validResponseString = GetValidSampleAnimeSearchResponseString();
 			AnimeSearchResponse response = sut.Deserialize(validResponseString);
 
 			Assert.IsType<AnimeSearchResponse>(response);
 		}
 
-		private string GetSampleAnimeSearchResponseString()
+		private string GetValidSampleAnimeSearchResponseString()
 		{
 			const string filePath = @"./Xml/SampleAnimeSearchResponse.xml";
 			var result = File.ReadAllText(filePath);

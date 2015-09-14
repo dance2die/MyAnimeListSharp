@@ -84,6 +84,7 @@
     <Compile Include="Fixture\MangaListMethodsFixture.cs" />
     <Compile Include="Fixture\MangaValuesFixture.cs" />
     <Compile Include="Fixture\MangaValuesFormatterTestFixture.cs" />
+    <Compile Include="Fixture\AnimeSearchResponseDeserializerFixture.cs" />
     <Compile Include="Tests\AnimeSearchResponseParserTest.cs" />
     <Compile Include="Tests\DateFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesFormatterTest.cs" />
