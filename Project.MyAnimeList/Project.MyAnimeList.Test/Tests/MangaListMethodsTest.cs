@@ -74,7 +74,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void AddAnimeRequestResponseContainsCreatedText()
+		public void AddMangaRequestResponseContainsCreatedText()
 		{
 			var sut = _mangaListMethodsFixture.MangaListMethods;
 
