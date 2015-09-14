@@ -72,6 +72,7 @@
     <Compile Include="ContentBuilders\AnimeValuesContentBuilder.cs" />
     <Compile Include="Formatters\DefaultDateTimeFormatter.cs" />
     <Compile Include="Formatters\DefaultXmlFormatter.cs" />
+    <Compile Include="Util\AnimeSearchResponseParser.cs" />
     <Compile Include="Util\DictionaryToStringJoiner.cs" />
     <Compile Include="Parameters\RequestParameters.cs" />
     <Compile Include="Formatters\IDateTimeFormatter.cs" />
@@ -90,6 +91,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Xml\AnimeSearchResponse.xsd">
+      <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

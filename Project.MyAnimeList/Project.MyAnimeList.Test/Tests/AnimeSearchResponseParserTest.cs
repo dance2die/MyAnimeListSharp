@@ -1,4 +1,7 @@
-﻿using MyAnimeListSharp.Facade;
+﻿using System;
+using System.Xml;
+using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 
@@ -6,7 +9,7 @@ namespace Project.MyAnimeList.Test.Tests
 {
 	public class AnimeSearchResponseParserTest : IClassFixture<SearchMethodsFixture>
 	{
-		public SearchMethods SearchMethods { get; set; }
+		public SearchMethodsFixture SearchMethodsFixture { get; set; }
 
 		private const string _sampleResponseString= @"
 <?xml version=""1.0"" encoding=""utf-8"" ?>
@@ -42,15 +45,28 @@ namespace Project.MyAnimeList.Test.Tests
 </anime>
 ";
 
-		public AnimeSearchResponseParserTest(SearchMethods searchMethods)
+		public AnimeSearchResponseParserTest(SearchMethodsFixture searchMethodsFixture)
 		{
-			SearchMethods = searchMethods;
+			SearchMethodsFixture = searchMethodsFixture;
+		}
+
+		[Fact]
+		public void InvalidAnimeResponseStringCannotBeParsed()
+		{
+			var sut = new AnimeSearchResponseParser();
+
+			const string nonXmlString = "This is not an XML string";
+			bool isParsable = sut.IsParsable(nonXmlString);
+
+			Assert.False(isParsable);
 		}
 
 		//[Fact]
-		//public void ThrowExceptionIfTextIsNotParsable()
+		//public void CheckThatAnimeResponseStringIsParsable()
 		//{
+		//	var sut = new AnimeSearchResponseParser();
 
+		//	bool is
 		//}
 	}
 }
