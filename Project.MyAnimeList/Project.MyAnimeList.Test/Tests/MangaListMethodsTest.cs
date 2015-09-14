@@ -1,4 +1,5 @@
-﻿using MyAnimeListSharp.Parameters;
+﻿using System;
+using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
@@ -106,6 +107,19 @@ namespace Project.MyAnimeList.Test.Tests
 			_output.WriteLine("Actual: {0}", actualResponseString);
 			Assert.Equal("Updated", actualResponseString);
 		}
+
+		[Fact]
+		public void UpdateMangaUsingMangaValuesObjectInstance()
+		{
+			var sut = _mangaListMethodsFixture.MangaListMethods;
+
+			var actualResponseString = sut.UpdateManga(ID, _mangaValuesFixture.Values);
+			_output.WriteLine("Actual: {0}", actualResponseString);
+
+			const string expected = "Updated";
+			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
+		}
+
 
 		[Fact]
 		public void DeleteMangaRequestReturnsDeletedText()

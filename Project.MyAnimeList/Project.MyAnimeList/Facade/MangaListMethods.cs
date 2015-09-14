@@ -28,6 +28,12 @@ namespace MyAnimeListSharp.Facade
 			return GetResponseText(new UpdateMangaRequestParameters(CredentialContext, id, data));
 		}
 
+		public string UpdateManga(int? id, MangaValues mangaValues)
+		{
+			string data = GetDataStringFromMyAnimeListValues(mangaValues);
+			return UpdateManga(id, data);
+		}
+
 		public string DeleteManga(int? id)
 		{
 			return GetResponseText(new DeleteMangaRequestParameters(CredentialContext, id));
