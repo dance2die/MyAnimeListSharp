@@ -74,7 +74,7 @@
     <Compile Include="Formatters\DefaultXmlFormatter.cs" />
     <Compile Include="Util\AnimeEntry.cs" />
     <Compile Include="Util\AnimeSearchResponse.cs" />
-    <Compile Include="Util\AnimeSearchResponseParser.cs" />
+    <Compile Include="Util\AnimeSearchResponseDeserializer.cs" />
     <Compile Include="Util\DictionaryToStringJoiner.cs" />
     <Compile Include="Parameters\RequestParameters.cs" />
     <Compile Include="Formatters\IDateTimeFormatter.cs" />

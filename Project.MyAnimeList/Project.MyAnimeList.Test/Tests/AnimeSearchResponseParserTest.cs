@@ -31,31 +31,31 @@ namespace Project.MyAnimeList.Test.Tests
 		[MemberData("InvalidAnimeResponseStrings")]
 		public void InvalidAnimeResponseStringCannotBeParsed(string testXmlString)
 		{
-			var sut = new AnimeSearchResponseParser();
+			var sut = new AnimeSearchResponseDeserializer();
 
-			bool isParsable = sut.IsParsable(testXmlString);
+			bool isParsable = sut.IsDeserializable(testXmlString);
 
 			Assert.False(isParsable);
 		}
 
 		[Fact]
-		public void AnimeResponseStringIsParsable()
+		public void AnimeResponseStringIsDeserializable()
 		{
-			var sut = new AnimeSearchResponseParser();
+			var sut = new AnimeSearchResponseDeserializer();
 
 			var validResponseString = GetSampleAnimeSearchResponseString();
-			bool isParsable = sut.IsParsable(validResponseString);
+			bool isParsable = sut.IsDeserializable(validResponseString);
 
 			Assert.True(isParsable);
 		}
 
 		[Fact]
-		public void ValidAnimeResponseStringIsParsedAsAnimeSearchResponseObjectInstance()
+		public void ValidAnimeResponseStringIsDeserializedAsAnimeSearchResponseObjectInstance()
 		{
-			var sut = new AnimeSearchResponseParser();
+			var sut = new AnimeSearchResponseDeserializer();
 
 			var validResponseString = GetSampleAnimeSearchResponseString();
-			AnimeSearchResponse response = sut.Parse(validResponseString);
+			AnimeSearchResponse response = sut.Deserialize(validResponseString);
 
 			Assert.IsType<AnimeSearchResponse>(response);
 		}

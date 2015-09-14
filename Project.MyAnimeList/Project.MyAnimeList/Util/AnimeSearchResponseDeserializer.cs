@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
 using System.Xml.Schema;
@@ -7,9 +6,12 @@ using System.Xml.Serialization;
 
 namespace MyAnimeListSharp.Util
 {
-	public class AnimeSearchResponseParser
+	/// <summary>
+	/// Deserialize anime search response text into an in-memory object of type AnimeSearchResponse
+	/// </summary>
+	public class AnimeSearchResponseDeserializer
 	{
-		public bool IsParsable(string testString)
+		public bool IsDeserializable(string testString)
 		{
 			if (string.IsNullOrWhiteSpace(testString)) return false;
 
@@ -50,7 +52,7 @@ namespace MyAnimeListSharp.Util
 		/// Parses Anime search result string
 		/// </summary>
 		/// <remarks>http://stackoverflow.com/a/4085745/4035</remarks>
-		public AnimeSearchResponse Parse(string responseString)
+		public AnimeSearchResponse Deserialize(string responseString)
 		{
 			var xmlSerializer = new XmlSerializer(typeof(AnimeSearchResponse));
 			var result = xmlSerializer.Deserialize(new StringReader(responseString)) as AnimeSearchResponse;
