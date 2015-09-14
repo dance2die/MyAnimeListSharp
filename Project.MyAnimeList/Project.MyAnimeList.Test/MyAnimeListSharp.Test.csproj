@@ -84,6 +84,7 @@
     <Compile Include="Fixture\MangaListMethodsFixture.cs" />
     <Compile Include="Fixture\MangaValuesFixture.cs" />
     <Compile Include="Fixture\MangaValuesFormatterTestFixture.cs" />
+    <Compile Include="Tests\AnimeSearchResponseParserTest.cs" />
     <Compile Include="Tests\DateFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesTest.cs" />
@@ -95,6 +96,7 @@
     <Compile Include="Fixture\CredentialContextFixture.cs" />
     <Compile Include="Tests\MangaListMethodsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Fixture\SearchMethodsFixture.cs" />
     <Compile Include="Tests\SearchMethodsTest.cs" />
     <Compile Include="Tests\AnimeValuesFormatterTest.cs" />
     <Compile Include="Fixture\AnimeValuesFormatterTestFixture.cs" />
