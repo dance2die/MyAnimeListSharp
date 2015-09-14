@@ -1,5 +1,4 @@
 ﻿using System;
-using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;
@@ -9,9 +8,14 @@ using Assert = Xunit.Assert;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AnimeListMethodsTest : CredentialCollectionTest
+	public class AnimeListMethodsTest : 
+		CredentialCollectionTest, 
+		IClassFixture<AnimeValuesFixture>, 
+		IClassFixture<AnimeListMethodsFixture>
 	{
 		private readonly ITestOutputHelper _output;
+		private readonly AnimeValuesFixture _animeValuesFixture;
+		private readonly AnimeListMethodsFixture _animeListMethodsFixture;
 
 		/// <summary>
 		/// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
@@ -41,10 +45,16 @@ namespace Project.MyAnimeList.Test.Tests
 					<tags>Test Tag1, Test Tag2</tags>
 				</entry>";
 
-		public AnimeListMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output)
+		public AnimeListMethodsTest(
+			CredentialContextFixture credentialContextFixture, 
+			ITestOutputHelper output, 
+			AnimeValuesFixture animeValuesFixture,
+			AnimeListMethodsFixture animeListMethodsFixture)
 			: base(credentialContextFixture)
 		{
 			_output = output;
+			_animeValuesFixture = animeValuesFixture;
+			_animeListMethodsFixture = animeListMethodsFixture;
 		}
 
 		[Fact]
@@ -69,17 +79,25 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void AddAnimeRequestResponseContainsCreatedText()
 		{
-			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+			//var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+			var sut = _animeListMethodsFixture.AnimeListMethods;
 
 			const string expectedSubstring = "Created";
 			var actualString = sut.AddAnime(ID, _data);
 			Assert.Contains(expectedSubstring, actualString);
 		}
 
+		//[Fact]
+		//public void AddAnimeUsingAnimeValuesObjectInstance()
+		//{
+			
+		//}
+
 		[Fact]
 		public void UpdateAnimeRequestReturnsUpdatedText()
 		{
-			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+			//var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+			var sut = _animeListMethodsFixture.AnimeListMethods;
 
 			var actualResponseString = sut.UpdateAnime(ID, _data);
 			_output.WriteLine("Actual: {0}", actualResponseString);
@@ -91,7 +109,8 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void DeleteAnimeRequestReturnsDeletedText()
 		{
-			var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+			//var sut = new AnimeListMethods(CredentialContextFixture.CredentialContext);
+			var sut = _animeListMethodsFixture.AnimeListMethods;
 
 			var actualResponseString = sut.DeleteAnime(ID);
 			_output.WriteLine("Actual: {0}", actualResponseString);

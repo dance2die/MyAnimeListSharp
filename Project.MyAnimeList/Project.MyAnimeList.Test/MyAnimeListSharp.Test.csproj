@@ -79,6 +79,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Fixture\AnimeListMethodsFixture.cs" />
     <Compile Include="Fixture\AnimeValuesFixture.cs" />
     <Compile Include="Fixture\MangaValuesFixture.cs" />
     <Compile Include="Fixture\MangaValuesFormatterTestFixture.cs" />
