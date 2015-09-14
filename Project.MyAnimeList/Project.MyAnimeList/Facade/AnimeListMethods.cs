@@ -18,7 +18,7 @@ namespace MyAnimeListSharp.Facade
 
 		public string AddAnime(int? id, AnimeValues animeValues)
 		{
-			string data = GetDataStringFromMyAnimeListValues(animeValues);
+			var data = GetDataStringFromMyAnimeListValues(animeValues);
 			return AddAnime(id, data);
 		}
 
@@ -29,7 +29,7 @@ namespace MyAnimeListSharp.Facade
 
 		public string UpdateAnime(int iD, AnimeValues animeValues)
 		{
-			string data = GetDataStringFromMyAnimeListValues(animeValues);
+			var data = GetDataStringFromMyAnimeListValues(animeValues);
 			return UpdateAnime(iD, data);
 		}
 

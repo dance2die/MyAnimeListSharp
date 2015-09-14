@@ -1,4 +1,3 @@
-using System;
 using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Parameters;
@@ -19,7 +18,7 @@ namespace MyAnimeListSharp.Facade
 
 		public string AddManga(int? id, MangaValues mangaValues)
 		{
-			string data = GetDataStringFromMyAnimeListValues(mangaValues);
+			var data = GetDataStringFromMyAnimeListValues(mangaValues);
 			return AddManga(id, data);
 		}
 
@@ -30,7 +29,7 @@ namespace MyAnimeListSharp.Facade
 
 		public string UpdateManga(int? id, MangaValues mangaValues)
 		{
-			string data = GetDataStringFromMyAnimeListValues(mangaValues);
+			var data = GetDataStringFromMyAnimeListValues(mangaValues);
 			return UpdateManga(id, data);
 		}
 
