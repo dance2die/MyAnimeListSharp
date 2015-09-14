@@ -75,15 +75,17 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void AddMangaRequestResponseContainsCreatedText()
+		public void AddMangaRequestResponseReturnsUniqueRowId()
 		{
 			var sut = _mangaListMethodsFixture.MangaListMethods;
 
-			const string expectedSubstring = "Created";
 			var actualResponseString = sut.AddManga(ID, _data);
 
 			_output.WriteLine(actualResponseString);
-			Assert.Contains(expectedSubstring, actualResponseString);
+
+			int uniqueId;
+			bool isNumber = int.TryParse(actualResponseString, out uniqueId);
+			Assert.True(isNumber);
 		}
 
 		[Fact]
