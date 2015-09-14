@@ -55,7 +55,7 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void TestAddMangaRequestParametersMethod()
+		public void AddMangaRequestParametersMethodReturnsPostHttpMethod()
 		{
 			var sut = new AddMangaRequestParameters(CredentialContextFixture.CredentialContext, ID, _data);
 
@@ -74,21 +74,20 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void TestAddMangaRequestReturnString()
+		public void AddAnimeRequestResponseContainsCreatedText()
 		{
-			//var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
 			var sut = _mangaListMethodsFixture.MangaListMethods;
 
-			var responseString = sut.AddManga(ID, _data);
+			const string expectedSubstring = "Created";
+			var actualResponseString = sut.AddManga(ID, _data);
 
-			_output.WriteLine(responseString);
-			Assert.False(string.IsNullOrEmpty(responseString));
+			_output.WriteLine(actualResponseString);
+			Assert.Contains(expectedSubstring, actualResponseString);
 		}
 
 		[Fact]
-		public void TestUpdateMangaRequest()
+		public void UpdateMangaRequestReturnsUpdatedText()
 		{
-			//var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
 			var sut = _mangaListMethodsFixture.MangaListMethods;
 
 			var actualResponseString = sut.UpdateManga(ID, _data);
@@ -98,9 +97,8 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void TestDeleteMangaRequest()
+		public void DeleteMangaRequestReturnsDeletedText()
 		{
-			//var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
 			var sut = _mangaListMethodsFixture.MangaListMethods;
 
 			var actualResponseString = sut.DeleteManga(ID);
