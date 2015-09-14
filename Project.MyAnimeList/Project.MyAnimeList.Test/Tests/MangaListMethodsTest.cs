@@ -86,6 +86,17 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
+		public void AddMangaUsingMangaValuesObjectInstance()
+		{
+			var sut = _mangaListMethodsFixture.MangaListMethods;
+
+			const string expectedSubstring = "Created";
+			var actualResponseString = sut.AddManga(ID, _mangaValuesFixture.Values);
+
+			Assert.Contains(expectedSubstring, actualResponseString);
+		}
+
+		[Fact]
 		public void UpdateMangaRequestReturnsUpdatedText()
 		{
 			var sut = _mangaListMethodsFixture.MangaListMethods;
