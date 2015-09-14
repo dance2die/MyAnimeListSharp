@@ -46,6 +46,10 @@ namespace MyAnimeListSharp.Util
 			return result;
 		}
 
+		/// <summary>
+		/// Parses Anime search result string
+		/// </summary>
+		/// <remarks>http://stackoverflow.com/a/4085745/4035</remarks>
 		public AnimeSearchResponse Parse(string responseString)
 		{
 			var xmlSerializer = new XmlSerializer(typeof(AnimeSearchResponse));
