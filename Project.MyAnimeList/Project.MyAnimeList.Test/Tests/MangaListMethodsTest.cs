@@ -1,5 +1,4 @@
-﻿using MyAnimeListSharp.Facade;
-using MyAnimeListSharp.Parameters;
+﻿using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
@@ -7,9 +6,14 @@ using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class MangaListMethodsTest : CredentialCollectionTest
+	public class MangaListMethodsTest : 
+		CredentialCollectionTest, 
+		IClassFixture<MangaValuesFixture>,
+		IClassFixture<MangaListMethodsFixture>
 	{
 		private readonly ITestOutputHelper _output;
+		private readonly MangaValuesFixture _mangaValuesFixture;
+		private readonly MangaListMethodsFixture _mangaListMethodsFixture;
 
 		/// <summary>
 		/// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
@@ -38,10 +42,16 @@ namespace Project.MyAnimeList.Test.Tests
 				<retail_volumes></retail_volumes>
 			</entry>";
 
-		public MangaListMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output)
+		public MangaListMethodsTest(
+			CredentialContextFixture credentialContextFixture, 
+			ITestOutputHelper output,
+			MangaValuesFixture mangaValuesFixture,
+			MangaListMethodsFixture mangaListMethodsFixture)
 			: base(credentialContextFixture)
 		{
 			_output = output;
+			_mangaValuesFixture = mangaValuesFixture;
+			_mangaListMethodsFixture = mangaListMethodsFixture;
 		}
 
 		[Fact]
@@ -66,7 +76,8 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void TestAddMangaRequestReturnString()
 		{
-			var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
+			//var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
+			var sut = _mangaListMethodsFixture.MangaListMethods;
 
 			var responseString = sut.AddManga(ID, _data);
 
@@ -77,7 +88,8 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void TestUpdateMangaRequest()
 		{
-			var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
+			//var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
+			var sut = _mangaListMethodsFixture.MangaListMethods;
 
 			var actualResponseString = sut.UpdateManga(ID, _data);
 
@@ -88,7 +100,8 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void TestDeleteMangaRequest()
 		{
-			var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
+			//var sut = new MangaListMethods(CredentialContextFixture.CredentialContext);
+			var sut = _mangaListMethodsFixture.MangaListMethods;
 
 			var actualResponseString = sut.DeleteManga(ID);
 
