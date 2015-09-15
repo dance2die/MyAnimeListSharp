@@ -15,16 +15,16 @@ namespace Project.MyAnimeList.Test.Tests
 			_mangaSearchResponseDeserializerFixture = mangaSearchResponseDeserializerFixture;
 		}
 
-		//[Theory]
-		//[MemberData("InvalidAnimeResponseStrings")]
-		//public void InvalidAnimeResponseStringCannotBeParsed(string responseString)
-		//{
-		//	var sut = _mangaSearchResponseDeserializerFixture.Deserializer;
+		[Theory]
+		[InvalidResponseStringData]
+		public void InvalidAnimeResponseStringCannotBeParsed(string responseString)
+		{
+			var sut = _mangaSearchResponseDeserializerFixture.Deserializer;
 
-		//	bool isParsable = sut.IsDeserializable(responseString);
+			bool isParsable = sut.IsDeserializable(responseString);
 
-		//	Assert.False(isParsable);
-		//}
+			Assert.False(isParsable);
+		}
 	}
 
 	public class MangaSearchResponseDeserializer
