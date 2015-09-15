@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Facade;
@@ -30,8 +31,17 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Theory]
+		[InvalidResponseStringData]
+		public void DeserializingInvalidMangaResponseStringThrowsException(string responseString)
+		{
+			var sut = _mangaSearchResponseDeserializerFixture.Deserializer;
+
+			Assert.Throws<InvalidOperationException>(() => sut.Deserialize(responseString));
+		}
+
+		[Theory]
 		[MemberData("ValidMangaSearchResponseStrings")]
-		public void ValidAnimeResponseStringIsDeserializedAsAnimeSearchResponseObjectInstance(string responseString)
+		public void ValidMangaResponseStringIsDeserializedAsMangaSearchResponseObjectInstance(string responseString)
 		{
 			var sut = _mangaSearchResponseDeserializerFixture.Deserializer;
 
