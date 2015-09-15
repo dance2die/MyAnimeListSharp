@@ -1,4 +1,5 @@
-﻿using MyAnimeListSharp.Facade;
+﻿using MyAnimeListSharp.Core;
+using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 

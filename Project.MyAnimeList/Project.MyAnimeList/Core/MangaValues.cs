@@ -1,8 +1,7 @@
 using System;
-using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
 
-namespace MyAnimeListSharp.Facade
+namespace MyAnimeListSharp.Core
 {
 	public class MangaValues : MyAnimeListValues
 	{

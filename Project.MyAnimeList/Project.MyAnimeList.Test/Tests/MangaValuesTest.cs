@@ -1,4 +1,5 @@
 ﻿using System;
+using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;

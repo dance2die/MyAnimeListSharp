@@ -49,8 +49,8 @@
     <Compile Include="Enums\Priority.cs" />
     <Compile Include="Facade\AnimeListMethods.cs" />
     <Compile Include="Facade\AccountMethods.cs" />
-    <Compile Include="Facade\AnimeValues.cs" />
-    <Compile Include="Facade\MangaValues.cs" />
+    <Compile Include="Core\AnimeValues.cs" />
+    <Compile Include="Core\MangaValues.cs" />
     <Compile Include="Enums\MangaStatus.cs" />
     <Compile Include="Core\MyAnimeListValues.cs" />
     <Compile Include="Formatters\NullValuesFormatter.cs" />

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Xml.Linq;
 using MyAnimeListSharp;
+using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
 using Xunit;
