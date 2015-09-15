@@ -13,18 +13,6 @@ namespace Project.MyAnimeList.Test.Tests
 		private readonly AnimeSearchResponseDeserializerFixture _animeSearchResponseDeserializerFixture;
 
 		/// <summary>
-		/// A collection of INvalid anime response strings
-		/// </summary>
-		public static IEnumerable<object[]> InvalidAnimeResponseStrings
-		{
-			get
-			{
-				yield return new object[] { "<root></root>" };
-				yield return new object[] { "This is not an XML string" };
-			}
-		}
-
-		/// <summary>
 		/// A collection of VALID anime response strings
 		/// </summary>
 		public static IEnumerable<object> ValidAnimeSearchResponseStrings
@@ -42,7 +30,8 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Theory]
-		[MemberData("InvalidAnimeResponseStrings")]
+		//[MemberData("InvalidResponseStrings")]
+		[InvalidResponseStringData]
 		public void InvalidAnimeResponseStringCannotBeParsed(string responseString)
 		{
 			var sut = _animeSearchResponseDeserializerFixture.Deserializer;

@@ -87,6 +87,8 @@
     <Compile Include="Fixture\AnimeSearchResponseDeserializerFixture.cs" />
     <Compile Include="Tests\AnimeSearchResponseDeserializerTest.cs" />
     <Compile Include="Tests\DateFormatterTest.cs" />
+    <Compile Include="Tests\InvalidResponseStringDataAttribute.cs" />
+    <Compile Include="Tests\MangaSearchResponseDeserializerTest.cs" />
     <Compile Include="Tests\MangaValuesFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesTest.cs" />
     <Compile Include="Tests\AccountMethodsTest.cs" />
@@ -108,6 +110,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="Xml\MangaSearchResponse.xsd">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Project.MyAnimeList\MyAnimeListSharp.csproj">
@@ -117,6 +122,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Xml\SampleAnimeSearchResponse.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Xml\SampleMangaSearchResponse.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
