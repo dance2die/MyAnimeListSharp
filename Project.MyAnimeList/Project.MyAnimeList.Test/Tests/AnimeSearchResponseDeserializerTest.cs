@@ -28,30 +28,7 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			_animeSearchResponseDeserializerFixture = animeSearchResponseDeserializerFixture;
 		}
-
-		[Theory]
-		[InvalidResponseStringData]
-		public void InvalidAnimeResponseStringCannotBeParsed(string responseString)
-		{
-			var sut = _animeSearchResponseDeserializerFixture.Deserializer;
-
-			bool isParsable = sut.IsDeserializable(responseString);
-
-			Assert.False(isParsable);
-		}
-
-
-		[Theory]
-		[MemberData("ValidAnimeSearchResponseStrings")]
-		public void AnimeResponseStringIsDeserializable(string responseString)
-		{
-			var sut = _animeSearchResponseDeserializerFixture.Deserializer;
-
-			bool isParsable = sut.IsDeserializable(responseString);
-
-			Assert.True(isParsable);
-		}
-
+		
 		[Theory]
 		[MemberData("ValidAnimeSearchResponseStrings")]
 		public void ValidAnimeResponseStringIsDeserializedAsAnimeSearchResponseObjectInstance(string responseString)

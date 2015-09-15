@@ -12,6 +12,6 @@ namespace MyAnimeListSharp.Util
 	public class AnimeSearchResponse
 	{
 		[XmlElement("entry")]
-		public List<AnimeEntry> AnimeEntries { get; set; } = new List<AnimeEntry>();
+		public List<AnimeEntry> Entries { get; set; } = new List<AnimeEntry>();
 	}
 }
