@@ -83,9 +83,13 @@ namespace Project.MyAnimeList.Test.Tests
 
 			_output.WriteLine(actualResponseString);
 
+			// If no record was added, then a unique ID returned,
 			int uniqueId;
 			bool isNumber = int.TryParse(actualResponseString, out uniqueId);
-			Assert.True(isNumber);
+			// Else "201 Created" response is returned.
+			bool hasCreatedTextInIt = actualResponseString.Contains("Created");
+
+			Assert.True(isNumber || hasCreatedTextInIt);
 		}
 
 		[Fact]
