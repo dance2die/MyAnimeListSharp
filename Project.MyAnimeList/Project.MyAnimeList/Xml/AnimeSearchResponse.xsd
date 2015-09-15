@@ -14,8 +14,8 @@
 							<xs:element name="score" type="xs:decimal" />
 							<xs:element name="type" type="xs:string" />
 							<xs:element name="status" type="xs:string" />
-							<xs:element name="start_date" type="xs:date" />
-							<xs:element name="end_date" type="xs:date" />
+							<xs:element name="start_date" type="xs:string" />
+							<xs:element name="end_date" type="xs:string" />
 							<xs:element name="synopsis" type="xs:string" />
 							<xs:element name="image" type="xs:anyURI" />
 						</xs:sequence>

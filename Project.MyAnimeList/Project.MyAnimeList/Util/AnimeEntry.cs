@@ -1,4 +1,5 @@
 using System;
+using System.Globalization;
 using System.Xml.Serialization;
 
 namespace MyAnimeListSharp.Util
@@ -30,10 +31,18 @@ namespace MyAnimeListSharp.Util
 		public string Status { get; set; }
 
 		[XmlElement(ElementName = "start_date")]
-		public DateTime StartDate { get; set; }
+		public string StartDate { get; set; }
 
 		[XmlElement(ElementName = "end_date")]
-		public DateTime EndDate { get; set; }
+		public string EndDate { get; set; }
+
+		//private bool IsDate(DateTime? value)
+		//{
+		//	if (value == null) return false;
+
+		//	DateTime outValue;
+		//	return DateTime.TryParse(value.Value.ToString(CultureInfo.InvariantCulture), out outValue);
+		//}
 
 		[XmlElement(ElementName = "synopsis")]
 		public string Synopsis { get; set; }

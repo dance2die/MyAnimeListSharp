@@ -8,7 +8,7 @@ using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AnimeSearchResponseParserTest : IClassFixture<AnimeSearchResponseDeserializerFixture>
+	public class AnimeSearchResponseDeserializerTest : IClassFixture<AnimeSearchResponseDeserializerFixture>
 	{
 		private readonly AnimeSearchResponseDeserializerFixture _animeSearchResponseDeserializerFixture;
 
@@ -36,7 +36,7 @@ namespace Project.MyAnimeList.Test.Tests
 			}
 		}
 
-		public AnimeSearchResponseParserTest(AnimeSearchResponseDeserializerFixture animeSearchResponseDeserializerFixture)
+		public AnimeSearchResponseDeserializerTest(AnimeSearchResponseDeserializerFixture animeSearchResponseDeserializerFixture)
 		{
 			_animeSearchResponseDeserializerFixture = animeSearchResponseDeserializerFixture;
 		}

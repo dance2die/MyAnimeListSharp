@@ -1,6 +1,7 @@
 ﻿using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Parameters;
+using MyAnimeListSharp.Util;
 
 namespace MyAnimeListSharp.Facade
 {
@@ -14,6 +15,12 @@ namespace MyAnimeListSharp.Facade
 		public string SearchAnime(string searchTerm)
 		{
 			return GetResponseText(new AnimeSearchRequestParameters(CredentialContext, searchTerm));
+		}
+
+		public AnimeSearchResponse SearchAnimeDeserialized(string searchTerm)
+		{
+			var responseString = SearchAnime(searchTerm);
+			return new AnimeSearchResponseDeserializer().Deserialize(responseString);
 		}
 
 		public string SearchManga(string searchTerm)

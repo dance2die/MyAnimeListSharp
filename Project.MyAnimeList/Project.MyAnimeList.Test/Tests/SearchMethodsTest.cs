@@ -58,6 +58,15 @@ namespace Project.MyAnimeList.Test.Tests
 
 		[Theory]
 		[InlineData("Naruto")]
+		public void SearchAnimeDeserializedReturnsAnimeSearchResponseObject(string searchTerm)
+		{
+			var responseObject = Sut.SearchAnimeDeserialized(searchTerm);
+
+			Assert.IsType<AnimeSearchResponse>(responseObject);
+		}
+
+		[Theory]
+		[InlineData("Naruto")]
 		[InlineData("Full Metal")]
 		public void TestSearchMangaReturnsNotEmpty(string searchTerm)
 		{
