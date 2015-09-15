@@ -27,5 +27,11 @@ namespace MyAnimeListSharp.Facade
 		{
 			return GetResponseText(new MangaSearchRequestParameters(CredentialContext, searchTerm));
 		}
+
+		public MangaSearchResponse SearchMangaDeserialized(string searchTerm)
+		{
+			var responseString = SearchManga(searchTerm);
+			return new MangaSearchResponseDeserializer().Deserialize(responseString);
+		}
 	}
 }

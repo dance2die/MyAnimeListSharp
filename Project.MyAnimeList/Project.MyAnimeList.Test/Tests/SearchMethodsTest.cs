@@ -74,5 +74,14 @@ namespace Project.MyAnimeList.Test.Tests
 
 			Assert.False(string.IsNullOrEmpty(response));
 		}
+
+		[Theory]
+		[InlineData("Naruto")]
+		public void SearchMangaDeserializedReturnsMangaSearchResponseObject(string searchTerm)
+		{
+			var responseObject = Sut.SearchMangaDeserialized(searchTerm);
+
+			Assert.IsType<MangaSearchResponse>(responseObject);
+		}
 	}
 }
