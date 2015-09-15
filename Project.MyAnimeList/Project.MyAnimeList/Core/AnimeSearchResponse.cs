@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.Core
 {
 	/// <summary>
 	/// Class representing AnimeSearch result

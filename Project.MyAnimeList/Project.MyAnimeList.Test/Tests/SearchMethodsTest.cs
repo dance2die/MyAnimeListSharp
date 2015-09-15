@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Parameters;
 using MyAnimeListSharp.Util;

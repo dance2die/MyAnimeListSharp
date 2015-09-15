@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Util;
 using Project.MyAnimeList.Test.Fixture;

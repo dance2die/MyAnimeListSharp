@@ -1,8 +1,8 @@
 using System.Xml.Serialization;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.Core
 {
-	public class MangaEntry
+	public class AnimeEntry
 	{
 		[XmlElement(ElementName = "id")]
 		public int Id { get; set; }
@@ -16,11 +16,8 @@ namespace MyAnimeListSharp.Util
 		[XmlElement(ElementName = "synonyms")]
 		public string Synonyms { get; set; }
 
-		[XmlElement(ElementName = "chapters")]
-		public int Chapters { get; set; }
-
-		[XmlElement(ElementName = "volumes")]
-		public int Volumes { get; set; }
+		[XmlElement(ElementName = "episodes")]
+		public int Episodes { get; set; }
 
 		[XmlElement(ElementName = "score")]
 		public double Score { get; set; }
@@ -42,5 +39,6 @@ namespace MyAnimeListSharp.Util
 
 		[XmlElement(ElementName = "image")]
 		public string Image { get; set; }
+
 	}
 }

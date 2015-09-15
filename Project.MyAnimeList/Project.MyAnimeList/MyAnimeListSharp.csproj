@@ -72,8 +72,8 @@
     <Compile Include="ContentBuilders\AnimeValuesContentBuilder.cs" />
     <Compile Include="Formatters\DefaultDateTimeFormatter.cs" />
     <Compile Include="Formatters\DefaultXmlFormatter.cs" />
-    <Compile Include="Util\AnimeEntry.cs" />
-    <Compile Include="Util\AnimeSearchResponse.cs" />
+    <Compile Include="Core\AnimeEntry.cs" />
+    <Compile Include="Core\AnimeSearchResponse.cs" />
     <Compile Include="Util\AnimeSearchResponseDeserializer.cs" />
     <Compile Include="Util\DictionaryToStringJoiner.cs" />
     <Compile Include="Parameters\RequestParameters.cs" />
@@ -83,8 +83,8 @@
     <Compile Include="Formatters\IXmlFormatter.cs" />
     <Compile Include="ContentBuilders\MangaValuesContentBuilder.cs" />
     <Compile Include="Formatters\MangaValuesFormatter.cs" />
-    <Compile Include="Util\MangaEntry.cs" />
-    <Compile Include="Util\MangaSearchResponse.cs" />
+    <Compile Include="Core\MangaEntry.cs" />
+    <Compile Include="Core\MangaSearchResponse.cs" />
     <Compile Include="Util\MangaSearchResponseDeserializer.cs" />
     <Compile Include="Util\RequestUriBuilder.cs" />
     <Compile Include="Parameters\VerifyCredentialsRequestParameters.cs" />

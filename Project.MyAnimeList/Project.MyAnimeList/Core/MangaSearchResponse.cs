@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace MyAnimeListSharp.Util
+namespace MyAnimeListSharp.Core
 {
 	[Serializable, XmlRoot("manga")]
 	public class MangaSearchResponse
