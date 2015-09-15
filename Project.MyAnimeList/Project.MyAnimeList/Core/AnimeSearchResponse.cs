@@ -9,7 +9,7 @@ namespace MyAnimeListSharp.Core
 	/// </summary>
 	/// <remarks>http://stackoverflow.com/a/608181/4035</remarks>
 	[Serializable, XmlRoot("anime")]
-	public class AnimeSearchResponse
+	public class AnimeSearchResponse : ISearchResponse<AnimeEntry>
 	{
 		[XmlElement("entry")]
 		public List<AnimeEntry> Entries { get; set; } = new List<AnimeEntry>();

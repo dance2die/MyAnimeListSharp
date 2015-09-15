@@ -20,7 +20,7 @@ namespace MyAnimeListSharp.Facade
 		public AnimeSearchResponse SearchAnimeDeserialized(string searchTerm)
 		{
 			var responseString = SearchAnime(searchTerm);
-			return new AnimeSearchResponseDeserializer().Deserialize(responseString);
+			return new SearchResponseDeserializer<AnimeSearchResponse>().Deserialize(responseString);
 		}
 
 		public string SearchManga(string searchTerm)
@@ -31,7 +31,7 @@ namespace MyAnimeListSharp.Facade
 		public MangaSearchResponse SearchMangaDeserialized(string searchTerm)
 		{
 			var responseString = SearchManga(searchTerm);
-			return new MangaSearchResponseDeserializer().Deserialize(responseString);
+			return new SearchResponseDeserializer<MangaSearchResponse>().Deserialize(responseString);
 		}
 	}
 }
