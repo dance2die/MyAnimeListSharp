@@ -83,6 +83,9 @@
     <Compile Include="Formatters\IXmlFormatter.cs" />
     <Compile Include="ContentBuilders\MangaValuesContentBuilder.cs" />
     <Compile Include="Formatters\MangaValuesFormatter.cs" />
+    <Compile Include="Util\MangaEntry.cs" />
+    <Compile Include="Util\MangaSearchResponse.cs" />
+    <Compile Include="Util\MangaSearchResponseDeserializer.cs" />
     <Compile Include="Util\RequestUriBuilder.cs" />
     <Compile Include="Parameters\VerifyCredentialsRequestParameters.cs" />
     <Compile Include="Util\Utf8StringWriter.cs" />

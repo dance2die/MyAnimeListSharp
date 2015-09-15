@@ -1,4 +1,4 @@
-using Project.MyAnimeList.Test.Tests;
+using MyAnimeListSharp.Util;
 
 namespace Project.MyAnimeList.Test.Fixture
 {
