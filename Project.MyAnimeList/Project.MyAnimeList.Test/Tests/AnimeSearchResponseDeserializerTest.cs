@@ -30,7 +30,6 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Theory]
-		//[MemberData("InvalidResponseStrings")]
 		[InvalidResponseStringData]
 		public void InvalidAnimeResponseStringCannotBeParsed(string responseString)
 		{
