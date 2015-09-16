@@ -23,5 +23,4 @@ namespace MyAnimeListSharp.Formatters
 			return string.Empty;
 		}
 	}
-
 }

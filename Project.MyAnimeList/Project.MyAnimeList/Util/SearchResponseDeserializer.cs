@@ -10,11 +10,11 @@ namespace MyAnimeListSharp.Util
 		public T Deserialize(string responseString)
 		{
 			using (var stringReader = new StringReader(responseString))
-			using (var xmlReader = XmlReader.Create(stringReader, new XmlReaderSettings { DtdProcessing = DtdProcessing.Ignore }))
+			using (var xmlReader = XmlReader.Create(stringReader, new XmlReaderSettings {DtdProcessing = DtdProcessing.Ignore}))
 			{
 				DisableUndeclaredEntityCheck(xmlReader);
 
-				var xmlSerializer = new XmlSerializer(typeof(T));
+				var xmlSerializer = new XmlSerializer(typeof (T));
 				var result = xmlSerializer.Deserialize(xmlReader) as T;
 				return result;
 			}

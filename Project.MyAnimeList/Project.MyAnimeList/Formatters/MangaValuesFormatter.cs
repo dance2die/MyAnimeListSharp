@@ -1,6 +1,5 @@
 ﻿using MyAnimeListSharp.ContentBuilders;
 using MyAnimeListSharp.Core;
-using MyAnimeListSharp.Facade;
 
 namespace MyAnimeListSharp.Formatters
 {
