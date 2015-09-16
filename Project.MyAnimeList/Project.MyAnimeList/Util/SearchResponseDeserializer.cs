@@ -23,7 +23,12 @@ namespace MyAnimeListSharp.Util
 		/// <summary>
 		/// Using reflection, disable undeclared XML entity check for the specified XML reader.
 		/// </summary>
-		/// <remarks>http://stackoverflow.com/a/22787825/4035</remarks>
+		/// <remarks>
+		/// Code available on <see cref="http://stackoverflow.com/a/22787825/4035"/>
+		/// The main reason that forced me to use this was because of "&mdash;" entity in returned response string.
+		/// There were other entities that cannot be just hardcoded 
+		/// so I decided to just ignore them all during deserialzation process.
+		/// </remarks>
 		private static void DisableUndeclaredEntityCheck(XmlReader xmlReader)
 		{
 			PropertyInfo propertyInfo = xmlReader.GetType().GetProperty(
