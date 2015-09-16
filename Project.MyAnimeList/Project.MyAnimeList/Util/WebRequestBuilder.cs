@@ -22,6 +22,15 @@ namespace MyAnimeListSharp.Util
 			if (result == null)
 				throw new InvalidOperationException("Could not create web request");
 
+			SetWebRequestProperties(result);
+
+			WritePostBody(result);
+
+			return result;
+		}
+
+		private void SetWebRequestProperties(HttpWebRequest result)
+		{
 			result.ContentType = "application/x-www-form-urlencoded";
 
 			// credit
@@ -34,10 +43,6 @@ namespace MyAnimeListSharp.Util
 			//// credit
 			//// https://github.com/LHCGreg/mal-api/blob/f6c82c95d139807a1d6259200ec7622384328bc3/MalApi/MyAnimeListApi.cs
 			result.AutomaticDecompression = DecompressionMethods.GZip;
-
-			WritePostBody(result);
-
-			return result;
 		}
 
 		private void WritePostBody(HttpWebRequest request)
