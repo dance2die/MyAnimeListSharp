@@ -33,7 +33,7 @@ namespace MyAnimeListSharp.Util
 
 			//// credit
 			//// https://github.com/LHCGreg/mal-api/blob/f6c82c95d139807a1d6259200ec7622384328bc3/MalApi/MyAnimeListApi.cs
-			//result.AutomaticDecompression = DecompressionMethods.GZip;
+			result.AutomaticDecompression = DecompressionMethods.GZip;
 
 			WritePostBody(result);
 
