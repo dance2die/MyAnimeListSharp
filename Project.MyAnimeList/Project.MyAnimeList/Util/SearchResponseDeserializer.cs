@@ -30,7 +30,7 @@ namespace MyAnimeListSharp.Util
 		/// Using reflection, disable undeclared XML entity check for the specified XML reader.
 		/// </summary>
 		/// <remarks>http://stackoverflow.com/a/22787825/4035</remarks>
-		protected static void DisableUndeclaredEntityCheck(XmlReader xmlReader)
+		private static void DisableUndeclaredEntityCheck(XmlReader xmlReader)
 		{
 			PropertyInfo propertyInfo = xmlReader.GetType().GetProperty(
 				"DisableUndeclaredEntityCheck", BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
