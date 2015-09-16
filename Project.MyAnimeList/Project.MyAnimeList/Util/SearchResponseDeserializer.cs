@@ -7,12 +7,6 @@ namespace MyAnimeListSharp.Util
 {
 	public class SearchResponseDeserializer<T> where T : class
 	{
-		///// <summary>
-		///// Parses Anime search result string
-		///// </summary>
-		///// <remarks>http://stackoverflow.com/a/4085745/4035</remarks>
-		//public abstract T Deserialize(string responseString);
-
 		public T Deserialize(string responseString)
 		{
 			using (var stringReader = new StringReader(responseString))
