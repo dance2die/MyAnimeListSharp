@@ -9,12 +9,12 @@ namespace MyAnimeListSharp.Core
 {
 	public abstract class MyAnimeListMethods
 	{
+		protected ICredentialContext CredentialContext { get; }
+
 		protected MyAnimeListMethods(ICredentialContext credentialContext)
 		{
 			CredentialContext = credentialContext;
 		}
-
-		public ICredentialContext CredentialContext { get; set; }
 
 		/// <summary>
 		///     Template method to return response text
@@ -32,7 +32,7 @@ namespace MyAnimeListSharp.Core
 			}
 		}
 
-		protected string GetDataStringFromMyAnimeListValues<T>(T values) where T : MyAnimeListValues
+		protected string GetDataStringFromMyAnimeListValues(MyAnimeListValues values)
 		{
 			var formatterFactory = new ValuesFormatterFactory();
 			var formatter = formatterFactory.Create(values);
