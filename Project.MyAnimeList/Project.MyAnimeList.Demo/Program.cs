@@ -1,5 +1,7 @@
 ﻿using System;
 using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Core;
+using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
 
 namespace Project.MyAnimeList.Demo
@@ -63,12 +65,22 @@ namespace Project.MyAnimeList.Demo
 
 			//TestSearch(credential);
 			//TestCredentials(credential);
-			TestAddAnime(credential);
-
+			//TestAddAnime(credential);
 			//TestAddManga(credential);
+
+			TestAddAnimeByObject(credential);
 
 			Console.WriteLine("Press ENTER to continue...");
 			Console.ReadLine();
+		}
+
+		private static void TestAddAnimeByObject(ICredentialContext credential)
+		{
+			var methods = new AnimeListMethods(credential);
+			AnimeValues animeValues = new AnimeValues {AnimeStatus = AnimeStatus.Watching};
+			var responseText = methods.AddAnime(ANIME_ID, animeValues);
+
+			Console.WriteLine(responseText);
 		}
 
 		private static void TestAddAnime(ICredentialContext credential)
