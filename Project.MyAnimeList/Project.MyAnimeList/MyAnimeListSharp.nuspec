@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <dependencies>
+      <group targetFramework="net452">
+        <dependency id="CreateNewNuGetPackageFromProjectAfterEachBuild" version="1.8.8" />
+      </group>
+    </dependencies>
+    <id>MyAnimeListSharp</id>
+    <version>1.2.0.0</version>
+    <title>MyAnimeListSharp</title>
+    <authors>dance2die</authors>
+    <owners>Sung Kim</owners>
+    <description>Search, Add, Update, Delete Anime/Manga information on MyAnimeList.net using Web API (http://myanimelist.net/modules.php?go=api)</description>
+    <summary>In this version, you can add Manga/Anime values using objects instead of using a plain XML string.
+Refer to https://github.com/dance2die/Project.MyAnimeList for more information</summary>
+    <language />
+    <licenseUrl>http://opensource.org/licenses/MIT</licenseUrl>
+    <projectUrl>https://github.com/dance2die/Project.MyAnimeList</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <releaseNotes>In this version, you can add Manga/Anime values using objects instead of using a plain XML string.
+Refer to https://github.com/dance2die/Project.MyAnimeList for more information</releaseNotes>
+    <copyright>Copyright © Sung Kim 2015</copyright>
+    <tags>MyAnimeList, Anime, Web API, MyAnimeListSharp</tags>
+  </metadata>
+  <files>
+    <file src="C:\misc\sources\Repos\Project.MyAnimeList\Project.MyAnimeList\Project.MyAnimeList\bin\Debug\MyAnimeListSharp.dll" target="lib\net452" />
+  </files>
+</package>
