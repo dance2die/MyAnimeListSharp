@@ -35,9 +35,9 @@ namespace MyAnimeListSharp.Core
 		protected string GetDataStringFromMyAnimeListValues(MyAnimeListValues values)
 		{
 			var formatterFactory = new ValuesFormatterFactory();
-			var formatter = formatterFactory.Create(values);
+			dynamic formatter = formatterFactory.Create(values);
 
-			return formatter.Format(values);
+			return formatter.Format((dynamic)values);
 		}
 	}
 }

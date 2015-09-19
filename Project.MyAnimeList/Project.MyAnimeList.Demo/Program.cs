@@ -69,9 +69,9 @@ namespace Project.MyAnimeList.Demo
 			//TestCredentials(credential);
 			//TestAddAnime(credential);
 			//TestAddManga(credential);
-			//TestAddAnimeByObject(credential);
+			TestAddAnimeByObject(credential);
 
-			TestGenericInterfaces();
+			//TestGenericInterfaces();
 
 			Console.WriteLine("Press ENTER to continue...");
 			Console.ReadLine();

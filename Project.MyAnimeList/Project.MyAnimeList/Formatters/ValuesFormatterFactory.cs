@@ -15,12 +15,14 @@ namespace MyAnimeListSharp.Formatters
 			_supportedTypes = GetSupportedTypes();
 		}
 
-		public ValuesFormatter<T> Create<T>(T values) where T : MyAnimeListValues
+		//public object Create<T>(T values) where T : MyAnimeListValues
+		public object Create(MyAnimeListValues values)
 		{
 			Type type = GetTypeToCreate(values);
 			if (type == null)
-				return new NullValuesFormatter<T>();
-			return Activator.CreateInstance(type) as ValuesFormatter<T>;
+				return new NullValuesFormatter<MyAnimeListValues>();
+			//return Activator.CreateInstance(type) as ValuesFormatter<T>;
+			return Activator.CreateInstance(type);
 		}
 
 		private Type GetTypeToCreate(MyAnimeListValues values)
