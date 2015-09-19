@@ -8,7 +8,7 @@
 
 ## How to Install
 ### Nuget
-[Install-Package MyAnimeListSharp](https://www.nuget.org/packages/MyAnimeListSharp/1.0.0)
+[Install-Package MyAnimeListSharp](https://www.nuget.org/packages/MyAnimeListSharp/)
 
 
 ## Examples
