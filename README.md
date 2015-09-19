@@ -89,7 +89,5 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 
 
 ## Plan for the Next Release
-Another collection of facade classes to generate XML values for
-* [Anime Values](http://myanimelist.net/modules.php?go=api#animevalues)
-* [Manga Values](http://myanimelist.net/modules.php?go=api#mangavalues)
+* Add/Update Asynchronously
  
