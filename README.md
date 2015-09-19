@@ -45,6 +45,30 @@
 	Console.WriteLine(mangaResponse);
 ```
 
+### Add Anime
+```c#
+	var methods = new AnimeListMethods(credential);
+	var animeValues = new AnimeValues
+	{
+		AnimeStatus = AnimeStatus.Watching,
+		Comments = "It was a great series."
+	};
+	var responseText = methods.AddAnime(ANIME_ID, animeValues);
+	Console.WriteLine(responseText);
+```
+
+### Add Manga
+```c#
+	var methods = new MangaListMethods(credential);
+	var mangaValues = new MangaValues
+	{
+		MangaStatus = MangaStatus.Reading,
+		Comments = "I am planning to read this"
+	};
+	var responseText = methods.AddManga(MANGA_ID, mangaValues);
+	Console.WriteLine(responseText);
+```
+
 
 ## Note
 For some reason, Add/Update Anime methods return errors from MyAnimeList.net server.
@@ -65,7 +89,5 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 
 
 ## Plan for the Next Release
-Another collection of facade classes to generate XML values for
-* [Anime Values](http://myanimelist.net/modules.php?go=api#animevalues)
-* [Manga Values](http://myanimelist.net/modules.php?go=api#mangavalues)
+* Add/Update Asynchronously
  
