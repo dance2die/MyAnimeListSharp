@@ -70,6 +70,7 @@ namespace Project.MyAnimeList.Demo
 			//TestAddAnime(credential);
 			//TestAddManga(credential);
 			TestAddAnimeByObject(credential);
+			TestAddMangaByObject(credential);
 
 			Console.WriteLine("Press ENTER to continue...");
 			Console.ReadLine();
@@ -84,6 +85,19 @@ namespace Project.MyAnimeList.Demo
 				Comments = "It was a great series."
 			};
 			var responseText = methods.AddAnime(ANIME_ID, animeValues);
+
+			Console.WriteLine(responseText);
+		}
+
+		private static void TestAddMangaByObject(ICredentialContext credential)
+		{
+			var methods = new MangaListMethods(credential);
+			var mangaValues = new MangaValues
+			{
+				MangaStatus = MangaStatus.Reading,
+				Comments = "I am planning to read this"
+			};
+			var responseText = methods.AddManga(MANGA_ID, mangaValues);
 
 			Console.WriteLine(responseText);
 		}
