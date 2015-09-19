@@ -71,22 +71,18 @@ namespace Project.MyAnimeList.Demo
 			//TestAddManga(credential);
 			TestAddAnimeByObject(credential);
 
-			//TestGenericInterfaces();
-
 			Console.WriteLine("Press ENTER to continue...");
 			Console.ReadLine();
-		}
-
-		private static void TestGenericInterfaces()
-		{
-			var formatFactory = new FormatFactory();
-			
 		}
 
 		private static void TestAddAnimeByObject(ICredentialContext credential)
 		{
 			var methods = new AnimeListMethods(credential);
-			AnimeValues animeValues = new AnimeValues {AnimeStatus = AnimeStatus.Watching};
+			var animeValues = new AnimeValues
+			{
+				AnimeStatus = AnimeStatus.Watching,
+				Comments = "It was a great series."
+			};
 			var responseText = methods.AddAnime(ANIME_ID, animeValues);
 
 			Console.WriteLine(responseText);
@@ -134,53 +130,4 @@ namespace Project.MyAnimeList.Demo
 			Console.WriteLine(responseFromServer);
 		}
 	}
-
-	public class FormatFactory
-	{
-		private Dictionary<Type, Type> _formatTypes;
-
-		public FormatFactory()
-		{
-			_formatTypes = GetFormatTypes();
-		}
-
-		private Dictionary<Type, Type> GetFormatTypes()
-		{
-			var result = new Dictionary<Type, Type>();
-			var types = Assembly.GetExecutingAssembly().GetTypes();
-
-			foreach (Type type in types)
-			{
-				
-			}
-			
-			return result;
-		}
-	}
-
-	public interface IFormat<T>
-	{
-		string Format(T value);
-	}
-
-	public abstract class FormatBase<T> : IFormat<T> where T : Entry
-	{
-		public abstract string Format(T value);
-	}
-
-	public class AnimeFormat : FormatBase<AnimeEntry>
-	{
-		public override string Format(AnimeEntry value) { return ""; }
-	}
-
-	public class MangaFormat : FormatBase<MangaEntry>
-	{
-		public override string Format(MangaEntry value) {return "";}
-	}
-
-	public class AnimeEntry : Entry{}
-
-	public class MangaEntry : Entry{}
-
-	public abstract class Entry{}
 }

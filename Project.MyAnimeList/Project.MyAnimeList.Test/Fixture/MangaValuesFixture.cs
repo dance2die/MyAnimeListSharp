@@ -1,7 +1,6 @@
 ﻿using System;
 using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
-using MyAnimeListSharp.Facade;
 
 namespace Project.MyAnimeList.Test.Fixture
 {
