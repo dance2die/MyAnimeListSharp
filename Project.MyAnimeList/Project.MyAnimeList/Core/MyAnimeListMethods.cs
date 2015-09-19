@@ -37,6 +37,7 @@ namespace MyAnimeListSharp.Core
 			var formatterFactory = new ValuesFormatterFactory();
 			dynamic formatter = formatterFactory.Create(values);
 
+			// https://coding.abel.nu/2012/04/dynamic-overload-resolution/
 			return formatter.Format((dynamic)values);
 		}
 	}
