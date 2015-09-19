@@ -45,6 +45,31 @@
 	Console.WriteLine(mangaResponse);
 ```
 
+### Add Anime
+```c#
+	var methods = new AnimeListMethods(credential);
+	var animeValues = new AnimeValues
+	{
+		AnimeStatus = AnimeStatus.Watching,
+		Comments = "It was a great series."
+	};
+	var responseText = methods.AddAnime(ANIME_ID, animeValues);
+	
+	Console.WriteLine(responseText);
+```
+
+### Add Manga
+```c#
+	var methods = new MangaListMethods(credential);
+	var mangaValues = new MangaValues
+	{
+		MangaStatus = MangaStatus.Reading,
+		Comments = "I am planning to read this"
+	};
+	var responseText = methods.AddManga(MANGA_ID, mangaValues);
+	Console.WriteLine(responseText);
+```
+
 
 ## Note
 For some reason, Add/Update Anime methods return errors from MyAnimeList.net server.
