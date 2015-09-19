@@ -54,7 +54,6 @@
 		Comments = "It was a great series."
 	};
 	var responseText = methods.AddAnime(ANIME_ID, animeValues);
-	
 	Console.WriteLine(responseText);
 ```
 
