@@ -11,9 +11,11 @@ namespace MyAnimeListSharp.Formatters
 		///     Format the date time according to MyAnimeList.net specification
 		/// </summary>
 		/// <remarks>http://myanimelist.net/modules.php?go=api#animevalues</remarks>
-		public string Format(DateTime dateTime)
+		public string Format(DateTime? dateTime)
 		{
-			return dateTime.ToString("MMddyyyy");
+			if (!dateTime.HasValue)
+				return string.Empty;
+			return dateTime.Value.ToString("MMddyyyy");
 		}
 	}
 }

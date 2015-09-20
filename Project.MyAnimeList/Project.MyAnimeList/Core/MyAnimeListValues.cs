@@ -9,8 +9,8 @@ namespace MyAnimeListSharp.Core
 	public abstract class MyAnimeListValues
 	{
 		public Score Score { get; set; }
-		public DateTime DateStart { get; set; }
-		public DateTime DateFinish { get; set; }
+		public DateTime? DateStart { get; set; }
+		public DateTime? DateFinish { get; set; }
 		public Priority Priority { get; set; }
 		public EnableDiscussion EnableDiscussion { get; set; }
 		public string Comments { get; set; }

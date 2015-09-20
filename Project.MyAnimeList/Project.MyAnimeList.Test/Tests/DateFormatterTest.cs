@@ -1,16 +1,18 @@
 ﻿using System;
 using MyAnimeListSharp.Formatters;
-using MyAnimeListSharp.Util;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
 {
 	public class DateFormatterTest
 	{
+		private readonly ITestOutputHelper _output;
 		private readonly IDateTimeFormatter _dateTimeFormatter;
 
-		public DateFormatterTest()
+		public DateFormatterTest(ITestOutputHelper output)
 		{
+			_output = output;
 			_dateTimeFormatter = new DefaultDateTimeFormatter();
 		}
 
@@ -25,6 +27,16 @@ namespace Project.MyAnimeList.Test.Tests
 			string actual = _dateTimeFormatter.Format(new DateTime(year, month, day));
 
 			Assert.Equal(expected, actual);
+		}
+
+		[Fact]
+		public void IfDateTimeIsNotSpecifiedReturnEmptyString()
+		{
+			string actual = _dateTimeFormatter.Format(null);
+
+			var expected = "";
+			_output.WriteLine("Actual: {0}", _output);
+            Assert.Equal(expected, actual);
 		}
 	}
 }
