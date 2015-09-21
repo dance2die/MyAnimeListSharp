@@ -78,8 +78,7 @@ I created unit tests under an assumption that they are not functional
 ## Overview
 ### Facade of MyAnimeList Web API
 There is a 1:1 matching between the Web API and the source code.
-Note that `MyAnimeListMethods` is a base class, which is not to be usually used by your code (unless you are implementing a factory class to return different type of *Methods object instance.)
-![Image of Facade](http://i.imgur.com/iMbqzEj.png)
+![Image of Facade](http://i.imgur.com/IwUvS8w.jpg)
 
 These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master/Project.MyAnimeList/Project.MyAnimeList/Facade) classes are the only classes you need to be concerned with.
 * [AccountMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/AccountMethods.cs)
