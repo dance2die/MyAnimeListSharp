@@ -91,4 +91,4 @@ I created unit tests under an assumption that they are not functional
 
 ## Plan for the Next Release
 * Add/Update Asynchronously
- 
+* Convert Deserialized response objects to different formats like JSON or XML: will be performed using Extension methods
