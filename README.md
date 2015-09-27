@@ -1,10 +1,24 @@
 # Welcome to MyAnimeListSharp
+## The easiest way to search Anime/Manga on MyAnimeList.net
 
 * **What**: .NET library for accessing MyAnimeList.net Web API ([API Documentation](http://myanimelist.net/modules.php?go=api))
+* **Why is it easy to use?**: Refer to the overview.
 * **Framework**: .NET 4.5.2
 * **Contact Info**: [@dance2die](https://twitter.com/dance2die)
 * **License**: [The MIT License](http://opensource.org/licenses/MIT)
 
+
+## Overview
+### Facade of MyAnimeList Web API
+There is a 1:1 matching between the Web API and the source code.
+![Image of Facade](http://i.imgur.com/IwUvS8w.jpg)
+
+These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master/Project.MyAnimeList/Project.MyAnimeList/Facade) classes are the only classes you need to be concerned with.
+* [AccountMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/AccountMethods.cs)
+* [AnimeListMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/AnimeListMethods.cs)
+* [MangaListMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/MangaListMethods.cs)
+* [SearchMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/SearchMethods.cs)
+ 
 
 ## How to Install
 ### Nuget
@@ -73,18 +87,6 @@
 ## Note
 For some reason, Add/Update Anime methods return errors from MyAnimeList.net server.
 I created unit tests under an assumption that they are not functional
-
-
-## Overview
-### Facade of MyAnimeList Web API
-There is a 1:1 matching between the Web API and the source code.
-![Image of Facade](http://i.imgur.com/IwUvS8w.jpg)
-
-These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master/Project.MyAnimeList/Project.MyAnimeList/Facade) classes are the only classes you need to be concerned with.
-* [AccountMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/AccountMethods.cs)
-* [AnimeListMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/AnimeListMethods.cs)
-* [MangaListMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/MangaListMethods.cs)
-* [SearchMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/SearchMethods.cs)
 
 
 ## Plan for the Next Release
