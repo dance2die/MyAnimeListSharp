@@ -3,9 +3,12 @@ using MyAnimeListSharp.Core;
 
 namespace MyAnimeListSharp.Formatters
 {
+	/// <summary>
+	/// Format MyAnimeListValues object instances into XML
+	/// </summary>
 	public abstract class ValuesFormatter<T> : IFormatter<T> where T : MyAnimeListValues
 	{
-		protected IXmlFormatter _xmlFormatter;
+		protected readonly IXmlFormatter _xmlFormatter;
 
 		protected ValuesFormatter(IXmlFormatter xmlFormatter)
 		{

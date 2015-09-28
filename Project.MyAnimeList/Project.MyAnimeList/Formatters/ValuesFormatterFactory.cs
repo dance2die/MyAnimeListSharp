@@ -15,13 +15,11 @@ namespace MyAnimeListSharp.Formatters
 			_supportedTypes = GetSupportedTypes();
 		}
 
-		//public object Create<T>(T values) where T : MyAnimeListValues
 		public object Create(MyAnimeListValues values)
 		{
 			Type type = GetTypeToCreate(values);
 			if (type == null)
 				return new NullValuesFormatter<MyAnimeListValues>();
-			//return Activator.CreateInstance(type) as ValuesFormatter<T>;
 			return Activator.CreateInstance(type);
 		}
 
@@ -35,12 +33,11 @@ namespace MyAnimeListSharp.Formatters
 				select _supportedTypes[supportedType.Key]).FirstOrDefault();
 		}
 
-
 		private Dictionary<string, Type> GetSupportedTypes()
 		{
-			Dictionary<string, Type> result = new Dictionary<string, Type>();
-
+			var result = new Dictionary<string, Type>();
 			var types = Assembly.GetExecutingAssembly().GetTypes();
+
 			foreach (Type type in types)
 			{
 				//if (type.IsGenericType && type.GetGenericTypeDefinition() == typeof (ValuesFormatter<MyAnimeListValues>))

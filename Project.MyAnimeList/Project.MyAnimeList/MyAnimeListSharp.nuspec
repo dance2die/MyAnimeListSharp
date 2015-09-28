@@ -25,6 +25,6 @@ Refer to https://github.com/dance2die/Project.MyAnimeList for more information</
     <tags>MyAnimeList, Anime, Web API, MyAnimeListSharp</tags>
   </metadata>
   <files>
-    <file src="C:\misc\sources\Repos\Project.MyAnimeList\Project.MyAnimeList\Project.MyAnimeList\bin\Debug\MyAnimeListSharp.dll" target="lib\net452" />
+    <file src="C:\Users\skim\Source\Repos\Project.MyAnimeList\Project.MyAnimeList\Project.MyAnimeList\bin\Debug\MyAnimeListSharp.dll" target="lib\net452" />
   </files>
 </package>
