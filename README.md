@@ -84,11 +84,6 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 ```
 
 
-## Note
-For some reason, Add/Update Anime methods return errors from MyAnimeList.net server.
-I created unit tests under an assumption that they are not functional
-
-
 ## Plan for the Next Release
 * Add/Update Asynchronously
 * Convert Deserialized response objects to different formats like JSON or XML: will be performed using Extension methods
