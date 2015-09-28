@@ -5,6 +5,9 @@ using MyAnimeListSharp.Util;
 
 namespace MyAnimeListSharp.Formatters
 {
+	/// <summary>
+	/// Convert XDocument to a string
+	/// </summary>
 	public class DefaultXmlFormatter : IXmlFormatter
 	{
 		public string Format(XDocument document)

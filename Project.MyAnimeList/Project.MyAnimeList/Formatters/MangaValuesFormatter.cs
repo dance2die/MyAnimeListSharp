@@ -3,6 +3,9 @@ using MyAnimeListSharp.Core;
 
 namespace MyAnimeListSharp.Formatters
 {
+	/// <summary>
+	/// Format "MangaValues" object instance as an XML string
+	/// </summary>
 	public class MangaValuesFormatter : ValuesFormatter<MangaValues>
 	{
 		private readonly IValuesContentBuilder<MangaValues> _valuesContentBuilder;
