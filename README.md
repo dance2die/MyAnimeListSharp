@@ -2,14 +2,13 @@
 ## The "Easiest" way to search Anime/Manga on MyAnimeList.net
 
 * **What**: .NET library for accessing MyAnimeList.net Web API ([API Documentation](http://myanimelist.net/modules.php?go=api))
-* **Why is it easy to use?**: Refer to the overview.
 * **Framework**: .NET 4.5.2
 * **Contact Info**: [@dance2die](https://twitter.com/dance2die)
 * **License**: [The MIT License](http://opensource.org/licenses/MIT)
 
 
 ## Overview
-### Facade makes the coding "Simple"
+### Facade makes the coding "Simple" and "Easy" to use.
 There is a 1:1 matching between the Web API and the source code.
 ![Image of Facade](http://i.imgur.com/IwUvS8w.jpg)
 
