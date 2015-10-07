@@ -1,5 +1,7 @@
-﻿using MyAnimeListSharp.Auth;
+﻿using System.Threading.Tasks;
+using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Core;
+using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Facade.Async
 {
@@ -8,6 +10,11 @@ namespace MyAnimeListSharp.Facade.Async
 		public AnimeSearchMethods(ICredentialContext credentialContext) 
 			: base(credentialContext)
 		{
+		}
+
+		public async Task<string> SearchAsync(string searchTerm)
+		{
+			return await GetResponseTextTask(new AnimeSearchRequestParameters(CredentialContext, searchTerm));
 		}
 	}
 }

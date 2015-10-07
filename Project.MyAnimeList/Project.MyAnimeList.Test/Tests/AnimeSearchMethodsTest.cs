@@ -1,5 +1,7 @@
 ﻿using MyAnimeListSharp.Facade.Async;
 using Project.MyAnimeList.Test.Fixture;
+using Xunit;
+using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
 {
@@ -15,12 +17,26 @@ namespace Project.MyAnimeList.Test.Tests
 	/// </remarks>
 	public class AnimeSearchMethodsTest : CredentialCollectionTest
 	{
-		public AnimeSearchMethods Sut { get; }
+		private readonly ITestOutputHelper _output;
+		private readonly AnimeSearchMethods _sut;
 
-		public AnimeSearchMethodsTest(CredentialContextFixture credentialContextFixture) 
+		public AnimeSearchMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output) 
 			: base(credentialContextFixture)
 		{
-			Sut = new AnimeSearchMethods(credentialContextFixture.CredentialContext);
+			_output = output;
+			_sut = new AnimeSearchMethods(credentialContextFixture.CredentialContext);
 		}
+
+		[Theory]
+		[InlineData("Naruto")]
+		[InlineData("Full Metal")]
+		public async void SearchAsyncReturnValueIsNotEmpty(string searchTerm)
+		{
+			string response = await _sut.SearchAsync(searchTerm);
+
+			_output.WriteLine(response);
+			Assert.False(string.IsNullOrEmpty(response));
+		}
+
 	}
 }
