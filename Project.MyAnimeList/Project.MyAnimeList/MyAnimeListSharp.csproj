@@ -44,6 +44,7 @@
     <Compile Include="Core\AnimeEntry.cs" />
     <Compile Include="Core\EntryBase.cs" />
     <Compile Include="Core\ISearchResponse.cs" />
+    <Compile Include="Core\MyAnimeListMethodsAsync.cs" />
     <Compile Include="Enums\EnableDiscussion.cs" />
     <Compile Include="Enums\EnableRereading.cs" />
     <Compile Include="Enums\EnableRewatching.cs" />
@@ -54,6 +55,7 @@
     <Compile Include="Core\MangaValues.cs" />
     <Compile Include="Enums\MangaStatus.cs" />
     <Compile Include="Core\MyAnimeListValues.cs" />
+    <Compile Include="Facade\Async\AnimeSearchMethods.cs" />
     <Compile Include="Formatters\NullValuesFormatter.cs" />
     <Compile Include="Formatters\ValuesFormatterFactory.cs" />
     <Compile Include="Parameters\DeleteMangaRequestParameters.cs" />
@@ -108,9 +110,7 @@
     <None Include="_CreateNewNuGetPackage\DoNotModify\UploadNuGetPackage.ps1" />
     <None Include="_CreateNewNuGetPackage\RunMeToUploadNuGetPackage.cmd" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Facade\Async\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>REM Create a NuGet package for this project and place the .nupkg file in the project's output directory.

@@ -1,4 +1,5 @@
-﻿using Project.MyAnimeList.Test.Fixture;
+﻿using MyAnimeListSharp.Facade.Async;
+using Project.MyAnimeList.Test.Fixture;
 
 namespace Project.MyAnimeList.Test.Tests
 {
@@ -12,11 +13,14 @@ namespace Project.MyAnimeList.Test.Tests
 	/// <see cref="http://stackoverflow.com/a/14098942/4035"/>
 	/// <see cref="http://stackoverflow.com/q/17664191/4035"/>
 	/// </remarks>
-	public class AnimeSearchMethods : CredentialCollectionTest
+	public class AnimeSearchMethodsTest : CredentialCollectionTest
 	{
-		public AnimeSearchMethods(CredentialContextFixture credentialContextFixture) 
+		public AnimeSearchMethods Sut { get; }
+
+		public AnimeSearchMethodsTest(CredentialContextFixture credentialContextFixture) 
 			: base(credentialContextFixture)
 		{
+			Sut = new AnimeSearchMethods(credentialContextFixture.CredentialContext);
 		}
 	}
 }
