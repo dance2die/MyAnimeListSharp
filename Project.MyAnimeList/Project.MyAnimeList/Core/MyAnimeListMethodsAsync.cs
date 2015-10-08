@@ -23,11 +23,11 @@ namespace MyAnimeListSharp.Core
 			var request = requestBuilder.BuildWebRequest();
 
 			using (HttpWebResponse response = (HttpWebResponse) await Task.Factory.FromAsync<WebResponse>(
-				request.BeginGetResponse, request.EndGetResponse, request))
+				request.BeginGetResponse, request.EndGetResponse, request).ConfigureAwait(false))
 			using (Stream responseStream = response.GetResponseStream())
 			using (StreamReader reader = new StreamReader(responseStream))
 			{
-				return await reader.ReadToEndAsync();
+				return await reader.ReadToEndAsync().ConfigureAwait(false);
 			}
 		}
 	}

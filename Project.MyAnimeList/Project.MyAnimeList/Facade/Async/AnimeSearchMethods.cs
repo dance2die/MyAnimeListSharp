@@ -20,7 +20,8 @@ namespace MyAnimeListSharp.Facade.Async
 
 		public async Task<AnimeSearchResponse> SearchDeserializedAsync(string searchTerm)
 		{
-			var response = await SearchAsync(searchTerm);
+			// ConfigureAwait(false) => There is no need to overload the workload by marshalling the current context.
+			var response = await SearchAsync(searchTerm).ConfigureAwait(false);
 			if (string.IsNullOrWhiteSpace(response))
 				return new AnimeSearchResponse();
 
