@@ -1,4 +1,5 @@
-﻿using MyAnimeListSharp.Facade.Async;
+﻿using MyAnimeListSharp.Core;
+using MyAnimeListSharp.Facade.Async;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
@@ -30,12 +31,35 @@ namespace Project.MyAnimeList.Test.Tests
 		[Theory]
 		[InlineData("Naruto")]
 		[InlineData("Full Metal")]
-		public async void SearchAsyncReturnValueIsNotEmpty(string searchTerm)
+		public async void SearchAsyncResponseIsNotEmpty(string searchTerm)
 		{
 			string response = await _sut.SearchAsync(searchTerm);
 
 			_output.WriteLine(response);
-			Assert.False(string.IsNullOrEmpty(response));
+			Assert.False(string.IsNullOrWhiteSpace(response));
+		}
+
+		[Theory]
+		[InlineData("Attack on Titan")]
+		[InlineData("Code Geass")]
+		[InlineData("Naruto")]
+		public async void SearchDeserializedAsyncResponseHasEntries(string searchTerm)
+		{
+			AnimeSearchResponse response = await _sut.SearchDeserializedAsync(searchTerm);
+
+			_output.WriteLine($"response.Entries.Count = {response.Entries.Count}");
+			Assert.True(response.Entries.Count > 0);
+		}
+
+		[Theory]
+		[InlineData("Oh My Goddess")]
+		[InlineData("xyzopqrstu")]
+		public async void SearchDeserializedAsyncResponseHasNoEntry(string searchTerm)
+		{
+			AnimeSearchResponse response = await _sut.SearchDeserializedAsync(searchTerm);
+
+			_output.WriteLine($"response.Entries.Count = {response.Entries.Count}");
+			Assert.True(response.Entries.Count == 0);
 		}
 
 	}
