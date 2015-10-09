@@ -1,4 +1,5 @@
-﻿using MyAnimeListSharp.Facade.Async;
+﻿using MyAnimeListSharp.Core;
+using MyAnimeListSharp.Facade.Async;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
@@ -26,6 +27,29 @@ namespace Project.MyAnimeList.Test.Tests
 
 			_output.WriteLine(response);
 			Assert.False(string.IsNullOrWhiteSpace(response));
+		}
+
+		[Theory]
+		[InlineData("Attack on Titan")]
+		[InlineData("Code Geass")]
+		[InlineData("Naruto")]
+		public async void SearchDeserializedAsyncResponseHasEntries(string searchTerm)
+		{
+			MangaSearchResponse response = await _sut.SearchDeserializedAsync(searchTerm);
+
+			_output.WriteLine($"response.Entries.Count = {response.Entries.Count}");
+			Assert.True(response.Entries.Count > 0);
+		}
+
+		[Theory]
+		[InlineData("a;dlsfjasdf")]
+		[InlineData("xyzopqrstu")]
+		public async void SearchDeserializedAsyncResponseHasNoEntry(string searchTerm)
+		{
+			MangaSearchResponse response = await _sut.SearchDeserializedAsync(searchTerm);
+
+			_output.WriteLine($"response.Entries.Count = {response.Entries.Count}");
+			Assert.True(response.Entries.Count == 0);
 		}
 	}
 }
