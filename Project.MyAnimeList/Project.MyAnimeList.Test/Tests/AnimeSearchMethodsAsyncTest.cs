@@ -16,16 +16,16 @@ namespace Project.MyAnimeList.Test.Tests
 	/// <see cref="http://stackoverflow.com/a/14098942/4035"/>
 	/// <see cref="http://stackoverflow.com/q/17664191/4035"/>
 	/// </remarks>
-	public class AnimeSearchMethodsTest : CredentialCollectionTest
+	public class AnimeSearchMethodsAsyncTest : CredentialCollectionTest
 	{
 		private readonly ITestOutputHelper _output;
-		private readonly AnimeSearchMethods _sut;
+		private readonly AnimeSearchMethodsAsync _sut;
 
-		public AnimeSearchMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output) 
+		public AnimeSearchMethodsAsyncTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output) 
 			: base(credentialContextFixture)
 		{
 			_output = output;
-			_sut = new AnimeSearchMethods(credentialContextFixture.CredentialContext);
+			_sut = new AnimeSearchMethodsAsync(credentialContextFixture.CredentialContext);
 		}
 
 		[Theory]

@@ -55,8 +55,8 @@
     <Compile Include="Core\MangaValues.cs" />
     <Compile Include="Enums\MangaStatus.cs" />
     <Compile Include="Core\MyAnimeListValues.cs" />
-    <Compile Include="Facade\Async\AnimeSearchMethods.cs" />
-    <Compile Include="Facade\Async\MangaSearchMethods.cs" />
+    <Compile Include="Facade\Async\AnimeSearchMethodsAsync.cs" />
+    <Compile Include="Facade\Async\MangaSearchMethodsAsync.cs" />
     <Compile Include="Formatters\NullValuesFormatter.cs" />
     <Compile Include="Formatters\ValuesFormatterFactory.cs" />
     <Compile Include="Parameters\DeleteMangaRequestParameters.cs" />

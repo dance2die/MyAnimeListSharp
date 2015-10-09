@@ -6,16 +6,16 @@ using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class MangaSearchMethodsTest : CredentialCollectionTest
+	public class MangaSearchMethodsAsyncTest : CredentialCollectionTest
 	{
 		private readonly ITestOutputHelper _output;
-		private readonly MangaSearchMethods _sut;
+		private readonly MangaSearchMethodsAsync _sut;
 
-		public MangaSearchMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output) 
+		public MangaSearchMethodsAsyncTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output) 
 			: base(credentialContextFixture)
 		{
 			_output = output;
-			_sut = new MangaSearchMethods(credentialContextFixture.CredentialContext);
+			_sut = new MangaSearchMethodsAsync(credentialContextFixture.CredentialContext);
 		}
 
 		[Theory]

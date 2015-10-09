@@ -6,9 +6,9 @@ using MyAnimeListSharp.Util;
 
 namespace MyAnimeListSharp.Facade.Async
 {
-	public class MangaSearchMethods : MyAnimeListMethodsAsync
+	public class MangaSearchMethodsAsync : MyAnimeListMethodsAsync
 	{
-		public MangaSearchMethods(ICredentialContext credentialContext) 
+		public MangaSearchMethodsAsync(ICredentialContext credentialContext) 
 			: base(credentialContext)
 		{
 		}
