@@ -15,7 +15,7 @@ namespace MyAnimeListSharp.Facade.Async
 
 		public async Task<string> SearchAsync(string searchTerm)
 		{
-			return await GetResponseTextTask(new AnimeSearchRequestParameters(CredentialContext, searchTerm));
+			return await GetResponseTextAsync(new AnimeSearchRequestParameters(CredentialContext, searchTerm));
 		}
 
 		public async Task<AnimeSearchResponse> SearchDeserializedAsync(string searchTerm)
