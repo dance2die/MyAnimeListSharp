@@ -86,6 +86,7 @@
     <Compile Include="Tests\DateFormatterTest.cs" />
     <Compile Include="Tests\InvalidResponseStringDataAttribute.cs" />
     <Compile Include="Fixture\MangaSearchResponseDeserializerFixture.cs" />
+    <Compile Include="Tests\MangaSearchMethodsTest.cs" />
     <Compile Include="Tests\MangaSearchResponseDeserializerTest.cs" />
     <Compile Include="Tests\MangaValuesFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesTest.cs" />
