@@ -1,14 +1,18 @@
 ﻿using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
+using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
 {
 	public class AccountMethodsTest : CredentialCollectionTest
 	{
-		public AccountMethodsTest(CredentialContextFixture credentialContextFixture) 
+		private readonly ITestOutputHelper _output;
+
+		public AccountMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output) 
 			: base(credentialContextFixture)
 		{
+			_output = output;
 		}
 
 		[Fact]
@@ -25,7 +29,12 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			var sut = new AccountMethods(CredentialContextFixture.CredentialContext);
 
-			Assert.False(string.IsNullOrEmpty(sut.VerifyCredentials()));
+			var credentials = sut.VerifyCredentials();
+			_output.WriteLine(credentials);
+
+			Assert.False(string.IsNullOrEmpty(credentials));
+			Assert.Contains("id", credentials);
+			Assert.Contains("username", credentials);
 		}
 	}
 }
