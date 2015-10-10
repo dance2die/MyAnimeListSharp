@@ -37,5 +37,17 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.Contains(expectedSubstring, actualString);
 		}
 
+		[Fact]
+		public async void AddAnimeUsingAnimeValuesObjectInstance()
+		{
+			var sut = _animeListMethodsAsyncFixture.AnimeListMethods;
+
+			const string expectedSubstring = "Created";
+			string actualString = await sut.AddAnimeAsync(AnimeValuesFixture.AnimeId, _animeValuesFixture.Values);
+
+			_output.WriteLine(actualString);
+			Assert.Contains(expectedSubstring, actualString);
+		}
+
 	}
 }
