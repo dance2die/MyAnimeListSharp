@@ -17,7 +17,7 @@ namespace MyAnimeListSharp.Core
 		{
 		}
 
-		protected async Task<string> GetResponseTextAsync(SearchRequestParameters requestParameters)
+		protected async Task<string> GetResponseTextAsync(RequestParameters requestParameters)
 		{
 			var requestBuilder = new WebRequestBuilder(requestParameters);
 			var request = requestBuilder.BuildWebRequest();

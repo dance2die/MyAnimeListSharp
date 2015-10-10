@@ -1,4 +1,7 @@
-﻿using Project.MyAnimeList.Test.Fixture;
+﻿using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Facade.Async;
+using Project.MyAnimeList.Test.Fixture;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
@@ -11,6 +14,19 @@ namespace Project.MyAnimeList.Test.Tests
 			: base(credentialContextFixture)
 		{
 			_output = output;
+		}
+
+		[Fact]
+		public async void TestVerifiyCredentialsNotEmpty()
+		{
+			var sut = new AccountMethodsAsync(CredentialContextFixture.CredentialContext);
+
+			string credentials = await sut.VerifyCredentialsAsync();
+			_output.WriteLine(credentials);
+
+			Assert.False(string.IsNullOrWhiteSpace(credentials));
+			Assert.Contains("id", credentials);
+			Assert.Contains("username", credentials);
 		}
 	}
 }
