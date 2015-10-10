@@ -1,14 +1,20 @@
+using System.Threading.Tasks;
 using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Core;
+using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Facade.Async
 {
-	public class AnimeListMethodsAsync
+	public class AnimeListMethodsAsync : MyAnimeListMethodsAsync
 	{
-		private ICredentialContext credentialContext;
-
-		public AnimeListMethodsAsync(ICredentialContext credentialContext)
+		public AnimeListMethodsAsync(ICredentialContext credentialContext) 
+			: base(credentialContext)
 		{
-			this.credentialContext = credentialContext;
+		}
+
+		public async Task<string> AddAnimeAsync(int id, string data)
+		{
+			return await GetResponseTextAsync(new AddAnimeRequestParameters(CredentialContext, id, data));
 		}
 	}
 }

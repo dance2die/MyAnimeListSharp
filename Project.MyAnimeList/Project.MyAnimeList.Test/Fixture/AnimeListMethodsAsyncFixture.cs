@@ -1,5 +1,4 @@
 ﻿using MyAnimeListSharp.Facade.Async;
-using Project.MyAnimeList.Test.Tests;
 
 namespace Project.MyAnimeList.Test.Fixture
 {
