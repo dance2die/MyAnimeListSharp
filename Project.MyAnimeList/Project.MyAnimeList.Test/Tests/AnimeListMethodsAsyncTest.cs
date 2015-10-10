@@ -1,4 +1,5 @@
-﻿using Project.MyAnimeList.Test.Fixture;
+﻿using System;
+using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -49,5 +50,16 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.Contains(expectedSubstring, actualString);
 		}
 
+		[Fact]
+		public async void UpdateAnimeRequestReturnsUpdatedText()
+		{
+			var sut = _animeListMethodsAsyncFixture.AnimeListMethods;
+
+			var actualResponseString = await sut.UpdateAnimeAsync(AnimeValuesFixture.AnimeId, AnimeValuesFixture.Data);
+			_output.WriteLine("Actual: {0}", actualResponseString);
+
+			const string expected = "Updated";
+			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
+		}
 	}
 }
