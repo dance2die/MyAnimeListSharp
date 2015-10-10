@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Core;
@@ -26,6 +27,12 @@ namespace MyAnimeListSharp.Facade.Async
 		public async Task<string> UpdateAnimeAsync(int id, string data)
 		{
 			return await GetResponseTextAsync(new UpdateAnimeRequestParameters(CredentialContext, id, data));
+		}
+
+		public async Task<string> UpdateAnimeAsync(int id, AnimeValues animeValues)
+		{
+			var data = GetDataStringFromMyAnimeListValues(animeValues);
+			return await UpdateAnimeAsync(id, data);
 		}
 	}
 }

@@ -61,5 +61,17 @@ namespace Project.MyAnimeList.Test.Tests
 			const string expected = "Updated";
 			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
 		}
+
+		[Fact]
+		public async void UpdateAnimeUsingAnimeValuesObjectInstance()
+		{
+			var sut = _animeListMethodsAsyncFixture.AnimeListMethods;
+
+			string actualResponseString = await sut.UpdateAnimeAsync(AnimeValuesFixture.AnimeId, _animeValuesFixture.Values);
+			_output.WriteLine("Actual: {0}", actualResponseString);
+
+			const string expected = "Updated";
+			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
+		}
 	}
 }
