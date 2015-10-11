@@ -10,7 +10,7 @@ namespace Project.MyAnimeList.Test.Tests
 		IClassFixture<MangaListMethodsAsyncFixture>
 	{
 		private readonly ITestOutputHelper _output;
-		private MangaValuesFixture _mangaValuesFixture;
+		private readonly MangaValuesFixture _mangaValuesFixture;
 		private readonly MangaListMethodsAsyncFixture _mangaListMethodsAsyncFixture;
 
 		public MangaListMethodsAsyncTest(
@@ -54,6 +54,5 @@ namespace Project.MyAnimeList.Test.Tests
 			_output.WriteLine(actualResponseString);
 			Assert.Contains(expectedSubstring, actualResponseString);
 		}
-
 	}
 }
