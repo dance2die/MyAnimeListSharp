@@ -78,5 +78,16 @@ namespace Project.MyAnimeList.Test.Tests
 			const string expected = "Updated";
 			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
 		}
+
+		[Fact]
+		public async void DeleteMangaRequestReturnsDeletedText()
+		{
+			var sut = _mangaListMethodsAsyncFixture.MangaListMethods;
+
+			string actualResponseString = await sut.DeleteMangaAsync(MangaValuesFixture.ID);
+
+			_output.WriteLine("Actual: {0}", actualResponseString);
+			Assert.Equal("Deleted", actualResponseString);
+		}
 	}
 }
