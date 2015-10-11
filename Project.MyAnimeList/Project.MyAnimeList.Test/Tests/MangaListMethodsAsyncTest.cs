@@ -9,9 +9,9 @@ namespace Project.MyAnimeList.Test.Tests
 		IClassFixture<MangaValuesFixture>,
 		IClassFixture<MangaListMethodsAsyncFixture>
 	{
-		private ITestOutputHelper _output;
+		private readonly ITestOutputHelper _output;
 		private MangaValuesFixture _mangaValuesFixture;
-		private MangaListMethodsAsyncFixture _mangaListMethodsAsyncFixture;
+		private readonly MangaListMethodsAsyncFixture _mangaListMethodsAsyncFixture;
 
 		public MangaListMethodsAsyncTest(
 			CredentialContextFixture credentialContextFixture,
@@ -24,5 +24,24 @@ namespace Project.MyAnimeList.Test.Tests
 			_mangaValuesFixture = mangaValuesFixture;
 			_mangaListMethodsAsyncFixture = mangaListMethodsAsyncFixture;
 		}
+
+		[Fact]
+		public async void AddMangaRequestResponseReturnsUniqueRowId()
+		{
+			var sut = _mangaListMethodsAsyncFixture.MangaListMethods;
+
+			string actualResponseString = await sut.AddMangaAsync(MangaValuesFixture.ID, MangaValuesFixture.Data);
+
+			_output.WriteLine(actualResponseString);
+
+			// If no record was added, then a unique ID returned,
+			int uniqueId;
+			bool isNumber = int.TryParse(actualResponseString, out uniqueId);
+			// Else "201 Created" response is returned.
+			bool hasCreatedTextInIt = actualResponseString.Contains("Created");
+
+			Assert.True(isNumber || hasCreatedTextInIt);
+		}
+
 	}
 }
