@@ -1,4 +1,3 @@
-using System;
 using System.Threading.Tasks;
 using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Core;
