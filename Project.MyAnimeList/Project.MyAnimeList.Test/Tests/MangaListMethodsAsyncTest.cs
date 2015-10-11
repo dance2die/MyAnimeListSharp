@@ -54,5 +54,16 @@ namespace Project.MyAnimeList.Test.Tests
 			_output.WriteLine(actualResponseString);
 			Assert.Contains(expectedSubstring, actualResponseString);
 		}
+
+		[Fact]
+		public async void UpdateMangaRequestReturnsUpdatedText()
+		{
+			var sut = _mangaListMethodsAsyncFixture.MangaListMethods;
+
+			string actualResponseString = await sut.UpdateMangaAsnc(MangaValuesFixture.ID, MangaValuesFixture.Data);
+
+			_output.WriteLine("Actual: {0}", actualResponseString);
+			Assert.Equal("Updated", actualResponseString);
+		}
 	}
 }
