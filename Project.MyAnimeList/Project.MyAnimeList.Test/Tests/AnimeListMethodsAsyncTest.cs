@@ -73,5 +73,16 @@ namespace Project.MyAnimeList.Test.Tests
 			const string expected = "Updated";
 			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
 		}
+
+		[Fact]
+		public async void DeleteAnimeRequestReturnsDeletedText()
+		{
+			var sut = _animeListMethodsAsyncFixture.AnimeListMethods;
+
+			string actualResponseString = await sut.DeleteAnimeAsync(AnimeValuesFixture.AnimeId);
+			_output.WriteLine("Actual: {0}", actualResponseString);
+
+			Assert.Equal("Deleted", actualResponseString);
+		}
 	}
 }

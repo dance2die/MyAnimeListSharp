@@ -34,5 +34,10 @@ namespace MyAnimeListSharp.Facade.Async
 			var data = GetDataStringFromMyAnimeListValues(animeValues);
 			return await UpdateAnimeAsync(id, data);
 		}
+
+		public async Task<string> DeleteAnimeAsync(int id)
+		{
+			return await GetResponseTextAsync(new DeleteAnimeRequestParameters(CredentialContext, id));
+		}
 	}
 }
