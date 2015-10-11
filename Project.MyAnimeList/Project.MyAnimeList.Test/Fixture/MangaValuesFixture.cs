@@ -8,6 +8,33 @@ namespace Project.MyAnimeList.Test.Fixture
 	{
 		public MangaValues Values { get; set; }
 
+		/// <summary>
+		/// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
+		/// http://myanimelist.net/manga/67879/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
+		/// </summary>
+		public const int ID = 67879;
+
+		public static readonly string Data =
+			@"<?xml version = ""1.0"" encoding=""UTF-8"" ?>
+			<entry>
+				<chapter>40</chapter>
+				<volume>1</volume>
+				<status>1</status>
+				<score>9</score>
+				<downloaded_chapters></downloaded_chapters>
+				<times_reread></times_reread>
+				<reread_value></reread_value>
+				<date_start></date_start>
+				<date_finish></date_finish>
+				<priority></priority>
+				<enable_discussion></enable_discussion>
+				<enable_rereading></enable_rereading>
+				<comments></comments>
+				<scan_group></scan_group>
+				<tags></tags>
+				<retail_volumes></retail_volumes>
+			</entry>";
+
 		public MangaValuesFixture()
 		{
 			Values = GetTestMangaValues();
