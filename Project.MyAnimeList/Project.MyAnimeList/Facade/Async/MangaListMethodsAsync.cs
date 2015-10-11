@@ -16,5 +16,11 @@ namespace MyAnimeListSharp.Facade.Async
 		{
 			return await GetResponseTextAsync(new AddMangaRequestParameters(CredentialContext, id, data));
 		}
+
+		public async Task<string> AddMangaAsync(int? id, MangaValues mangaValues)
+		{
+			var data = GetDataStringFromMyAnimeListValues(mangaValues);
+			return await AddMangaAsync(id, data);
+		}
 	}
 }

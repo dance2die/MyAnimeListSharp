@@ -43,5 +43,17 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.True(isNumber || hasCreatedTextInIt);
 		}
 
+		[Fact]
+		public async void AddMangaUsingMangaValuesObjectInstance()
+		{
+			var sut = _mangaListMethodsAsyncFixture.MangaListMethods;
+
+			const string expectedSubstring = "Created";
+			string actualResponseString = await sut.AddMangaAsync(MangaValuesFixture.ID, _mangaValuesFixture.Values);
+
+			_output.WriteLine(actualResponseString);
+			Assert.Contains(expectedSubstring, actualResponseString);
+		}
+
 	}
 }
