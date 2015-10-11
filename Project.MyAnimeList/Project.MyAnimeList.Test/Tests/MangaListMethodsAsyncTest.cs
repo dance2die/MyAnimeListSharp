@@ -1,4 +1,5 @@
-﻿using Project.MyAnimeList.Test.Fixture;
+﻿using System;
+using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -60,10 +61,22 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			var sut = _mangaListMethodsAsyncFixture.MangaListMethods;
 
-			string actualResponseString = await sut.UpdateMangaAsnc(MangaValuesFixture.ID, MangaValuesFixture.Data);
+			string actualResponseString = await sut.UpdateMangaAsync(MangaValuesFixture.ID, MangaValuesFixture.Data);
 
 			_output.WriteLine("Actual: {0}", actualResponseString);
 			Assert.Equal("Updated", actualResponseString);
+		}
+
+		[Fact]
+		public async void UpdateMangaUsingMangaValuesObjectInstance()
+		{
+			var sut = _mangaListMethodsAsyncFixture.MangaListMethods;
+
+			string actualResponseString = await sut.UpdateMangaAsync(MangaValuesFixture.ID, _mangaValuesFixture.Values);
+			_output.WriteLine("Actual: {0}", actualResponseString);
+
+			const string expected = "Updated";
+			Assert.True(string.Compare(expected, actualResponseString, StringComparison.InvariantCultureIgnoreCase) == 0);
 		}
 	}
 }
