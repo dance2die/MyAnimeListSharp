@@ -10,6 +10,13 @@ namespace MyAnimeListSharp.Util
 {
 	internal class WebRequestBuilder
 	{
+		/// <summary>
+		/// http://www.useragentstring.com/pages/Chrome/
+		/// Chrome 41.0.2228.0
+		/// </summary>
+		private const string USER_AGENT =
+			"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";
+
 		public WebRequestBuilder(RequestParameters requestParameters)
 		{
 			RequestParameters = requestParameters;
@@ -47,6 +54,7 @@ namespace MyAnimeListSharp.Util
 
 		private void SetWebRequestProperties(HttpWebRequest result)
 		{
+			result.UserAgent = USER_AGENT;
 			result.ContentType = "application/x-www-form-urlencoded";
 
 			// credit
