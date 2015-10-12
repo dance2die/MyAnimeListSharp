@@ -53,7 +53,14 @@ namespace Project.MyAnimeList.Test.Tests
 			string actualResponseString = await sut.AddMangaAsync(MangaValuesFixture.ID, _mangaValuesFixture.Values);
 
 			_output.WriteLine(actualResponseString);
-			Assert.Contains(expectedSubstring, actualResponseString);
+
+			// If no record was added, then a unique ID returned,
+			int uniqueId;
+			bool isNumber = int.TryParse(actualResponseString, out uniqueId);
+			// Else "201 Created" response is returned.
+			bool hasCreatedTextInIt = actualResponseString.Contains(expectedSubstring);
+
+			Assert.True(isNumber || hasCreatedTextInIt);
 		}
 
 		[Fact]
