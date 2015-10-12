@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net;
 using System.Text;
+using System.Threading.Tasks;
 using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Util
@@ -25,6 +27,20 @@ namespace MyAnimeListSharp.Util
 			SetWebRequestProperties(result);
 
 			WritePostBody(result);
+
+			return result;
+		}
+
+		public async Task<HttpWebRequest> BuildWebRequestAsync()
+		{
+			var requestUri = new RequestUriBuilder(RequestParameters).GetRequestUri();
+			var result = WebRequest.Create(requestUri) as HttpWebRequest;
+			if (result == null)
+				throw new InvalidOperationException("Could not create web request");
+
+			SetWebRequestProperties(result);
+
+			await WritePostBodyAsync(result);
 
 			return result;
 		}
@@ -54,6 +70,19 @@ namespace MyAnimeListSharp.Util
 			{
 				var content = Encoding.ASCII.GetBytes(postBody);
 				requestStream.Write(content, 0, content.Length);
+			}
+		}
+
+		private async Task WritePostBodyAsync(HttpWebRequest request)
+		{
+			var postBody = GetJoinedString(RequestParameters.PostBodyProperties);
+			if (string.IsNullOrWhiteSpace(postBody)) return;
+
+			using (Stream requestStream = await Task.Factory.FromAsync<Stream>(
+				request.BeginGetRequestStream, request.EndGetRequestStream, request))
+			{
+				var content = Encoding.ASCII.GetBytes(postBody);
+				await requestStream.WriteAsync(content, 0, content.Length);
 			}
 		}
 

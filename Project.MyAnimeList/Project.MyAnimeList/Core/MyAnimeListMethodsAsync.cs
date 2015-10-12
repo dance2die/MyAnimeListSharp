@@ -20,7 +20,7 @@ namespace MyAnimeListSharp.Core
 		protected async Task<string> GetResponseTextAsync(RequestParameters requestParameters)
 		{
 			var requestBuilder = new WebRequestBuilder(requestParameters);
-			var request = requestBuilder.BuildWebRequest();
+			var request = await requestBuilder.BuildWebRequestAsync();
 
 			using (HttpWebResponse response = (HttpWebResponse) await Task.Factory.FromAsync<WebResponse>(
 				request.BeginGetResponse, request.EndGetResponse, request).ConfigureAwait(false))
