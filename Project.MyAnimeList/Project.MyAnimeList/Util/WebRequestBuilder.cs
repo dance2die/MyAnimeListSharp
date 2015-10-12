@@ -12,21 +12,24 @@ namespace MyAnimeListSharp.Util
 	{
 		/// <summary>
 		/// http://www.useragentstring.com/pages/Chrome/
-		/// Chrome 41.0.2228.0
+		/// 
+		/// http://www.useragentstring.com/pages/Internet%20Explorer/
 		/// </summary>
 		private const string USER_AGENT =
-			"Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36";
+			"Mozilla/5.0 (Windows; U; MSIE 9.0; WIndows NT 9.0; en-US))";
+
+		private const string CONTENT_TYPE = "application/x-www-form-urlencoded";
+
+		private readonly RequestParameters _requestParameters;
 
 		public WebRequestBuilder(RequestParameters requestParameters)
 		{
-			RequestParameters = requestParameters;
+			_requestParameters = requestParameters;
 		}
-
-		public RequestParameters RequestParameters { get; set; }
 
 		public HttpWebRequest BuildWebRequest()
 		{
-			var requestUri = new RequestUriBuilder(RequestParameters).GetRequestUri();
+			var requestUri = new RequestUriBuilder(_requestParameters).GetRequestUri();
 			var result = WebRequest.Create(requestUri) as HttpWebRequest;
 			if (result == null)
 				throw new InvalidOperationException("Could not create web request");
@@ -40,7 +43,7 @@ namespace MyAnimeListSharp.Util
 
 		public async Task<HttpWebRequest> BuildWebRequestAsync()
 		{
-			var requestUri = new RequestUriBuilder(RequestParameters).GetRequestUri();
+			var requestUri = new RequestUriBuilder(_requestParameters).GetRequestUri();
 			var result = WebRequest.Create(requestUri) as HttpWebRequest;
 			if (result == null)
 				throw new InvalidOperationException("Could not create web request");
@@ -52,26 +55,26 @@ namespace MyAnimeListSharp.Util
 			return result;
 		}
 
-		private void SetWebRequestProperties(HttpWebRequest result)
+		private void SetWebRequestProperties(HttpWebRequest webRequest)
 		{
-			result.UserAgent = USER_AGENT;
-			result.ContentType = "application/x-www-form-urlencoded";
+			webRequest.UserAgent = USER_AGENT;
+			webRequest.ContentType = CONTENT_TYPE;
 
 			// credit
 			// https://github.com/DeadlyEmbrace/MyAnimeListAPI/blob/master/MyAnimeListAPI/MyAnimeListAPI/Credentials.cs
-			result.Method = RequestParameters.HttpMethod;
-			result.UseDefaultCredentials = false;
-			result.Credentials = new NetworkCredential(
-				RequestParameters.Credential.UserName, RequestParameters.Credential.Password);
+			webRequest.Method = _requestParameters.HttpMethod;
+			webRequest.UseDefaultCredentials = false;
+			webRequest.Credentials = new NetworkCredential(
+				_requestParameters.Credential.UserName, _requestParameters.Credential.Password);
 
-			//// credit
-			//// https://github.com/LHCGreg/mal-api/blob/f6c82c95d139807a1d6259200ec7622384328bc3/MalApi/MyAnimeListApi.cs
-			result.AutomaticDecompression = DecompressionMethods.GZip;
+			// credit
+			// https://github.com/LHCGreg/mal-api/blob/f6c82c95d139807a1d6259200ec7622384328bc3/MalApi/MyAnimeListApi.cs
+			webRequest.AutomaticDecompression = DecompressionMethods.GZip;
 		}
 
 		private void WritePostBody(HttpWebRequest request)
 		{
-			var postBody = GetJoinedString(RequestParameters.PostBodyProperties);
+			var postBody = GetJoinedString(_requestParameters.PostBodyProperties);
 			if (string.IsNullOrWhiteSpace(postBody)) return;
 
 			using (var requestStream = request.GetRequestStream())
@@ -83,7 +86,7 @@ namespace MyAnimeListSharp.Util
 
 		private async Task WritePostBodyAsync(HttpWebRequest request)
 		{
-			var postBody = GetJoinedString(RequestParameters.PostBodyProperties);
+			var postBody = GetJoinedString(_requestParameters.PostBodyProperties);
 			if (string.IsNullOrWhiteSpace(postBody)) return;
 
 			using (Stream requestStream = await Task.Factory.FromAsync<Stream>(
