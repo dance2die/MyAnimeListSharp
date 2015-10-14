@@ -84,5 +84,5 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 
 
 ## Plan for the Next Release
-* Search/Add/Update [Asynchronously](https://github.com/dance2die/Project.MyAnimeList/tree/master/Project.MyAnimeList/Project.MyAnimeList/Facade/Async)
+* ~~Search/Add/Update [Asynchronously](https://github.com/dance2die/Project.MyAnimeList/tree/master/Project.MyAnimeList/Project.MyAnimeList/Facade/Async)~~: Implemented but not yet published.
 * Convert Deserialized response objects to different formats like JSON or XML: will be performed using Extension methods
