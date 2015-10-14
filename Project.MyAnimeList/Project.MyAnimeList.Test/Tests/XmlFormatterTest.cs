@@ -1,6 +1,5 @@
 ﻿using System.Xml.Linq;
 using MyAnimeListSharp.Formatters;
-using MyAnimeListSharp.Util;
 using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests

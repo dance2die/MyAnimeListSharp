@@ -1,4 +1,5 @@
-﻿using MyAnimeListSharp.Auth;
+﻿using System.Net;
+using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
@@ -50,7 +51,7 @@ namespace Project.MyAnimeList.Test.Tests
 			};
 			var sut = new AccountMethods(credentialContext);
 
-			Assert.Throws<System.Net.WebException>(() => sut.VerifyCredentials());
+			Assert.Throws<WebException>(() => sut.VerifyCredentials());
 		}
 	}
 }

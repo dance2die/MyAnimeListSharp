@@ -4,7 +4,6 @@ using MyAnimeListSharp.Enums;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
-using Assert = Xunit.Assert;
 
 namespace Project.MyAnimeList.Test.Tests
 {

@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Xml.Linq;
-using MyAnimeListSharp;
 using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
-using MyAnimeListSharp.Facade;
-using Xunit;
 using Project.MyAnimeList.Test.Fixture;
+using Xunit;
 using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
