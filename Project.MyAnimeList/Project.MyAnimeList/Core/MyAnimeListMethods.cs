@@ -1,5 +1,6 @@
 using System.IO;
 using System.Net;
+using System.Threading.Tasks;
 using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Parameters;
@@ -29,6 +30,20 @@ namespace MyAnimeListSharp.Core
 			using (var reader = new StreamReader(responseStream))
 			{
 				return reader.ReadToEnd();
+			}
+		}
+
+		protected async Task<string> GetResponseTextAsync(RequestParameters requestParameters)
+		{
+			var requestBuilder = new HttpWebRequestBuilder(requestParameters);
+			var request = await requestBuilder.BuildWebRequestAsync();
+
+			using (HttpWebResponse response = (HttpWebResponse)await Task.Factory.FromAsync<WebResponse>(
+				request.BeginGetResponse, request.EndGetResponse, request).ConfigureAwait(false))
+			using (Stream responseStream = response.GetResponseStream())
+			using (StreamReader reader = new StreamReader(responseStream))
+			{
+				return await reader.ReadToEndAsync().ConfigureAwait(false);
 			}
 		}
 

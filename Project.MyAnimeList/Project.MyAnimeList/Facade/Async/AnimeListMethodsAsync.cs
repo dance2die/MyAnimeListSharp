@@ -5,7 +5,7 @@ using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Facade.Async
 {
-	public class AnimeListMethodsAsync : MyAnimeListMethodsAsync
+	public class AnimeListMethodsAsync : MyAnimeListMethods
 	{
 		public AnimeListMethodsAsync(ICredentialContext credentialContext) 
 			: base(credentialContext)

@@ -44,7 +44,6 @@
     <Compile Include="Core\AnimeEntry.cs" />
     <Compile Include="Core\EntryBase.cs" />
     <Compile Include="Core\ISearchResponse.cs" />
-    <Compile Include="Core\MyAnimeListMethodsAsync.cs" />
     <Compile Include="Enums\EnableDiscussion.cs" />
     <Compile Include="Enums\EnableRereading.cs" />
     <Compile Include="Enums\EnableRewatching.cs" />
