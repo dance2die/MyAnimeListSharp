@@ -100,7 +100,7 @@
     <Compile Include="Formatters\AnimeValuesFormatter.cs" />
     <Compile Include="ContentBuilders\ValuesContentBuilder.cs" />
     <Compile Include="Formatters\ValuesFormatter.cs" />
-    <Compile Include="Util\WebRequestBuilder.cs" />
+    <Compile Include="Util\HttpWebRequestBuilder.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="LICENSE.txt" />

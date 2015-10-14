@@ -21,7 +21,7 @@ namespace MyAnimeListSharp.Core
 		/// </summary>
 		protected string GetResponseText(RequestParameters requestParameters)
 		{
-			var requestBuilder = new WebRequestBuilder(requestParameters);
+			var requestBuilder = new HttpWebRequestBuilder(requestParameters);
 			var request = requestBuilder.BuildWebRequest();
 
 			using (var response = request.GetResponse() as HttpWebResponse)

@@ -8,7 +8,7 @@ using MyAnimeListSharp.Parameters;
 
 namespace MyAnimeListSharp.Util
 {
-	internal class WebRequestBuilder
+	internal class HttpWebRequestBuilder
 	{
 		/// <summary>
 		/// http://www.useragentstring.com/pages/Chrome/
@@ -22,7 +22,7 @@ namespace MyAnimeListSharp.Util
 
 		private readonly RequestParameters _requestParameters;
 
-		public WebRequestBuilder(RequestParameters requestParameters)
+		public HttpWebRequestBuilder(RequestParameters requestParameters)
 		{
 			_requestParameters = requestParameters;
 		}
@@ -30,7 +30,7 @@ namespace MyAnimeListSharp.Util
 		public HttpWebRequest BuildWebRequest()
 		{
 			var requestUri = new RequestUriBuilder(_requestParameters).GetRequestUri();
-			var result = WebRequest.Create(requestUri) as HttpWebRequest;
+			var result = WebRequest.CreateHttp(requestUri);
 			if (result == null)
 				throw new InvalidOperationException("Could not create web request");
 
@@ -44,7 +44,7 @@ namespace MyAnimeListSharp.Util
 		public async Task<HttpWebRequest> BuildWebRequestAsync()
 		{
 			var requestUri = new RequestUriBuilder(_requestParameters).GetRequestUri();
-			var result = WebRequest.Create(requestUri) as HttpWebRequest;
+			var result = WebRequest.CreateHttp(requestUri);
 			if (result == null)
 				throw new InvalidOperationException("Could not create web request");
 
