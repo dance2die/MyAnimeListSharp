@@ -1,5 +1,4 @@
-﻿using System.Runtime.InteropServices.ComTypes;
-using MyAnimeListSharp.Auth;
+﻿using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Facade;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
