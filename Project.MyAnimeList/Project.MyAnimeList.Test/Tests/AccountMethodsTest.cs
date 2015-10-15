@@ -51,7 +51,11 @@ namespace Project.MyAnimeList.Test.Tests
 			};
 			var sut = new AccountMethods(credentialContext);
 
-			Assert.Throws<WebException>(() => sut.VerifyCredentials());
+			Assert.Throws<WebException>(() =>
+			{
+				var response = sut.VerifyCredentials();
+				_output.WriteLine(response);
+			});
 		}
 	}
 }
