@@ -12,9 +12,9 @@ namespace MyAnimeListSharp.Facade.Async
 		{
 		}
 
-		public Task<string> VerifyCredentialsAsync()
+		public async Task<string> VerifyCredentialsAsync()
 		{
-			return GetResponseTextAsync(new VerifyCredentialsRequestParameters(CredentialContext));
+			return await GetResponseTextAsync(new VerifyCredentialsRequestParameters(CredentialContext));
 		}
 	}
 }
