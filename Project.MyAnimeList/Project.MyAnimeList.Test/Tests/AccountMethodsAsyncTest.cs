@@ -1,4 +1,7 @@
-﻿using MyAnimeListSharp.Facade.Async;
+﻿using System.Net;
+using MyAnimeListSharp.Auth;
+using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Facade.Async;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
 using Xunit.Abstractions;
@@ -26,6 +29,25 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.False(string.IsNullOrWhiteSpace(credentials));
 			Assert.Contains("id", credentials);
 			Assert.Contains("username", credentials);
+		}
+
+		[Theory]
+		[InlineData("badUserName", "badPassword")]
+		[InlineData("aaaaaaaaaa", "bbbbbbbbbb")]
+		public async void ThrowsExceptionWhenInvalidCredentialIsPassed(string userName, string password)
+		{
+			ICredentialContext credentialContext = new CredentialContext
+			{
+				UserName = userName,
+				Password = password
+			};
+			var sut = new AccountMethodsAsync(credentialContext);
+
+			await Assert.ThrowsAsync<WebException>(async () =>
+			{
+				string credentials = await sut.VerifyCredentialsAsync();
+				_output.WriteLine(credentials);
+			});
 		}
 	}
 }
