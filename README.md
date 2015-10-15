@@ -1,5 +1,5 @@
 # Welcome to MyAnimeListSharp
-## The "Easiest" way to search Anime/Manga on MyAnimeList.net
+## The "Easiest" way to search Anime/Manga
 
 * **What**: .NET library for accessing MyAnimeList.net Web API ([API Documentation](http://myanimelist.net/modules.php?go=api))
 * **Framework**: .NET 4.5.2
