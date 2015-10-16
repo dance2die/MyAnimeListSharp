@@ -41,6 +41,18 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 	string response = searchMethods.SearchAnime("Full Metal");
 ```
 
+### Search Manga Asynchronously: New* in Version 1.3
+```c#
+	ICredentialContext credential = new CredentialContext
+	{
+		UserName = "<MyAnimeList.NET UserName>",
+		Password = "<MyAnimeList.NET Password>"
+	};
+	
+	var asyncMangaSearcher = new MangaSearchMethodsAsync(credential);
+	var response = await asyncMangaSearcher.SearchAsync("Dagashi Kashi");
+```
+
 ### Search Anime
 ```c#
 	// Step 1: Enter UserName and Password information
@@ -57,6 +69,19 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 	string mangaResponse = searchMethods.SearchManga("Code Geass");
 	Console.WriteLine(mangaResponse);
 ```
+
+### Search Anime Asynchronously: New* in Version 1.3
+```c#
+	ICredentialContext credential = new CredentialContext
+	{
+		UserName = "<MyAnimeList.NET UserName>",
+		Password = "<MyAnimeList.NET Password>"
+	};
+
+	var asyncAnimeSearcher = new AnimeSearchMethodsAsync(credential);
+	var response = await asyncAnimeSearcher.SearchAsync("Naruto");
+```
+
 
 ### Add Anime
 ```c#
@@ -84,5 +109,4 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 
 
 ## Plan for the Next Release
-* ~~Search/Add/Update [Asynchronously](https://github.com/dance2die/Project.MyAnimeList/tree/master/Project.MyAnimeList/Project.MyAnimeList/Facade/Async)~~: Implemented but not yet published.
 * Convert Deserialized response objects to different formats like JSON or XML: will be performed using Extension methods
