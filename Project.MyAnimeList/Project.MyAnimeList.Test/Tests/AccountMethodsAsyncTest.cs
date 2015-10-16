@@ -1,6 +1,5 @@
 ﻿using System.Net;
 using MyAnimeListSharp.Auth;
-using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Facade.Async;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
