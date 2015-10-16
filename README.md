@@ -18,6 +18,15 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 * [MangaListMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/MangaListMethods.cs)
 * [SearchMethods.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/SearchMethods.cs)
  
+### Asynchronous versions of facades are added in Version 1.3
+####The difference between Synchronous and Asynchronous version:
+`SearchMethods` is separated into two different files (subject to change in later version): 
+1. [MangaSearchMethodsAsync.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/Async/MangaSearchMethodsAsync.cs)
+2. [AnimeListMethodsAsync.cs](https://github.com/dance2die/Project.MyAnimeList/blob/master/Project.MyAnimeList/Project.MyAnimeList/Facade/Async/AnimeListMethodsAsync.cs)
+![Image of Comparison](http://i.imgur.com/vNGVgQf.png)
+###Source is located under
+[Project.MyAnimeList/Project.MyAnimeList/Project.MyAnimeList/Facade/Async](https://github.com/dance2die/Project.MyAnimeList/tree/master/Project.MyAnimeList/Project.MyAnimeList/Facade/Async)
+
 
 ## How to Install
 ### Nuget
