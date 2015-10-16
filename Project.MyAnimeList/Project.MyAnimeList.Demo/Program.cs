@@ -3,6 +3,7 @@ using MyAnimeListSharp.Auth;
 using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
+using MyAnimeListSharp.Facade.Async;
 
 namespace Project.MyAnimeList.Demo
 {
@@ -67,11 +68,31 @@ namespace Project.MyAnimeList.Demo
 			//TestCredentials(credential);
 			//TestAddAnime(credential);
 			//TestAddManga(credential);
-			TestAddAnimeByObject(credential);
-			TestAddMangaByObject(credential);
+			//TestAddAnimeByObject(credential);
+			//TestAddMangaByObject(credential);
+
+			//TestSearchAnimeAsync(credential);
+
+			TestSearchMangaAsync(credential);
 
 			Console.WriteLine("Press ENTER to continue...");
 			Console.ReadLine();
+		}
+
+		private static async void TestSearchAnimeAsync(ICredentialContext credential)
+		{
+			var asyncAnimeSearcher = new AnimeSearchMethodsAsync(credential);
+			var response = await asyncAnimeSearcher.SearchAsync("Naruto");
+
+			Console.WriteLine(response);
+		}
+
+		private static async void TestSearchMangaAsync(ICredentialContext credential)
+		{
+			var asyncMangaSearcher = new MangaSearchMethodsAsync(credential);
+			var response = await asyncMangaSearcher.SearchAsync("Dagashi Kashi");
+
+			Console.WriteLine(response);
 		}
 
 		private static void TestAddAnimeByObject(ICredentialContext credential)
