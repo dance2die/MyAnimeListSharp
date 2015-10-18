@@ -86,7 +86,6 @@
     <Compile Include="Tests\AnimeListMethodsAsyncTest.cs" />
     <Compile Include="Tests\AnimeSearchMethodsAsyncTest.cs" />
     <Compile Include="Tests\AnimeSearchResponseDeserializerTest.cs" />
-    <Compile Include="Tests\AnimeSearchResponseForXmlTest.cs" />
     <Compile Include="Tests\DateFormatterTest.cs" />
     <Compile Include="Tests\InvalidResponseStringDataAttribute.cs" />
     <Compile Include="Fixture\MangaSearchResponseDeserializerFixture.cs" />
