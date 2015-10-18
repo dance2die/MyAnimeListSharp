@@ -31,6 +31,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -60,6 +64,7 @@
     <Compile Include="Facade\Async\MangaListMethodsAsync.cs" />
     <Compile Include="Facade\Async\MangaSearchMethodsAsync.cs" />
     <Compile Include="Formatters\AnimeSearchResponseFormatter.cs" />
+    <Compile Include="Formatters\AnimeSearchResponseJsonFormatter.cs" />
     <Compile Include="Formatters\AnimeSearchResponseXmlFormatter.cs" />
     <Compile Include="Formatters\NullValuesFormatter.cs" />
     <Compile Include="Formatters\ValuesFormatterFactory.cs" />

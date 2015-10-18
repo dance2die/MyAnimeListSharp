@@ -1,9 +1,11 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 using Xunit.Abstractions;
 using System.Xml.Linq;
 using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Util;
+using Newtonsoft.Json.Linq;
 
 namespace Project.MyAnimeList.Test.Tests
 {
@@ -62,6 +64,31 @@ namespace Project.MyAnimeList.Test.Tests
 			_output.WriteLine(xmlText);
 
 			Assert.True(IsParsableXml(xmlText));
+		}
+
+		[Fact]
+		public void FormatAnimeSearchResponseToJsonString()
+		{
+			AnimeSearchResponseFormatter formatter = new AnimeSearchResponseFormatter(new AnimeSearchResponseJsonFormatter());
+
+			AnimeSearchResponse animeSearchResponse = new SearchResponseDeserializer<AnimeSearchResponse>().Deserialize(RESPONSE_TEXT);
+			string jsonText = formatter.Format(animeSearchResponse);
+			_output.WriteLine(jsonText);
+
+			Assert.True(IsParsableJson(jsonText));
+		}
+
+		private bool IsParsableJson(string jsonText)
+		{
+			try
+			{
+				JObject.Parse(jsonText);
+				return true;
+			}
+			catch
+			{
+				return false;
+			}
 		}
 
 		private bool IsParsableXml(string xmlText)
