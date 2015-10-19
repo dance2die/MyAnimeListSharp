@@ -12,7 +12,7 @@ namespace MyAnimeListSharp.Extensions.Core
 
 		public static string ToXml(this MangaSearchResponse response)
 		{
-			return new XmlFormatter<MangaSearchResponse>().Format(response);
+			return new GenericXmlFormatter<MangaSearchResponse>().Format(response);
 		}
 	}
 }

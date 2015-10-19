@@ -57,7 +57,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void FormatMangaSearchResponseToXmlString()
 		{
-			var formatter = new XmlFormatter<MangaSearchResponse>();
+			var formatter = new GenericXmlFormatter<MangaSearchResponse>();
 
 			MangaSearchResponse response = new SearchResponseDeserializer<MangaSearchResponse>().Deserialize(RESPONSE_TEXT);
 			string xmlText = formatter.Format(response);

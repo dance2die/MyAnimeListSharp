@@ -3,7 +3,7 @@ using System.Xml.Serialization;
 
 namespace MyAnimeListSharp.Formatters
 {
-	public class XmlFormatter<T> : IFormatter<T>
+	public class GenericXmlFormatter<T> : IFormatter<T>
 	{
 		public string Format(T value)
 		{
