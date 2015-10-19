@@ -119,5 +119,14 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 ```
 
 
-## Plan for the Next Release
-* Convert Deserialized response objects to different formats like JSON or XML: will be performed using Extension methods
+### Convert Response object to XML/JSON strings: New* in Version 1.3.1
+```c#
+	private static async void TestSearchMangaAsync(ICredentialContext credential)
+	{
+		var asyncMangaSearcher = new MangaSearchMethodsAsync(credential);
+		MangaSearchResponse response = await asyncMangaSearcher.SearchDeserializedAsync("Dagashi Kashi");
+	
+		Console.WriteLine(response.ToJson());
+		Console.WriteLine(response.ToXml());
+	}
+```
