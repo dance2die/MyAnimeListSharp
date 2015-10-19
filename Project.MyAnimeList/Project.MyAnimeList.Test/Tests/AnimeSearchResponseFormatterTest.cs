@@ -1,15 +1,13 @@
 ﻿using System;
 using Xunit;
 using Xunit.Abstractions;
-using System.Xml.Linq;
 using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Util;
-using Newtonsoft.Json.Linq;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AnimeSearchResponseFormatterTest
+	public class AnimeSearchResponseFormatterTest : SearchResponseFormatterTestBase
 	{
 		private readonly ITestOutputHelper _output;
 
@@ -76,33 +74,6 @@ namespace Project.MyAnimeList.Test.Tests
 			_output.WriteLine(jsonText);
 
 			Assert.True(IsParsableJson(jsonText));
-		}
-
-		private bool IsParsableJson(string jsonText)
-		{
-			try
-			{
-				JObject.Parse(jsonText);
-				return true;
-			}
-			catch
-			{
-				return false;
-			}
-		}
-
-		private bool IsParsableXml(string xmlText)
-		{
-			try
-			{
-				// http://stackoverflow.com/a/18704859/4035
-				XDocument.Parse(xmlText);
-				return true;
-			}
-			catch
-			{
-				return false;
-			}
 		}
 	}
 }
