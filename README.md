@@ -121,12 +121,9 @@ These four [facade](https://github.com/dance2die/Project.MyAnimeList/tree/master
 
 ### Convert Response object to XML/JSON strings: New* in Version 1.3.1
 ```c#
-	private static async void TestSearchMangaAsync(ICredentialContext credential)
-	{
-		var asyncMangaSearcher = new MangaSearchMethodsAsync(credential);
-		MangaSearchResponse response = await asyncMangaSearcher.SearchDeserializedAsync("Dagashi Kashi");
-	
-		Console.WriteLine(response.ToJson());
-		Console.WriteLine(response.ToXml());
-	}
+	var asyncMangaSearcher = new MangaSearchMethodsAsync(credential);
+	MangaSearchResponse response = await asyncMangaSearcher.SearchDeserializedAsync("Dagashi Kashi");
+
+	Console.WriteLine(response.ToJson());
+	Console.WriteLine(response.ToXml());
 ```
