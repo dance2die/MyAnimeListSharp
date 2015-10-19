@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Util;
+using Newtonsoft.Json;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -71,6 +72,26 @@ namespace Project.MyAnimeList.Test.Tests
 			_output.WriteLine(xmlText);
 
 			Assert.True(IsParsableXml(xmlText));
+		}
+
+		[Fact]
+		public void FormatAnimeSearchResponseToJsonString()
+		{
+			MangaSearchResponseFormatter formatter = new MangaSearchResponseFormatter(new MangaSearchResponseJsonFormatter());
+
+			MangaSearchResponse response = new SearchResponseDeserializer<MangaSearchResponse>().Deserialize(RESPONSE_TEXT);
+			string jsonText = formatter.Format(response);
+			_output.WriteLine(jsonText);
+
+			Assert.True(IsParsableJson(jsonText));
+		}
+	}
+
+	public class MangaSearchResponseJsonFormatter : IFormatter<MangaSearchResponse>
+	{
+		public string Format(MangaSearchResponse value)
+		{
+			return JsonConvert.SerializeObject(value);
 		}
 	}
 
