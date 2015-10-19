@@ -52,6 +52,8 @@
     <Compile Include="Enums\EnableRereading.cs" />
     <Compile Include="Enums\EnableRewatching.cs" />
     <Compile Include="Enums\Priority.cs" />
+    <Compile Include="Extensions\Core\AnimeSearchResponseExtensions.cs" />
+    <Compile Include="Extensions\Core\MangaSearchResponseExtensions.cs" />
     <Compile Include="Facade\AnimeListMethods.cs" />
     <Compile Include="Facade\AccountMethods.cs" />
     <Compile Include="Core\AnimeValues.cs" />

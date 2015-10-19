@@ -4,6 +4,7 @@ using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Enums;
 using MyAnimeListSharp.Facade;
 using MyAnimeListSharp.Facade.Async;
+using MyAnimeListSharp.Extensions.Core;
 
 namespace Project.MyAnimeList.Demo
 {
@@ -90,9 +91,10 @@ namespace Project.MyAnimeList.Demo
 		private static async void TestSearchMangaAsync(ICredentialContext credential)
 		{
 			var asyncMangaSearcher = new MangaSearchMethodsAsync(credential);
-			var response = await asyncMangaSearcher.SearchAsync("Dagashi Kashi");
+			MangaSearchResponse response = await asyncMangaSearcher.SearchDeserializedAsync("Dagashi Kashi");
 
-			Console.WriteLine(response);
+			Console.WriteLine(response.ToJson());
+			Console.WriteLine(response.ToXml());
 		}
 
 		private static void TestAddAnimeByObject(ICredentialContext credential)
