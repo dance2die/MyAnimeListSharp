@@ -63,12 +63,8 @@
     <Compile Include="Facade\Async\AnimeSearchMethodsAsync.cs" />
     <Compile Include="Facade\Async\MangaListMethodsAsync.cs" />
     <Compile Include="Facade\Async\MangaSearchMethodsAsync.cs" />
-    <Compile Include="Formatters\AnimeSearchResponseFormatter.cs" />
-    <Compile Include="Formatters\AnimeSearchResponseJsonFormatter.cs" />
-    <Compile Include="Formatters\AnimeSearchResponseXmlFormatter.cs" />
-    <Compile Include="Formatters\MangaSearchResponseFormatter.cs" />
-    <Compile Include="Formatters\MangaSearchResponseJsonFormatter.cs" />
-    <Compile Include="Formatters\MangaSearchResponseXmlFormatter.cs" />
+    <Compile Include="Formatters\JsonFormatter.cs" />
+    <Compile Include="Formatters\XmlFormatter.cs" />
     <Compile Include="Formatters\NullValuesFormatter.cs" />
     <Compile Include="Formatters\ValuesFormatterFactory.cs" />
     <Compile Include="Parameters\DeleteMangaRequestParameters.cs" />

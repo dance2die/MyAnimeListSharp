@@ -54,7 +54,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void FormatAnimeSearchResponseToXmlString()
 		{
-			AnimeSearchResponseFormatter formatter = new AnimeSearchResponseFormatter(new AnimeSearchResponseXmlFormatter());
+			var formatter = new XmlFormatter<AnimeSearchResponse>();
 
 			AnimeSearchResponse animeSearchResponse = new SearchResponseDeserializer<AnimeSearchResponse>().Deserialize(RESPONSE_TEXT);
 			string xmlText = formatter.Format(animeSearchResponse);
@@ -66,7 +66,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void FormatAnimeSearchResponseToJsonString()
 		{
-			AnimeSearchResponseFormatter formatter = new AnimeSearchResponseFormatter(new AnimeSearchResponseJsonFormatter());
+			var formatter = new JsonFormatter<AnimeSearchResponse>();
 
 			AnimeSearchResponse animeSearchResponse = new SearchResponseDeserializer<AnimeSearchResponse>().Deserialize(RESPONSE_TEXT);
 			string jsonText = formatter.Format(animeSearchResponse);

@@ -1,12 +1,11 @@
-using System.IO;
+﻿using System.IO;
 using System.Xml.Serialization;
-using MyAnimeListSharp.Core;
 
 namespace MyAnimeListSharp.Formatters
 {
-	public class AnimeSearchResponseXmlFormatter : IFormatter<AnimeSearchResponse>
+	public class XmlFormatter<T> : IFormatter<T>
 	{
-		public string Format(AnimeSearchResponse value)
+		public string Format(T value)
 		{
 			// http://stackoverflow.com/a/11448270/4035
 			using (var stringwriter = new StringWriter())
