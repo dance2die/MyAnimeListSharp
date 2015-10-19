@@ -1,14 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
-using MyAnimeListSharp.Core;
+﻿using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Formatters;
 using MyAnimeListSharp.Util;
-using Newtonsoft.Json;
 using Xunit;
 using Xunit.Abstractions;
 
@@ -84,43 +76,6 @@ namespace Project.MyAnimeList.Test.Tests
 			_output.WriteLine(jsonText);
 
 			Assert.True(IsParsableJson(jsonText));
-		}
-	}
-
-	public class MangaSearchResponseJsonFormatter : IFormatter<MangaSearchResponse>
-	{
-		public string Format(MangaSearchResponse value)
-		{
-			return JsonConvert.SerializeObject(value);
-		}
-	}
-
-	public class MangaSearchResponseXmlFormatter : IFormatter<MangaSearchResponse>
-	{
-		public string Format(MangaSearchResponse value)
-		{
-			// http://stackoverflow.com/a/11448270/4035
-			using (var stringwriter = new StringWriter())
-			{
-				var serializer = new XmlSerializer(value.GetType());
-				serializer.Serialize(stringwriter, value);
-				return stringwriter.ToString();
-			}
-		}
-	}
-
-	public class MangaSearchResponseFormatter
-	{
-		public IFormatter<MangaSearchResponse> Strategy { get; set; }
-
-		public MangaSearchResponseFormatter(IFormatter<MangaSearchResponse> strategy)
-		{
-			Strategy = strategy;
-		}
-
-		public string Format(MangaSearchResponse value)
-		{
-			return Strategy.Format(value);
 		}
 	}
 }
