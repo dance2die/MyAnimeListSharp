@@ -98,6 +98,7 @@
     <Compile Include="Tests\MangaListMethodsAsyncTest.cs" />
     <Compile Include="Tests\MangaSearchMethodsAsyncTest.cs" />
     <Compile Include="Tests\MangaSearchResponseDeserializerTest.cs" />
+    <Compile Include="Tests\MangaSearchResponseFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesFormatterTest.cs" />
     <Compile Include="Tests\MangaValuesTest.cs" />
     <Compile Include="Tests\AccountMethodsTest.cs" />
