@@ -12,6 +12,6 @@ namespace MyAnimeListSharp.Parameters
 		{
 		}
 
-		public override string BaseUri { get; set; } = "http://myanimelist.net/api/mangalist/delete";
+		public override string RelativeUri { get; set; } = "mangalist/delete";
 	}
 }

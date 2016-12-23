@@ -10,7 +10,7 @@ namespace MyAnimeListSharp.Parameters
 			Credential = credential;
 		}
 
-		public override string BaseUri { get; set; } = "http://myanimelist.net/api/account/verify_credentials.xml";
+		public override string RelativeUri { get; set; } = "account/verify_credentials.xml";
 		public override string HttpMethod { get; set; } = "GET";
 	}
 }

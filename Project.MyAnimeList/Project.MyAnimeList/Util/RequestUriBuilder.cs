@@ -16,12 +16,12 @@ namespace MyAnimeListSharp.Util
 		{
 			var queryString = GetEncodedString(_requestParameters.QueryProperties);
 			if (string.IsNullOrWhiteSpace(queryString) && !_requestParameters.Id.HasValue)
-				return _requestParameters.BaseUri;
+				return _requestParameters.GetBaseUri();
 
 			var relativeUri = _requestParameters.Id.HasValue ? $"/{_requestParameters.Id.Value}.xml" : string.Empty;
 			var queryUri = string.IsNullOrWhiteSpace(queryString) ? string.Empty : $"?{queryString}";
 			//return $"{new Uri(new Uri(_requestParameters.BaseUri), relativeUri).AbsoluteUri}{queryUri}";
-			return $"{_requestParameters.BaseUri}{relativeUri}{queryUri}";
+			return $"{_requestParameters.GetBaseUri()}{relativeUri}{queryUri}";
 		}
 
 		private string GetEncodedString(IDictionary<string, string> dictionary)

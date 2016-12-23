@@ -10,7 +10,7 @@ namespace MyAnimeListSharp.Parameters
 			SearchTerm = searchTerm;
 		}
 
-		public abstract override string BaseUri { get; set; }
+		public abstract override string RelativeUri { get; set; }
 		public override string HttpMethod { get; set; } = "GET";
 
 		public string SearchTerm

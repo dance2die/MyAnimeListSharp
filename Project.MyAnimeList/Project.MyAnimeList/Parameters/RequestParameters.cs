@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using MyAnimeListSharp.Auth;
 
@@ -16,7 +17,14 @@ namespace MyAnimeListSharp.Parameters
 			Id = id;
 		}
 
-		public abstract string BaseUri { get; set; }
+	    public Uri ApiUri = new Uri("https://myanimelist.net/api");
+
+	    public string GetBaseUri()
+	    {
+	        return new Uri(ApiUri, RelativeUri).ToString();
+	    }
+
+        public abstract string RelativeUri { get; set; }
 		public abstract string HttpMethod { get; set; }
 	}
 }
