@@ -44,7 +44,7 @@ namespace Project.MyAnimeList.Test.Tests
 
 			var actualUri = sut.GetRequestUri();
 
-			Assert.Equal($"http://myanimelist.net/api/animelist/add/{AnimeValuesFixture.AnimeId}.xml", actualUri);
+			Assert.Equal($"https://myanimelist.net/api/animelist/add/{AnimeValuesFixture.AnimeId}.xml", actualUri);
 		}
 
 		[Fact]
