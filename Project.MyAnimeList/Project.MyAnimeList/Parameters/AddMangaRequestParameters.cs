@@ -9,6 +9,6 @@ namespace MyAnimeListSharp.Parameters
 		{
 		}
 
-		public override string RelativeUri { get; set; } = "mangalist/add";
+		public override string RelativeUri { get; set; } = "api/mangalist/add";
 	}
 }

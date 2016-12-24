@@ -17,11 +17,11 @@ namespace MyAnimeListSharp.Parameters
 			Id = id;
 		}
 
-	    public Uri ApiUri = new Uri("https://myanimelist.net/api");
+	    public Uri MalUri = new Uri("https://myanimelist.net/");
 
 	    public string GetBaseUri()
 	    {
-	        return new Uri(ApiUri, RelativeUri).ToString();
+	        return new Uri(MalUri, RelativeUri).ToString();
 	    }
 
         public abstract string RelativeUri { get; set; }

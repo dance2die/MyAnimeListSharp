@@ -9,6 +9,6 @@ namespace MyAnimeListSharp.Parameters
 		{
 		}
 
-		public override string RelativeUri { get; set; } = "animelist/delete";
+		public override string RelativeUri { get; set; } = "api/animelist/delete";
 	}
 }

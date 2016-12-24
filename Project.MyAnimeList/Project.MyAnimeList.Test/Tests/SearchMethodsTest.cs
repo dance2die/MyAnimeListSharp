@@ -44,7 +44,7 @@ namespace Project.MyAnimeList.Test.Tests
 
 			var actual = sut.GetRequestUri();
 
-			Assert.Equal("http://myanimelist.net/api/anime/search.xml?q=full%20metal", actual);
+			Assert.Equal("https://myanimelist.net/api/anime/search.xml?q=full%20metal", actual);
 		}
 
 		[Theory]
