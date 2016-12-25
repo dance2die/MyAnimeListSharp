@@ -42,7 +42,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[Theory]
 		[InlineData("badUserName", "badPassword")]
 		[InlineData("aaaaaaaaaa", "bbbbbbbbbb")]
-		public void ThrowsExceptionWhenInvalidCredentialIsPassed(string userName, string password)
+		public void InvalidCredentialsIsReturnedWhenInvalidCredentialIsPassed(string userName, string password)
 		{
 			ICredentialContext credentialContext = new CredentialContext
 			{
@@ -51,11 +51,11 @@ namespace Project.MyAnimeList.Test.Tests
 			};
 			var sut = new AccountMethods(credentialContext);
 
-			Assert.Throws<WebException>(() =>
-			{
-				var response = sut.VerifyCredentials();
-				_output.WriteLine(response);
-			});
-		}
-	}
+            string actual = sut.VerifyCredentials();
+            _output.WriteLine(actual);
+
+            const string expected = "Invalid credentials";
+            Assert.True(expected == actual);
+        }
+    }
 }
