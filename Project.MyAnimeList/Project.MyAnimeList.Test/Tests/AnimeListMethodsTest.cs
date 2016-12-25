@@ -29,11 +29,12 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		[Fact]
-		public void AddAnimeRequestParametersMethodIsPost()
+		public void AddAnimeRequestParametersMethodIsGet()
 		{
 			var sut = new AddAnimeRequestParameters(CredentialContextFixture.CredentialContext, AnimeValuesFixture.AnimeId, AnimeValuesFixture.Data);
 
-			Assert.Equal("POST", sut.HttpMethod);
+		    const string expected = "GET";
+		    Assert.Equal(expected, sut.HttpMethod);
 		}
 
 		[Fact]
