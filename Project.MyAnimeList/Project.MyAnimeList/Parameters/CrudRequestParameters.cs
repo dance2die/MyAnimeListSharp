@@ -14,10 +14,10 @@ namespace MyAnimeListSharp.Parameters
 
 		public string Data
 		{
-			get { return PostBodyProperties[DATA_BODY_NAME]; }
-			set { PostBodyProperties[DATA_BODY_NAME] = value; }
+			get { return QueryProperties[DATA_BODY_NAME]; }
+			set { QueryProperties[DATA_BODY_NAME] = value; }
 		}
 
-		public override string HttpMethod { get; set; } = "POST";
+        public override string HttpMethod { get; set; } = "GET";
 	}
 }

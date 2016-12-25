@@ -66,7 +66,12 @@ namespace Project.MyAnimeList.Test.Tests
 			const string expectedSubstring = "Created";
 			var actualString = sut.AddAnime(AnimeValuesFixture.AnimeId, _animeValuesFixture.Values);
 
-			Assert.Contains(expectedSubstring, actualString);
+		    var inListAlreadyText = $"The anime (id: {AnimeValuesFixture.AnimeId}) is already in the list.";
+
+            if (actualString == inListAlreadyText)
+		        Assert.True(true);
+		    else
+		        Assert.Contains(expectedSubstring, actualString);
 		}
 
 		[Fact]

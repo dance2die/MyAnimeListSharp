@@ -1,3 +1,4 @@
+using System;
 using System.IO;
 using System.Net;
 using System.Threading.Tasks;
@@ -25,12 +26,30 @@ namespace MyAnimeListSharp.Core
 			var requestBuilder = new HttpWebRequestBuilder(requestParameters);
 			var request = requestBuilder.BuildWebRequest();
 
-			using (var response = request.GetResponse() as HttpWebResponse)
-			using (var responseStream = response.GetResponseStream())
-			using (var reader = new StreamReader(responseStream))
-			{
-				return reader.ReadToEnd();
-			}
+		    try
+		    {
+                var response = request.GetResponse() as HttpWebResponse;
+                using (var responseStream = response.GetResponseStream())
+                using (var reader = new StreamReader(responseStream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+            catch (WebException wex)
+		    {
+                // http://stackoverflow.com/a/7618390/4035
+                if (wex.Response != null)
+                {
+                    using (var errorResponse = (HttpWebResponse) wex.Response)
+                    using (var reader = new StreamReader(errorResponse.GetResponseStream()))
+                    {
+                        string error = reader.ReadToEnd();
+                        return error;
+                    }
+                }
+            }
+
+            throw new InvalidOperationException();
 		}
 
 		protected async Task<string> GetResponseTextAsync(RequestParameters requestParameters)
