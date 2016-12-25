@@ -75,29 +75,6 @@ namespace Project.MyAnimeList.Test.Tests
 		}
 
 		/// <remarks>
-		/// On MyAnimeList.net, adding a negative value for Downloaded Episodes sets the value back to 0
-		/// </remarks>
-		[Theory]
-		[InlineData(-1)]
-		[InlineData(-10)]
-		[InlineData(-100)]
-		public void TestIfDownloadedEpisodesIsNegativeArgumentOutOfRangeExceptionIsThrown(int downloadedEpisodes)
-		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.DownloadedEpisodes = downloadedEpisodes);
-		}
-
-		[Theory]
-		[InlineData(0)]
-		[InlineData(1)]
-		[InlineData(655)]
-		public void TestDownloadedEpisodesValueAssignment(int value)
-		{
-			_sut.DownloadedEpisodes = value;
-
-			Assert.Equal(value, _sut.DownloadedEpisodes);
-		}
-
-		/// <remarks>
 		/// There isn't enough documentation for this.
 		/// And also since AddAnime functionality is not implemented on the server, 
 		/// I can't even figure ou what the range of allowed values are.
@@ -201,17 +178,6 @@ namespace Project.MyAnimeList.Test.Tests
 			_sut.Comments = value;
 
 			Assert.Equal(value, _sut.Comments);
-		}
-
-		[Theory]
-		[InlineData("HorribleSubs")]
-		[InlineData("GG Fansubs")]
-		[InlineData("UTW Fansubs")]
-		public void TestFansubGroup(string value)
-		{
-			_sut.FansubGroup = value;
-
-			Assert.Equal(value, _sut.FansubGroup);
 		}
 
 		[Theory]

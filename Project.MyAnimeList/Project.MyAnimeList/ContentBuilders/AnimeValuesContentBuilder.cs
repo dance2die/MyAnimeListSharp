@@ -18,7 +18,6 @@ namespace MyAnimeListSharp.ContentBuilders
 					new XElement("episode", values.Episode),
 					new XElement("status", GetUnderlyingEnumValue(values.AnimeStatus)),
 					new XElement("score", GetUnderlyingEnumValue(values.Score)),
-					new XElement("downloaded_episodes", values.DownloadedEpisodes),
 					new XElement("storage_type", values.StorageType),
 					new XElement("storage_value", values.StorageValue),
 					new XElement("times_rewatched", values.TimesRewatched),
@@ -29,7 +28,6 @@ namespace MyAnimeListSharp.ContentBuilders
 					new XElement("enable_discussion", GetUnderlyingEnumValue(values.EnableDiscussion)),
 					new XElement("enable_rewatching", GetUnderlyingEnumValue(values.EnableRewatching)),
 					new XElement("comments", values.Comments),
-					new XElement("fansub_group", values.FansubGroup),
 					new XElement("tags", values.Tags)
 					)
 				);

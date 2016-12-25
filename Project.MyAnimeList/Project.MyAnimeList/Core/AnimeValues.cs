@@ -5,7 +5,6 @@ namespace MyAnimeListSharp.Core
 {
 	public class AnimeValues : MyAnimeListValues
 	{
-		private int _downloadedEpisodes;
 		private short _episode;
 		private int _rewatchValue;
 		private float _storageValue;
@@ -23,17 +22,6 @@ namespace MyAnimeListSharp.Core
 		}
 
 		public AnimeStatus AnimeStatus { get; set; }
-
-		public int DownloadedEpisodes
-		{
-			get { return _downloadedEpisodes; }
-			set
-			{
-				if (value < 0)
-					throw new ArgumentOutOfRangeException("DownloadedEpisodes", "Downloaded Episodes value cannot be negative");
-				_downloadedEpisodes = value;
-			}
-		}
 
 		public int StorageType { get; set; }
 
@@ -70,7 +58,6 @@ namespace MyAnimeListSharp.Core
 			}
 		}
 
-		public string FansubGroup { get; set; }
 		public EnableRewatching EnableRewatching { get; set; }
 	}
 }

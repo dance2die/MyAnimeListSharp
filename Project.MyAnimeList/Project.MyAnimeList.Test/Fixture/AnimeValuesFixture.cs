@@ -18,25 +18,23 @@ namespace Project.MyAnimeList.Test.Fixture
 
 		public static readonly string Data = 
 			XmlDeclaration +
-			@"
+            @"
 				<entry>
-					<episode>1</episode>
-					<status>2</status>
-					<score>3</score>
-					<downloaded_episodes>4</downloaded_episodes>
-					<storage_type>5</storage_type>
-					<storage_value>6</storage_value>
-					<times_rewatched>7</times_rewatched>
-					<rewatch_value>8</rewatch_value>
-					<date_start>01302015</date_start>
-					<date_finish>07312015</date_finish>
-					<priority>1</priority>
-					<enable_discussion>1</enable_discussion>
-					<enable_rewatching>1</enable_rewatching>
-					<comments>This is a comment</comments>
-					<fansub_group>Horrible Subs</fansub_group>
-					<tags>Test Tag1, Test Tag2</tags>
-				</entry>";
+	                <episode>11</episode>
+	                <status>1</status>
+	                <score>7</score>
+	                <storage_type>5</storage_type>
+	                <storage_value>6</storage_value>
+	                <times_rewatched>7</times_rewatched>
+	                <rewatch_value>8</rewatch_value>
+	                <date_start>01302015</date_start>
+	                <date_finish>07312015</date_finish>
+	                <priority>1</priority>
+	                <enable_discussion>1</enable_discussion>
+	                <enable_rewatching>1</enable_rewatching>
+	                <comments>This is a comment</comments>
+	                <tags>test tag, 2nd tag</tags>
+                </entry>";
 
 
 		public AnimeValuesFixture()
@@ -48,10 +46,10 @@ namespace Project.MyAnimeList.Test.Fixture
 		{
 			return new AnimeValues
 			{
-				Episode = 1,
-				AnimeStatus = AnimeStatus.Completed,
-				Score = Score.Bad,
-				DownloadedEpisodes = 4,
+				Episode = 11,
+				AnimeStatus = AnimeStatus.Watching,
+				Score = Score.Good,
+				//DownloadedEpisodes = 4,
 				StorageType = 5,
 				StorageValue = 6,
 				TimesRewatched = 7,
@@ -62,9 +60,9 @@ namespace Project.MyAnimeList.Test.Fixture
 				EnableDiscussion = EnableDiscussion.Enable,
 				EnableRewatching = EnableRewatching.Enable,
 				Comments = "This is a comment",
-				FansubGroup = "Horrible Subs",
-				Tags = "Test Tag1, Test Tag2"
-			};
+				//FansubGroup = "Horrible Subs",
+				Tags = "test tag, 2nd tag"
+            };
 		}
 
 	}
