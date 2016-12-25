@@ -31,17 +31,19 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			var sut = _mangaListMethodsAsyncFixture.MangaListMethods;
 
-			string actualResponseString = await sut.AddMangaAsync(MangaValuesFixture.ID, MangaValuesFixture.Data);
+			string actual = await sut.AddMangaAsync(MangaValuesFixture.ID, MangaValuesFixture.Data);
 
-			_output.WriteLine(actualResponseString);
+			_output.WriteLine(actual);
 
 			// If no record was added, then a unique ID returned,
 			int uniqueId;
-			bool isNumber = int.TryParse(actualResponseString, out uniqueId);
-			// Else "201 Created" response is returned.
-			bool hasCreatedTextInIt = actualResponseString.Contains("Created");
+			bool isNumber = int.TryParse(actual, out uniqueId);
 
-			Assert.True(isNumber || hasCreatedTextInIt);
+			// If already added, an error message containing MangaValue ID is returned.
+		    string expectedError = $"The manga (id: {MangaValuesFixture.ID}) is already in the list.";
+		    bool isAlreadyCreated = actual == expectedError;
+
+			Assert.True(isNumber || isAlreadyCreated);
 		}
 
 		[Fact]
