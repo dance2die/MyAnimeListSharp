@@ -33,7 +33,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[Theory]
 		[InlineData("badUserName", "badPassword")]
 		[InlineData("aaaaaaaaaa", "bbbbbbbbbb")]
-		public async void ThrowsExceptionWhenInvalidCredentialIsPassed(string userName, string password)
+		public async void InvalidCredentialsIsReturnedWhenInvalidCredentialIsPassed(string userName, string password)
 		{
 			ICredentialContext credentialContext = new CredentialContext
 			{
@@ -42,11 +42,11 @@ namespace Project.MyAnimeList.Test.Tests
 			};
 			var sut = new AccountMethodsAsync(credentialContext);
 
-			await Assert.ThrowsAsync<WebException>(async () =>
-			{
-				string credentials = await sut.VerifyCredentialsAsync();
-				_output.WriteLine(credentials);
-			});
+            string actual = await sut.VerifyCredentialsAsync();
+            _output.WriteLine(actual);
+
+            const string expected = "Invalid credentials";
+            Assert.True(expected == actual);
 		}
 	}
 }
