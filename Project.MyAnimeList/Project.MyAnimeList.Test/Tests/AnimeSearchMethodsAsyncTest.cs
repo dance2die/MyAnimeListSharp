@@ -34,7 +34,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[InlineData("Full Metal")]
 		public async void SearchAsyncResponseIsNotEmpty(string searchTerm)
 		{
-			string response = await _sut.SearchAsync(searchTerm);
+			string response = _sut.SearchAsync(searchTerm).Result;
 
 			_output.WriteLine(response);
 			Assert.False(string.IsNullOrWhiteSpace(response));
