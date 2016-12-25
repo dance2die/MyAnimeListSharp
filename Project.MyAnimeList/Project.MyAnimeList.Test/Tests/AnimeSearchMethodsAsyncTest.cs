@@ -1,4 +1,5 @@
-﻿using MyAnimeListSharp.Core;
+﻿using System;
+using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Facade.Async;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
@@ -53,8 +54,9 @@ namespace Project.MyAnimeList.Test.Tests
 
 		[Theory]
 		[InlineData("Oh My Goddess")]
-		[InlineData("xyzopqrstu")]
-		public async void SearchDeserializedAsyncResponseHasNoEntry(string searchTerm)
+        [InlineData("xyzopqrstu")]
+        [InlineData("a;jdf;lasj;lfjas;ldjf;lkdsajfs")]
+        public async void SearchDeserializedAsyncResponseHasNoEntry(string searchTerm)
 		{
 			AnimeSearchResponse response = await _sut.SearchDeserializedAsync(searchTerm);
 
@@ -62,5 +64,15 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.True(response.Entries.Count == 0);
 		}
 
-	}
+	    //[Theory]
+     //   [InlineData("xyzopqrstu")]
+     //   [InlineData("a;jdf;lasj;lfjas;ldjf;lkdsajfs")]
+     //   public async void SearchingInvalidEntryReturnsEmptyResponse(string searchTerm)
+	    //{
+     //       await Assert.ThrowsAsync<InvalidOperationException>(async () =>
+     //        {
+     //            AnimeSearchResponse response = await _sut.SearchDeserializedAsync(searchTerm);
+     //        });
+	    //}
+    }
 }
