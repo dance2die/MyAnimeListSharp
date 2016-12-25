@@ -1,3 +1,7 @@
+#There was a breaking MAL API changes.
+## I am working on it to fixing it now...
+
+
 # Welcome to MyAnimeListSharp
 ## The "Easiest" way to search Anime/Manga
 
