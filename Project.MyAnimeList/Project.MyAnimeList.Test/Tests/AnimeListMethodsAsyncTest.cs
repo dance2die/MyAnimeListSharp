@@ -48,11 +48,11 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			var sut = _animeListMethodsAsyncFixture.AnimeListMethods;
 
-			const string expectedSubstring = "Created";
-			string actualString = await sut.AddAnimeAsync(AnimeValuesFixture.AnimeId, _animeValuesFixture.Values);
-
+            string actualString = await sut.AddAnimeAsync(AnimeValuesFixture.AnimeId, _animeValuesFixture.Values);
 			_output.WriteLine(actualString);
-			Assert.Contains(expectedSubstring, actualString);
+
+            string expected = $"The anime (id: {AnimeValuesFixture.AnimeId}) is already in the list.";
+            Assert.Contains(expected, actualString);
 		}
 
 		[Fact]
