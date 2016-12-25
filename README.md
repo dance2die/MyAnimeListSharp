@@ -1,5 +1,5 @@
 #There was a breaking MAL API changes.
-## I am working on it to fixing it now...
+## A new version 1.3.2 was released which addresses changes made in MAP API on November 2016.
 
 
 # Welcome to MyAnimeListSharp
