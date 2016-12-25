@@ -43,9 +43,10 @@ namespace Project.MyAnimeList.Test.Tests
 			var requestParameters = new AddMangaRequestParameters(CredentialContextFixture.CredentialContext, MangaValuesFixture.ID, MangaValuesFixture.Data);
 			var sut = new RequestUriBuilder(requestParameters);
 
-			var actualUri = sut.GetRequestUri();
+			var actual = sut.GetRequestUri();
 
-			Assert.Equal($"https://myanimelist.net/api/mangalist/add/{MangaValuesFixture.ID}.xml", actualUri);
+		    string expected = $"https://myanimelist.net/api/mangalist/add/{MangaValuesFixture.ID}.xml?data=%3C%3Fxml%20version%20%3D%20%221.0%22%20encoding%3D%22UTF-8%22%20%3F%3E%0D%0A%09%09%09%3Centry%3E%0D%0A%09%09%09%09%3Cchapter%3E40%3C%2Fchapter%3E%0D%0A%09%09%09%09%3Cvolume%3E1%3C%2Fvolume%3E%0D%0A%09%09%09%09%3Cstatus%3E1%3C%2Fstatus%3E%0D%0A%09%09%09%09%3Cscore%3E9%3C%2Fscore%3E%0D%0A%09%09%09%09%3Ctimes_reread%3E%3C%2Ftimes_reread%3E%0D%0A%09%09%09%09%3Creread_value%3E%3C%2Freread_value%3E%0D%0A%09%09%09%09%3Cdate_start%3E%3C%2Fdate_start%3E%0D%0A%09%09%09%09%3Cdate_finish%3E%3C%2Fdate_finish%3E%0D%0A%09%09%09%09%3Cpriority%3E%3C%2Fpriority%3E%0D%0A%09%09%09%09%3Cenable_discussion%3E%3C%2Fenable_discussion%3E%0D%0A%09%09%09%09%3Cenable_rereading%3E%3C%2Fenable_rereading%3E%0D%0A%09%09%09%09%3Ccomments%3E%3C%2Fcomments%3E%0D%0A%09%09%09%09%3Cscan_group%3E%3C%2Fscan_group%3E%0D%0A%09%09%09%09%3Ctags%3E%3C%2Ftags%3E%0D%0A%09%09%09%09%3Cretail_volumes%3E%3C%2Fretail_volumes%3E%0D%0A%09%09%09%3C%2Fentry%3E";
+		    Assert.Equal(expected, actual);
 		}
 
 		[Fact]
