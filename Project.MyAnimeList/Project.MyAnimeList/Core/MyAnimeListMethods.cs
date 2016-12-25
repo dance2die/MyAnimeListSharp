@@ -57,16 +57,34 @@ namespace MyAnimeListSharp.Core
 			var requestBuilder = new HttpWebRequestBuilder(requestParameters);
 			var request = await requestBuilder.BuildWebRequestAsync();
 
-			using (HttpWebResponse response = (HttpWebResponse)await Task.Factory.FromAsync<WebResponse>(
-				request.BeginGetResponse, request.EndGetResponse, request).ConfigureAwait(false))
-			using (Stream responseStream = response.GetResponseStream())
-			using (StreamReader reader = new StreamReader(responseStream))
-			{
-				return await reader.ReadToEndAsync().ConfigureAwait(false);
-			}
-		}
+		    try
+		    {
+                using (HttpWebResponse response = (HttpWebResponse)await Task.Factory.FromAsync<WebResponse>(
+                    request.BeginGetResponse, request.EndGetResponse, request).ConfigureAwait(false))
+                using (Stream responseStream = response.GetResponseStream())
+                using (StreamReader reader = new StreamReader(responseStream))
+                {
+                    return await reader.ReadToEndAsync().ConfigureAwait(false);
+                }
+            }
+            catch (WebException wex)
+            {
+                // http://stackoverflow.com/a/7618390/4035
+                if (wex.Response != null)
+                {
+                    using (var errorResponse = (HttpWebResponse)wex.Response)
+                    using (var reader = new StreamReader(errorResponse.GetResponseStream()))
+                    {
+                        string error = reader.ReadToEnd();
+                        return error;
+                    }
+                }
+            }
 
-		protected string GetDataStringFromMyAnimeListValues(MyAnimeListValues values)
+            throw new InvalidOperationException();
+        }
+
+        protected string GetDataStringFromMyAnimeListValues(MyAnimeListValues values)
 		{
 			var formatterFactory = new ValuesFormatterFactory();
 			dynamic formatter = formatterFactory.Create(values);

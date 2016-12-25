@@ -35,10 +35,15 @@ namespace Project.MyAnimeList.Test.Tests
 			string actualString = await sut.AddAnimeAsync(AnimeValuesFixture.AnimeId, AnimeValuesFixture.Data);
 
 			_output.WriteLine(actualString);
-			Assert.Contains(expectedSubstring, actualString);
-		}
+            var inListAlreadyText = $"The anime (id: {AnimeValuesFixture.AnimeId}) is already in the list.";
 
-		[Fact]
+            if (actualString == inListAlreadyText)
+                Assert.True(true);
+            else
+                Assert.Contains(expectedSubstring, actualString);
+        }
+
+        [Fact]
 		public async void AddAnimeUsingAnimeValuesObjectInstance()
 		{
 			var sut = _animeListMethodsAsyncFixture.AnimeListMethods;
