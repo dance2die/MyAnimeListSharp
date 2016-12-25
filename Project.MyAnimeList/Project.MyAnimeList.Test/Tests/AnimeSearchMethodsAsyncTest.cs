@@ -1,5 +1,4 @@
-﻿using System;
-using MyAnimeListSharp.Core;
+﻿using MyAnimeListSharp.Core;
 using MyAnimeListSharp.Facade.Async;
 using Project.MyAnimeList.Test.Fixture;
 using Xunit;
@@ -32,7 +31,7 @@ namespace Project.MyAnimeList.Test.Tests
 		[Theory]
 		[InlineData("Naruto")]
 		[InlineData("Full Metal")]
-		public async void SearchAsyncResponseIsNotEmpty(string searchTerm)
+		public void SearchAsyncResponseIsNotEmpty(string searchTerm)
 		{
 			string response = _sut.SearchAsync(searchTerm).Result;
 
