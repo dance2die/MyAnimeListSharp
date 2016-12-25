@@ -33,7 +33,8 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			var sut = new AddMangaRequestParameters(CredentialContextFixture.CredentialContext, MangaValuesFixture.ID, MangaValuesFixture.Data);
 
-			Assert.Equal("POST", sut.HttpMethod);
+		    const string expected = "GET";
+		    Assert.Equal(expected, sut.HttpMethod);
 		}
 
 		[Fact]
