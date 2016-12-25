@@ -39,12 +39,14 @@ namespace Project.MyAnimeList.Test.Tests
 		[Fact]
 		public void AddAnimeRequestParametersBaseUriIsBuiltBasedOnIdPassed()
 		{
-			var requestParameters = new AddAnimeRequestParameters(CredentialContextFixture.CredentialContext, AnimeValuesFixture.AnimeId, AnimeValuesFixture.Data);
+			var requestParameters = new AddAnimeRequestParameters(
+                CredentialContextFixture.CredentialContext, AnimeValuesFixture.AnimeId, AnimeValuesFixture.Data);
 			var sut = new RequestUriBuilder(requestParameters);
 
-			var actualUri = sut.GetRequestUri();
+			var actual = sut.GetRequestUri();
 
-			Assert.Equal($"https://myanimelist.net/api/animelist/add/{AnimeValuesFixture.AnimeId}.xml", actualUri);
+		    var expected = $"https://myanimelist.net/api/animelist/add/{AnimeValuesFixture.AnimeId}.xml?data=%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0D%0A%09%09%09%09%3Centry%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cepisode%3E11%3C%2Fepisode%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstatus%3E1%3C%2Fstatus%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cscore%3E7%3C%2Fscore%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstorage_type%3E5%3C%2Fstorage_type%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cstorage_value%3E6%3C%2Fstorage_value%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctimes_rewatched%3E7%3C%2Ftimes_rewatched%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Crewatch_value%3E8%3C%2Frewatch_value%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdate_start%3E01302015%3C%2Fdate_start%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cdate_finish%3E07312015%3C%2Fdate_finish%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cpriority%3E1%3C%2Fpriority%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cenable_discussion%3E1%3C%2Fenable_discussion%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Cenable_rewatching%3E1%3C%2Fenable_rewatching%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ccomments%3EThis%20is%20a%20comment%3C%2Fcomments%3E%0D%0A%09%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3Ctags%3Etest%20tag%2C%202nd%20tag%3C%2Ftags%3E%0D%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%3C%2Fentry%3E";
+		    Assert.Equal(expected, actual);
 		}
 
 		[Fact]
