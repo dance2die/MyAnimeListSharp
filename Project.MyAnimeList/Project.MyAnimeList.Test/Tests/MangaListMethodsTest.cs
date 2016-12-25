@@ -71,16 +71,17 @@ namespace Project.MyAnimeList.Test.Tests
 		{
 			var sut = _mangaListMethodsFixture.MangaListMethods;
 
-			const string expectedSubstring = "Created";
 			var actualResponseString = sut.AddManga(MangaValuesFixture.ID, _mangaValuesFixture.Values);
 
 			// If no record was added, then a unique ID returned,
 			int uniqueId;
 			bool isNumber = int.TryParse(actualResponseString, out uniqueId);
-			// Else "201 Created" response is returned.
-			bool hasCreatedTextInIt = actualResponseString.Contains(expectedSubstring);
+            // Else "201 Created" response is returned.
 
-			Assert.True(isNumber || hasCreatedTextInIt);
+            string alreadyExistsText = $"The manga (id: {MangaValuesFixture.ID}) is already in the list.";
+		    bool isMangaAlreadyAdded = actualResponseString == alreadyExistsText;
+
+			Assert.True(isNumber || isMangaAlreadyAdded);
 		}
 
 		[Fact]
