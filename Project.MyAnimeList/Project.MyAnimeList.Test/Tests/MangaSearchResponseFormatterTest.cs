@@ -6,11 +6,11 @@ using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class MangaSearchResponseFormatterTest : SearchResponseFormatterTestBase
-	{
-		private readonly ITestOutputHelper _output;
+    public class MangaSearchResponseFormatterTest : SearchResponseFormatterTestBase
+    {
+        private readonly ITestOutputHelper _output;
 
-		private const string RESPONSE_TEXT = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+        private const string RESPONSE_TEXT = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
 <manga>
   <entry>
     <id>25</id>
@@ -49,34 +49,36 @@ namespace Project.MyAnimeList.Test.Tests
   </entry>
 </manga>";
 
-		public MangaSearchResponseFormatterTest(ITestOutputHelper output)
-		{
-			_output = output;
-		}
+        public MangaSearchResponseFormatterTest(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
-		[Fact]
-		public void FormatMangaSearchResponseToXmlString()
-		{
-			var formatter = new GenericXmlFormatter<MangaSearchResponse>();
+        [Fact]
+        public void FormatMangaSearchResponseToXmlString()
+        {
+            var formatter = new GenericXmlFormatter<MangaSearchResponse>();
 
-			MangaSearchResponse response = new SearchResponseDeserializer<MangaSearchResponse>().Deserialize(RESPONSE_TEXT);
-			string xmlText = formatter.Format(response);
-			_output.WriteLine(xmlText);
+            MangaSearchResponse response =
+                new SearchResponseDeserializer<MangaSearchResponse>().Deserialize(RESPONSE_TEXT);
+            string xmlText = formatter.Format(response);
+            _output.WriteLine(xmlText);
 
-			Assert.True(IsParsableXml(xmlText));
-		}
+            Assert.True(IsParsableXml(xmlText));
+        }
 
-		[Fact]
-		public void FormatAnimeSearchResponseToJsonString()
-		{
-			//MangaSearchResponseFormatter formatter = new MangaSearchResponseFormatter(new MangaSearchResponseJsonFormatter());
-			var formatter = new JsonFormatter<MangaSearchResponse>();
+        [Fact]
+        public void FormatAnimeSearchResponseToJsonString()
+        {
+            //MangaSearchResponseFormatter formatter = new MangaSearchResponseFormatter(new MangaSearchResponseJsonFormatter());
+            var formatter = new JsonFormatter<MangaSearchResponse>();
 
-			MangaSearchResponse response = new SearchResponseDeserializer<MangaSearchResponse>().Deserialize(RESPONSE_TEXT);
-			string jsonText = formatter.Format(response);
-			_output.WriteLine(jsonText);
+            MangaSearchResponse response =
+                new SearchResponseDeserializer<MangaSearchResponse>().Deserialize(RESPONSE_TEXT);
+            string jsonText = formatter.Format(response);
+            _output.WriteLine(jsonText);
 
-			Assert.True(IsParsableJson(jsonText));
-		}
-	}
+            Assert.True(IsParsableJson(jsonText));
+        }
+    }
 }

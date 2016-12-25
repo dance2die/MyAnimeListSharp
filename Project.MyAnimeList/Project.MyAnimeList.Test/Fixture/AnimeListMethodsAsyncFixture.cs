@@ -2,18 +2,18 @@
 
 namespace Project.MyAnimeList.Test.Fixture
 {
-	public class AnimeListMethodsAsyncFixture
-	{
-		public AnimeListMethodsAsync AnimeListMethods { get; set; }
+    public class AnimeListMethodsAsyncFixture
+    {
+        public AnimeListMethodsAsync AnimeListMethods { get; set; }
 
-		public AnimeListMethodsAsyncFixture()
-			: this(new CredentialContextFixture())
-		{
-		}
+        public AnimeListMethodsAsyncFixture()
+            : this(new CredentialContextFixture())
+        {
+        }
 
-		public AnimeListMethodsAsyncFixture(CredentialContextFixture credentialContextFixture)
-		{
-			AnimeListMethods = new AnimeListMethodsAsync(credentialContextFixture.CredentialContext);
-		}
-	}
+        public AnimeListMethodsAsyncFixture(CredentialContextFixture credentialContextFixture)
+        {
+            AnimeListMethods = new AnimeListMethodsAsync(credentialContextFixture.CredentialContext);
+        }
+    }
 }

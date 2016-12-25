@@ -2,21 +2,21 @@ using MyAnimeListSharp.Auth;
 
 namespace MyAnimeListSharp.Parameters
 {
-	public abstract class SearchRequestParameters : RequestParameters
-	{
-		protected SearchRequestParameters(ICredentialContext credential, string searchTerm)
-			: base(credential)
-		{
-			SearchTerm = searchTerm;
-		}
+    public abstract class SearchRequestParameters : RequestParameters
+    {
+        protected SearchRequestParameters(ICredentialContext credential, string searchTerm)
+            : base(credential)
+        {
+            SearchTerm = searchTerm;
+        }
 
-		public abstract override string RelativeUri { get; set; }
-		public override string HttpMethod { get; set; } = "GET";
+        public abstract override string RelativeUri { get; set; }
+        public override string HttpMethod { get; set; } = "GET";
 
-		public string SearchTerm
-		{
-			get { return QueryProperties["q"]; }
-			set { QueryProperties["q"] = value; }
-		}
-	}
+        public string SearchTerm
+        {
+            get { return QueryProperties["q"]; }
+            set { QueryProperties["q"] = value; }
+        }
+    }
 }

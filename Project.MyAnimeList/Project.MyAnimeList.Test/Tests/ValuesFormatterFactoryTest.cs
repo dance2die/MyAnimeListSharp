@@ -5,36 +5,35 @@ using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class ValuesFormatterFactoryTest : IClassFixture<ValuesFormatterFactoryFixture>
-	{
-		public ValuesFormatterFactoryFixture Fixture { get; set; }
+    public class ValuesFormatterFactoryTest : IClassFixture<ValuesFormatterFactoryFixture>
+    {
+        public ValuesFormatterFactoryFixture Fixture { get; set; }
 
-		public ValuesFormatterFactoryTest(ValuesFormatterFactoryFixture fixture)
-		{
-			Fixture = fixture;
-		}
+        public ValuesFormatterFactoryTest(ValuesFormatterFactoryFixture fixture)
+        {
+            Fixture = fixture;
+        }
 
-		[Fact]
-		public void ValuesFormatterFactoryReturnsAnimeValuesFormatter()
-		{
-			var sut = Fixture.Factory;
+        [Fact]
+        public void ValuesFormatterFactoryReturnsAnimeValuesFormatter()
+        {
+            var sut = Fixture.Factory;
 
-			var animeValues = new AnimeValues();
-			var valuesFormatter = sut.Create(animeValues);
+            var animeValues = new AnimeValues();
+            var valuesFormatter = sut.Create(animeValues);
 
-			Assert.IsType<AnimeValuesFormatter>(valuesFormatter);
-		}
+            Assert.IsType<AnimeValuesFormatter>(valuesFormatter);
+        }
 
-		[Fact]
-		public void ValuesFormatterFactoryReturnsMangaValuesFormatter()
-		{
-			var sut = Fixture.Factory;
+        [Fact]
+        public void ValuesFormatterFactoryReturnsMangaValuesFormatter()
+        {
+            var sut = Fixture.Factory;
 
-			var mangaValues = new MangaValues();
-			var valuesFormatter = sut.Create(mangaValues);
+            var mangaValues = new MangaValues();
+            var valuesFormatter = sut.Create(mangaValues);
 
-			Assert.IsType<MangaValuesFormatter>(valuesFormatter);
-
-		}
-	}
+            Assert.IsType<MangaValuesFormatter>(valuesFormatter);
+        }
+    }
 }

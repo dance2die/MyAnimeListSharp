@@ -4,16 +4,16 @@ using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AnimeValuesFormatterTest : ValuesFormatterTest, IClassFixture<AnimeValuesFixture>
-	{
-		private readonly AnimeValuesFormatterTestFixture _formatterFixture;
-		private readonly AnimeValuesFixture _animeValuesFixture;
+    public class AnimeValuesFormatterTest : ValuesFormatterTest, IClassFixture<AnimeValuesFixture>
+    {
+        private readonly AnimeValuesFormatterTestFixture _formatterFixture;
+        private readonly AnimeValuesFixture _animeValuesFixture;
 
-		private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""utf-8""?>";
+        private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""utf-8""?>";
 
-		private static readonly string _animeData =
-			XML_DECLARATION +
-@"
+        private static readonly string _animeData =
+            XML_DECLARATION +
+            @"
 <entry>
 	<episode>11</episode>
 	<status>1</status>
@@ -32,21 +32,21 @@ namespace Project.MyAnimeList.Test.Tests
 </entry>";
 
         public AnimeValuesFormatterTest(
-			AnimeValuesFormatterTestFixture formatterFixture, 
-			AnimeValuesFixture animeValuesFixture)
-		{
-			_formatterFixture = formatterFixture;
-			_animeValuesFixture = animeValuesFixture;
-		}
+            AnimeValuesFormatterTestFixture formatterFixture,
+            AnimeValuesFixture animeValuesFixture)
+        {
+            _formatterFixture = formatterFixture;
+            _animeValuesFixture = animeValuesFixture;
+        }
 
-		[Fact]
-		public void AnimeDataShouldMatchFormattedAnimeValuesObjectString()
-		{
-			AnimeValues values = _animeValuesFixture.Values;
-			string xmlString = _formatterFixture.ValuesFormatter.Format(values);
+        [Fact]
+        public void AnimeDataShouldMatchFormattedAnimeValuesObjectString()
+        {
+            AnimeValues values = _animeValuesFixture.Values;
+            string xmlString = _formatterFixture.ValuesFormatter.Format(values);
 
-			var thatXmlAreIdentical = XmlFilesAreIdentical(_animeData, xmlString);
-			Assert.True(thatXmlAreIdentical);
-		}
-	}
+            var thatXmlAreIdentical = XmlFilesAreIdentical(_animeData, xmlString);
+            Assert.True(thatXmlAreIdentical);
+        }
+    }
 }

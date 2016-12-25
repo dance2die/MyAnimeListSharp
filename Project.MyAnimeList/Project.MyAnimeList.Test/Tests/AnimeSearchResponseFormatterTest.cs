@@ -6,11 +6,11 @@ using MyAnimeListSharp.Util;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AnimeSearchResponseFormatterTest : SearchResponseFormatterTestBase
-	{
-		private readonly ITestOutputHelper _output;
+    public class AnimeSearchResponseFormatterTest : SearchResponseFormatterTestBase
+    {
+        private readonly ITestOutputHelper _output;
 
-		private const string RESPONSE_TEXT = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
+        private const string RESPONSE_TEXT = @"<?xml version=""1.0"" encoding=""utf-8"" ?>
 <anime>
   <entry>
     <id>71</id>
@@ -46,33 +46,35 @@ namespace Project.MyAnimeList.Test.Tests
   </entry>
 </anime>";
 
-		public AnimeSearchResponseFormatterTest(ITestOutputHelper output)
-		{
-			_output = output;
-		}
+        public AnimeSearchResponseFormatterTest(ITestOutputHelper output)
+        {
+            _output = output;
+        }
 
-		[Fact]
-		public void FormatAnimeSearchResponseToXmlString()
-		{
-			var formatter = new GenericXmlFormatter<AnimeSearchResponse>();
+        [Fact]
+        public void FormatAnimeSearchResponseToXmlString()
+        {
+            var formatter = new GenericXmlFormatter<AnimeSearchResponse>();
 
-			AnimeSearchResponse animeSearchResponse = new SearchResponseDeserializer<AnimeSearchResponse>().Deserialize(RESPONSE_TEXT);
-			string xmlText = formatter.Format(animeSearchResponse);
-			_output.WriteLine(xmlText);
+            AnimeSearchResponse animeSearchResponse =
+                new SearchResponseDeserializer<AnimeSearchResponse>().Deserialize(RESPONSE_TEXT);
+            string xmlText = formatter.Format(animeSearchResponse);
+            _output.WriteLine(xmlText);
 
-			Assert.True(IsParsableXml(xmlText));
-		}
+            Assert.True(IsParsableXml(xmlText));
+        }
 
-		[Fact]
-		public void FormatAnimeSearchResponseToJsonString()
-		{
-			var formatter = new JsonFormatter<AnimeSearchResponse>();
+        [Fact]
+        public void FormatAnimeSearchResponseToJsonString()
+        {
+            var formatter = new JsonFormatter<AnimeSearchResponse>();
 
-			AnimeSearchResponse animeSearchResponse = new SearchResponseDeserializer<AnimeSearchResponse>().Deserialize(RESPONSE_TEXT);
-			string jsonText = formatter.Format(animeSearchResponse);
-			_output.WriteLine(jsonText);
+            AnimeSearchResponse animeSearchResponse =
+                new SearchResponseDeserializer<AnimeSearchResponse>().Deserialize(RESPONSE_TEXT);
+            string jsonText = formatter.Format(animeSearchResponse);
+            _output.WriteLine(jsonText);
 
-			Assert.True(IsParsableJson(jsonText));
-		}
-	}
+            Assert.True(IsParsableJson(jsonText));
+        }
+    }
 }

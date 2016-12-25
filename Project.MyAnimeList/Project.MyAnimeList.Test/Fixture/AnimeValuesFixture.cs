@@ -4,20 +4,20 @@ using MyAnimeListSharp.Enums;
 
 namespace Project.MyAnimeList.Test.Fixture
 {
-	public class AnimeValuesFixture
-	{
-		public AnimeValues Values { get; set; }
+    public class AnimeValuesFixture
+    {
+        public AnimeValues Values { get; set; }
 
-		/// <summary>
-		/// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
-		/// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
-		/// </summary>
-		public static int AnimeId { get; set; } = 28907;
+        /// <summary>
+        /// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
+        /// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
+        /// </summary>
+        public static int AnimeId { get; set; } = 28907;
 
-		public static string XmlDeclaration { get; set; } = @"<?xml version=""1.0"" encoding=""UTF-8""?>";
+        public static string XmlDeclaration { get; set; } = @"<?xml version=""1.0"" encoding=""UTF-8""?>";
 
-		public static readonly string Data = 
-			XmlDeclaration +
+        public static readonly string Data =
+            XmlDeclaration +
             @"
 				<entry>
 	                <episode>11</episode>
@@ -37,33 +37,32 @@ namespace Project.MyAnimeList.Test.Fixture
                 </entry>";
 
 
-		public AnimeValuesFixture()
-		{
-			Values = GetTestAnimeValues();
-		}
+        public AnimeValuesFixture()
+        {
+            Values = GetTestAnimeValues();
+        }
 
-		private AnimeValues GetTestAnimeValues()
-		{
-			return new AnimeValues
-			{
-				Episode = 11,
-				AnimeStatus = AnimeStatus.Watching,
-				Score = Score.Good,
-				//DownloadedEpisodes = 4,
-				StorageType = 5,
-				StorageValue = 6,
-				TimesRewatched = 7,
-				RewatchValue = 8,
-				DateStart = new DateTime(2015, 1, 30),
-				DateFinish = new DateTime(2015, 7, 31),
-				Priority = Priority.Medium,
-				EnableDiscussion = EnableDiscussion.Enable,
-				EnableRewatching = EnableRewatching.Enable,
-				Comments = "This is a comment",
-				//FansubGroup = "Horrible Subs",
-				Tags = "test tag, 2nd tag"
+        private AnimeValues GetTestAnimeValues()
+        {
+            return new AnimeValues
+            {
+                Episode = 11,
+                AnimeStatus = AnimeStatus.Watching,
+                Score = Score.Good,
+                //DownloadedEpisodes = 4,
+                StorageType = 5,
+                StorageValue = 6,
+                TimesRewatched = 7,
+                RewatchValue = 8,
+                DateStart = new DateTime(2015, 1, 30),
+                DateFinish = new DateTime(2015, 7, 31),
+                Priority = Priority.Medium,
+                EnableDiscussion = EnableDiscussion.Enable,
+                EnableRewatching = EnableRewatching.Enable,
+                Comments = "This is a comment",
+                //FansubGroup = "Horrible Subs",
+                Tags = "test tag, 2nd tag"
             };
-		}
-
-	}
+        }
+    }
 }

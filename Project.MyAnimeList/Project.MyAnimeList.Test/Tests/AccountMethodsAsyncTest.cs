@@ -7,46 +7,46 @@ using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AccountMethodsAsyncTest : CredentialCollectionTest
-	{
-		private readonly ITestOutputHelper _output;
+    public class AccountMethodsAsyncTest : CredentialCollectionTest
+    {
+        private readonly ITestOutputHelper _output;
 
-		public AccountMethodsAsyncTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output)
-			: base(credentialContextFixture)
-		{
-			_output = output;
-		}
+        public AccountMethodsAsyncTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output)
+            : base(credentialContextFixture)
+        {
+            _output = output;
+        }
 
-		[Fact]
-		public async void TestVerifiyCredentialsNotEmpty()
-		{
-			var sut = new AccountMethodsAsync(CredentialContextFixture.CredentialContext);
+        [Fact]
+        public async void TestVerifiyCredentialsNotEmpty()
+        {
+            var sut = new AccountMethodsAsync(CredentialContextFixture.CredentialContext);
 
-			string credentials = await sut.VerifyCredentialsAsync();
-			_output.WriteLine(credentials);
+            string credentials = await sut.VerifyCredentialsAsync();
+            _output.WriteLine(credentials);
 
-			Assert.False(string.IsNullOrWhiteSpace(credentials));
-			Assert.Contains("id", credentials);
-			Assert.Contains("username", credentials);
-		}
+            Assert.False(string.IsNullOrWhiteSpace(credentials));
+            Assert.Contains("id", credentials);
+            Assert.Contains("username", credentials);
+        }
 
-		[Theory]
-		[InlineData("badUserName", "badPassword")]
-		[InlineData("aaaaaaaaaa", "bbbbbbbbbb")]
-		public async void InvalidCredentialsIsReturnedWhenInvalidCredentialIsPassed(string userName, string password)
-		{
-			ICredentialContext credentialContext = new CredentialContext
-			{
-				UserName = userName,
-				Password = password
-			};
-			var sut = new AccountMethodsAsync(credentialContext);
+        [Theory]
+        [InlineData("badUserName", "badPassword")]
+        [InlineData("aaaaaaaaaa", "bbbbbbbbbb")]
+        public async void InvalidCredentialsIsReturnedWhenInvalidCredentialIsPassed(string userName, string password)
+        {
+            ICredentialContext credentialContext = new CredentialContext
+            {
+                UserName = userName,
+                Password = password
+            };
+            var sut = new AccountMethodsAsync(credentialContext);
 
             string actual = await sut.VerifyCredentialsAsync();
             _output.WriteLine(actual);
 
             const string expected = "Invalid credentials";
             Assert.True(expected == actual);
-		}
-	}
+        }
+    }
 }

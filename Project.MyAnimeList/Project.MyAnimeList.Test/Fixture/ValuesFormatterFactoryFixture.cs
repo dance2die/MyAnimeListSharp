@@ -2,13 +2,13 @@
 
 namespace Project.MyAnimeList.Test.Fixture
 {
-	public class ValuesFormatterFactoryFixture
-	{
-		public ValuesFormatterFactory Factory { get; set; }
+    public class ValuesFormatterFactoryFixture
+    {
+        public ValuesFormatterFactory Factory { get; set; }
 
-		public ValuesFormatterFactoryFixture()
-		{
-			Factory = new ValuesFormatterFactory();
-		}
-	}
+        public ValuesFormatterFactoryFixture()
+        {
+            Factory = new ValuesFormatterFactory();
+        }
+    }
 }

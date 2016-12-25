@@ -4,16 +4,16 @@ using Xunit;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class MangaValuesFormatterTest : ValuesFormatterTest, IClassFixture<MangaValuesFixture>
-	{
-		private readonly MangaValuesFormatterTestFixture _formatterFixture;
-		private readonly MangaValuesFixture _mangaValuesFixture;
+    public class MangaValuesFormatterTest : ValuesFormatterTest, IClassFixture<MangaValuesFixture>
+    {
+        private readonly MangaValuesFormatterTestFixture _formatterFixture;
+        private readonly MangaValuesFixture _mangaValuesFixture;
 
-		private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""utf-8""?>";
+        private const string XML_DECLARATION = @"<?xml version=""1.0"" encoding=""utf-8""?>";
 
-		private readonly string _mangaData =
-			XML_DECLARATION +
-@"
+        private readonly string _mangaData =
+            XML_DECLARATION +
+            @"
 <entry>
 	<chapter>9</chapter>
 	<volume>8</volume>
@@ -33,22 +33,22 @@ namespace Project.MyAnimeList.Test.Tests
 </entry>";
 
 
-		public MangaValuesFormatterTest(
-			MangaValuesFormatterTestFixture formatterFixture,
-			MangaValuesFixture mangaValuesFixture)
-		{
-			_formatterFixture = formatterFixture;
-			_mangaValuesFixture = mangaValuesFixture;
-		}
+        public MangaValuesFormatterTest(
+            MangaValuesFormatterTestFixture formatterFixture,
+            MangaValuesFixture mangaValuesFixture)
+        {
+            _formatterFixture = formatterFixture;
+            _mangaValuesFixture = mangaValuesFixture;
+        }
 
-		[Fact]
-		public void MangaDataShouldMatchFormattedMangaValuesObjectString()
-		{
-			MangaValues values = _mangaValuesFixture.Values;
-			string xmlString = _formatterFixture.Formatter.Format(values);
+        [Fact]
+        public void MangaDataShouldMatchFormattedMangaValuesObjectString()
+        {
+            MangaValues values = _mangaValuesFixture.Values;
+            string xmlString = _formatterFixture.Formatter.Format(values);
 
-			var thatXmlAreIdentical = XmlFilesAreIdentical(_mangaData, xmlString);
-			Assert.True(thatXmlAreIdentical);
-		}
-	}
+            var thatXmlAreIdentical = XmlFilesAreIdentical(_mangaData, xmlString);
+            Assert.True(thatXmlAreIdentical);
+        }
+    }
 }

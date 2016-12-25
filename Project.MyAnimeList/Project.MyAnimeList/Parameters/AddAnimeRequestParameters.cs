@@ -2,13 +2,13 @@
 
 namespace MyAnimeListSharp.Parameters
 {
-	public class AddAnimeRequestParameters : CrudRequestParameters
+    public class AddAnimeRequestParameters : CrudRequestParameters
     {
-		public AddAnimeRequestParameters(ICredentialContext credentialContext, int? id, string data)
-			: base(credentialContext, id, data)
-		{
-		}
+        public AddAnimeRequestParameters(ICredentialContext credentialContext, int? id, string data)
+            : base(credentialContext, id, data)
+        {
+        }
 
-		public override string RelativeUri { get; set; } = "api/animelist/add";
-	}
+        public override string RelativeUri { get; set; } = "api/animelist/add";
+    }
 }

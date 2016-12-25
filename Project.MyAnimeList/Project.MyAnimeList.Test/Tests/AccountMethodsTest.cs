@@ -7,49 +7,49 @@ using Xunit.Abstractions;
 
 namespace Project.MyAnimeList.Test.Tests
 {
-	public class AccountMethodsTest : CredentialCollectionTest
-	{
-		private readonly ITestOutputHelper _output;
+    public class AccountMethodsTest : CredentialCollectionTest
+    {
+        private readonly ITestOutputHelper _output;
 
-		public AccountMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output) 
-			: base(credentialContextFixture)
-		{
-			_output = output;
-		}
+        public AccountMethodsTest(CredentialContextFixture credentialContextFixture, ITestOutputHelper output)
+            : base(credentialContextFixture)
+        {
+            _output = output;
+        }
 
-		[Fact]
-		public void TestCredentialContextNotEmpty()
-		{
-			var sut = CredentialContextFixture.CredentialContext;
+        [Fact]
+        public void TestCredentialContextNotEmpty()
+        {
+            var sut = CredentialContextFixture.CredentialContext;
 
-			Assert.False(string.IsNullOrEmpty(sut.UserName));
-			Assert.False(string.IsNullOrEmpty(sut.Password));
-		}
+            Assert.False(string.IsNullOrEmpty(sut.UserName));
+            Assert.False(string.IsNullOrEmpty(sut.Password));
+        }
 
-		[Fact]
-		public void TestVerifiyCredentialsNotEmpty()
-		{
-			var sut = new AccountMethods(CredentialContextFixture.CredentialContext);
+        [Fact]
+        public void TestVerifiyCredentialsNotEmpty()
+        {
+            var sut = new AccountMethods(CredentialContextFixture.CredentialContext);
 
-			var credentials = sut.VerifyCredentials();
-			_output.WriteLine(credentials);
+            var credentials = sut.VerifyCredentials();
+            _output.WriteLine(credentials);
 
-			Assert.False(string.IsNullOrEmpty(credentials));
-			Assert.Contains("id", credentials);
-			Assert.Contains("username", credentials);
-		}
+            Assert.False(string.IsNullOrEmpty(credentials));
+            Assert.Contains("id", credentials);
+            Assert.Contains("username", credentials);
+        }
 
-		[Theory]
-		[InlineData("badUserName", "badPassword")]
-		[InlineData("aaaaaaaaaa", "bbbbbbbbbb")]
-		public void InvalidCredentialsIsReturnedWhenInvalidCredentialIsPassed(string userName, string password)
-		{
-			ICredentialContext credentialContext = new CredentialContext
-			{
-				UserName = userName,
-				Password = password
-			};
-			var sut = new AccountMethods(credentialContext);
+        [Theory]
+        [InlineData("badUserName", "badPassword")]
+        [InlineData("aaaaaaaaaa", "bbbbbbbbbb")]
+        public void InvalidCredentialsIsReturnedWhenInvalidCredentialIsPassed(string userName, string password)
+        {
+            ICredentialContext credentialContext = new CredentialContext
+            {
+                UserName = userName,
+                Password = password
+            };
+            var sut = new AccountMethods(credentialContext);
 
             string actual = sut.VerifyCredentials();
             _output.WriteLine(actual);

@@ -8,18 +8,19 @@ using MyAnimeListSharp.Extensions.Core;
 
 namespace Project.MyAnimeList.Demo
 {
-	public class Program
-	{
-		/// <summary>
-		/// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
-		/// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
-		/// http://myanimelist.net/manga/67879/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
-		/// </summary>
-		private const int ANIME_ID = 28907;
-		private const int MANGA_ID = 67879;
+    public class Program
+    {
+        /// <summary>
+        /// Gate: Jieitai Kanochi nite, Kaku Tatakaeri
+        /// http://myanimelist.net/anime/28907/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
+        /// http://myanimelist.net/manga/67879/Gate:_Jieitai_Kanochi_nite_Kaku_Tatakaeri
+        /// </summary>
+        private const int ANIME_ID = 28907;
 
-		private static readonly string _animeData =
-			@"<?xml version = ""1.0"" encoding = ""UTF-8""?>
+        private const int MANGA_ID = 67879;
+
+        private static readonly string _animeData =
+            @"<?xml version = ""1.0"" encoding = ""UTF-8""?>
 				<entry>
 					<episode>9</episode>
 					<status>1</status>
@@ -39,8 +40,8 @@ namespace Project.MyAnimeList.Demo
 					<tags>test tag, 2nd tag</tags>
 				</entry>";
 
-		private static readonly string _mangaData =
-			@"<?xml version=""1.0"" encoding=""UTF-8""?>
+        private static readonly string _mangaData =
+            @"<?xml version=""1.0"" encoding=""UTF-8""?>
 			<entry>
 				<chapter>6</chapter>
 				<volume>1</volume>
@@ -61,108 +62,108 @@ namespace Project.MyAnimeList.Demo
 			</entry>";
 
 
-		public static void Main(string[] args)
-		{
-			ICredentialContext credential = new CredentialContext();
+        public static void Main(string[] args)
+        {
+            ICredentialContext credential = new CredentialContext();
 
-			//TestSearch(credential);
-			//TestCredentials(credential);
-			//TestAddAnime(credential);
-			//TestAddManga(credential);
-			//TestAddAnimeByObject(credential);
-			//TestAddMangaByObject(credential);
+            //TestSearch(credential);
+            //TestCredentials(credential);
+            //TestAddAnime(credential);
+            //TestAddManga(credential);
+            //TestAddAnimeByObject(credential);
+            //TestAddMangaByObject(credential);
 
-			//TestSearchAnimeAsync(credential);
+            //TestSearchAnimeAsync(credential);
 
-			TestSearchMangaAsync(credential);
+            TestSearchMangaAsync(credential);
 
-			Console.WriteLine("Press ENTER to continue...");
-			Console.ReadLine();
-		}
+            Console.WriteLine("Press ENTER to continue...");
+            Console.ReadLine();
+        }
 
-		private static async void TestSearchAnimeAsync(ICredentialContext credential)
-		{
-			var asyncAnimeSearcher = new AnimeSearchMethodsAsync(credential);
-			var response = await asyncAnimeSearcher.SearchAsync("Naruto");
+        private static async void TestSearchAnimeAsync(ICredentialContext credential)
+        {
+            var asyncAnimeSearcher = new AnimeSearchMethodsAsync(credential);
+            var response = await asyncAnimeSearcher.SearchAsync("Naruto");
 
-			Console.WriteLine(response);
-		}
+            Console.WriteLine(response);
+        }
 
-		private static async void TestSearchMangaAsync(ICredentialContext credential)
-		{
-			var asyncMangaSearcher = new MangaSearchMethodsAsync(credential);
-			MangaSearchResponse response = await asyncMangaSearcher.SearchDeserializedAsync("Dagashi Kashi");
+        private static async void TestSearchMangaAsync(ICredentialContext credential)
+        {
+            var asyncMangaSearcher = new MangaSearchMethodsAsync(credential);
+            MangaSearchResponse response = await asyncMangaSearcher.SearchDeserializedAsync("Dagashi Kashi");
 
-			Console.WriteLine(response.ToJson());
-			Console.WriteLine(response.ToXml());
-		}
+            Console.WriteLine(response.ToJson());
+            Console.WriteLine(response.ToXml());
+        }
 
-		private static void TestAddAnimeByObject(ICredentialContext credential)
-		{
-			var methods = new AnimeListMethods(credential);
-			var animeValues = new AnimeValues
-			{
-				AnimeStatus = AnimeStatus.Watching,
-				Comments = "It was a great series."
-			};
-			var responseText = methods.AddAnime(ANIME_ID, animeValues);
+        private static void TestAddAnimeByObject(ICredentialContext credential)
+        {
+            var methods = new AnimeListMethods(credential);
+            var animeValues = new AnimeValues
+            {
+                AnimeStatus = AnimeStatus.Watching,
+                Comments = "It was a great series."
+            };
+            var responseText = methods.AddAnime(ANIME_ID, animeValues);
 
-			Console.WriteLine(responseText);
-		}
+            Console.WriteLine(responseText);
+        }
 
-		private static void TestAddMangaByObject(ICredentialContext credential)
-		{
-			var methods = new MangaListMethods(credential);
-			var mangaValues = new MangaValues
-			{
-				MangaStatus = MangaStatus.Reading,
-				Comments = "I am planning to read this"
-			};
-			var responseText = methods.AddManga(MANGA_ID, mangaValues);
+        private static void TestAddMangaByObject(ICredentialContext credential)
+        {
+            var methods = new MangaListMethods(credential);
+            var mangaValues = new MangaValues
+            {
+                MangaStatus = MangaStatus.Reading,
+                Comments = "I am planning to read this"
+            };
+            var responseText = methods.AddManga(MANGA_ID, mangaValues);
 
-			Console.WriteLine(responseText);
-		}
+            Console.WriteLine(responseText);
+        }
 
-		private static void TestAddAnime(ICredentialContext credential)
-		{
-			var methods = new AnimeListMethods(credential);
-			var responseText = methods.AddAnime(ANIME_ID, _animeData);
+        private static void TestAddAnime(ICredentialContext credential)
+        {
+            var methods = new AnimeListMethods(credential);
+            var responseText = methods.AddAnime(ANIME_ID, _animeData);
 
-			Console.WriteLine(responseText);
-		}
+            Console.WriteLine(responseText);
+        }
 
-		private static void TestAddManga(ICredentialContext credential)
-		{
-			var methods = new MangaListMethods(credential);
-			methods.AddManga(MANGA_ID, _mangaData);
-		}
+        private static void TestAddManga(ICredentialContext credential)
+        {
+            var methods = new MangaListMethods(credential);
+            methods.AddManga(MANGA_ID, _mangaData);
+        }
 
-		private static void TestSearch(ICredentialContext credential)
-		{
-			//// Step 1: Enter UserName and Password information
-			//ICredentialContext credential = new CredentialContext
-			//{
-			//	UserName = "<MyAnimeList.NET UserName>",
-			//	Password = "<MyAnimeList.NET Password>"
-			//};
+        private static void TestSearch(ICredentialContext credential)
+        {
+            //// Step 1: Enter UserName and Password information
+            //ICredentialContext credential = new CredentialContext
+            //{
+            //	UserName = "<MyAnimeList.NET UserName>",
+            //	Password = "<MyAnimeList.NET Password>"
+            //};
 
-			// Step 2: Create a method object
-			var searchMethods = new SearchMethods(credential);
+            // Step 2: Create a method object
+            var searchMethods = new SearchMethods(credential);
 
-			// Step 3: Search using the search term ("Full Metal" in this case)
-			string mangaResponse = searchMethods.SearchManga("Code Geass");
-			Console.WriteLine(mangaResponse);
+            // Step 3: Search using the search term ("Full Metal" in this case)
+            string mangaResponse = searchMethods.SearchManga("Code Geass");
+            Console.WriteLine(mangaResponse);
 
-			// Step 3: Search using the search term ("Full Metal" in this case)
-			string animeResponse = searchMethods.SearchAnime("Full Metal");
-			Console.WriteLine(animeResponse);
-		}
+            // Step 3: Search using the search term ("Full Metal" in this case)
+            string animeResponse = searchMethods.SearchAnime("Full Metal");
+            Console.WriteLine(animeResponse);
+        }
 
-		private static void TestCredentials(ICredentialContext credential)
-		{
-			string responseFromServer = new AccountMethods(credential).VerifyCredentials();
+        private static void TestCredentials(ICredentialContext credential)
+        {
+            string responseFromServer = new AccountMethods(credential).VerifyCredentials();
 
-			Console.WriteLine(responseFromServer);
-		}
-	}
+            Console.WriteLine(responseFromServer);
+        }
+    }
 }
