@@ -19,7 +19,6 @@ namespace MyAnimeListSharp.ContentBuilders
 					new XElement("volume", values.Volume),
 					new XElement("status", GetUnderlyingEnumValue(values.MangaStatus)),
 					new XElement("score", GetUnderlyingEnumValue(values.Score)),
-					new XElement("downloaded_chapters", values.DownloadedChapters),
 					new XElement("times_reread", values.TimesReread),
 					new XElement("reread_value", values.RereadValue),
 					new XElement("date_start", _dateTimeFormatter.Format(values.DateStart)),

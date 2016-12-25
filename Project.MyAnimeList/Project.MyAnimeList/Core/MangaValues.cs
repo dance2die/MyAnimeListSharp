@@ -6,7 +6,6 @@ namespace MyAnimeListSharp.Core
 	public class MangaValues : MyAnimeListValues
 	{
 		private int _chapter;
-		private int _downloadedChapters;
 		private int _rereadValue;
 		private int _retailVolumes;
 		private int _timesReread;
@@ -35,17 +34,6 @@ namespace MyAnimeListSharp.Core
 		}
 
 		public MangaStatus MangaStatus { get; set; }
-
-		public int DownloadedChapters
-		{
-			get { return _downloadedChapters; }
-			set
-			{
-				if (value < 0)
-					throw new ArgumentOutOfRangeException(nameof(DownloadedChapters), "DownloadedChapters value cannot be negative");
-				_downloadedChapters = value;
-			}
-		}
 
 		public int TimesReread
 		{

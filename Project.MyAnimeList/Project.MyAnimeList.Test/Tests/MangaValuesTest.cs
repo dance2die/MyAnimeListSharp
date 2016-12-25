@@ -68,17 +68,6 @@ namespace Project.MyAnimeList.Test.Tests
 			Assert.Equal(value, _sut.Score);
 		}
 
-		/// <remarks>
-		/// On MyAnimeList.net, adding a negative value for Downloaded Episodes sets the value back to 0
-		/// </remarks>
-		[Theory]
-		[InlineData(-1)]
-		[InlineData(-10)]
-		public void TestIfDownloadedChaptersIsNegativeArgumentOutOfRangeExceptionIsThrown(int downloadedChapters)
-		{
-			Assert.Throws<ArgumentOutOfRangeException>(() => _sut.DownloadedChapters = downloadedChapters);
-		}
-
 		[Theory]
 		[InlineData(-1)]
 		[InlineData(-10)]

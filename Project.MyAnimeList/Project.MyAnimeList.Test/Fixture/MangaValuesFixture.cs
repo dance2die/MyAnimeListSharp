@@ -21,7 +21,6 @@ namespace Project.MyAnimeList.Test.Fixture
 				<volume>1</volume>
 				<status>1</status>
 				<score>9</score>
-				<downloaded_chapters></downloaded_chapters>
 				<times_reread></times_reread>
 				<reread_value></reread_value>
 				<date_start></date_start>
@@ -48,7 +47,6 @@ namespace Project.MyAnimeList.Test.Fixture
 				Volume = 8,
 				MangaStatus = MangaStatus.OnHold,
 				Score = Score.VeryGood,
-				DownloadedChapters = 6,
 				TimesReread = 5,
 				RereadValue = 4,
 				DateStart = new DateTime(2015, 2 ,28),
