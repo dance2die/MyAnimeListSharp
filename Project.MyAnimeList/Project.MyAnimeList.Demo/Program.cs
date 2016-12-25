@@ -25,7 +25,6 @@ namespace Project.MyAnimeList.Demo
 					<episode>9</episode>
 					<status>1</status>
 					<score>9</score>
-					<downloaded_episodes></downloaded_episodes>
 					<storage_type></storage_type>
 					<storage_value></storage_value>
 					<times_rewatched></times_rewatched>
@@ -36,7 +35,6 @@ namespace Project.MyAnimeList.Demo
 					<enable_discussion></enable_discussion>
 					<enable_rewatching></enable_rewatching>
 					<comments></comments>
-					<fansub_group></fansub_group>
 					<tags>test tag, 2nd tag</tags>
 				</entry>";
 
@@ -47,7 +45,6 @@ namespace Project.MyAnimeList.Demo
 				<volume>1</volume>
 				<status>1</status>
 				<score>8</score>
-				<downloaded_chapters></downloaded_chapters>
 				<times_reread></times_reread>
 				<reread_value></reread_value>
 				<date_start></date_start>
