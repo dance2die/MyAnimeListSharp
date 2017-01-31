@@ -1,8 +1,3 @@
-#There was a breaking MAL API changes.
-## A new version 1.3.2 was released which addresses changes made in MAP API on November 2016.
-## Due to a weirdness in MAP API change, Add/Update/Delete Anime/Manga is done via GET instead of POST. [@Drutol](https://github.com/Drutol) pointed out the issue on [MAL Forum](https://myanimelist.net/forum/?topicid=1579041) and I had to implement the same way since I wasn't able to get it working either using Fiddler
-
-
 # Welcome to MyAnimeListSharp
 ## The "Easiest" way to search Anime/Manga
 
