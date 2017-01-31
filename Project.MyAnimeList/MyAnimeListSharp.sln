@@ -1,13 +1,15 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.23107.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnimeListSharp.Demo", "Project.MyAnimeList.Demo\MyAnimeListSharp.Demo.csproj", "{476B97F4-23ED-4509-B483-19B3692EDD9E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnimeListSharp.Test", "Project.MyAnimeList.Test\MyAnimeListSharp.Test.csproj", "{7CF5924A-D489-4FB3-A275-BC06E5F183A5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyAnimeListSharp", "Project.MyAnimeList\MyAnimeListSharp.csproj", "{23C82595-8B22-4922-BC70-DEC6F364689C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimeSearch", "..\..\kirillVv\AnimeSearch\AnimeSearch\AnimeSearch.csproj", "{8FF2C48E-6B1F-48F7-8E03-D29D1909A499}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{23C82595-8B22-4922-BC70-DEC6F364689C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{23C82595-8B22-4922-BC70-DEC6F364689C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{23C82595-8B22-4922-BC70-DEC6F364689C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8FF2C48E-6B1F-48F7-8E03-D29D1909A499}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8FF2C48E-6B1F-48F7-8E03-D29D1909A499}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8FF2C48E-6B1F-48F7-8E03-D29D1909A499}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8FF2C48E-6B1F-48F7-8E03-D29D1909A499}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

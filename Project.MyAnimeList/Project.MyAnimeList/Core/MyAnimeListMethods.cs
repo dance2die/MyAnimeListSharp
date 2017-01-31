@@ -59,6 +59,9 @@ namespace MyAnimeListSharp.Core
 
             try
             {
+                // http://www.webmonkeys.org.uk/2012/09/c-the-server-committed-a-protocol-violation-sectionresponsestatusline/
+                request.KeepAlive = false;
+
                 using (HttpWebResponse response = (HttpWebResponse) await Task.Factory.FromAsync<WebResponse>(
                     request.BeginGetResponse, request.EndGetResponse, request).ConfigureAwait(false))
                 using (Stream responseStream = response.GetResponseStream())
@@ -79,9 +82,9 @@ namespace MyAnimeListSharp.Core
                         return error;
                     }
                 }
-            }
 
-            throw new InvalidOperationException();
+                throw;
+            }
         }
 
         protected string GetDataStringFromMyAnimeListValues(MyAnimeListValues values)
