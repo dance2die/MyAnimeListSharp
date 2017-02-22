@@ -1,13 +1,9 @@
-#There was a breaking MAL API changes.
-## I am working on it to fixing it now...
-
-
 # Welcome to MyAnimeListSharp
 ## The "Easiest" way to search Anime/Manga
 
 * **What**: .NET library for accessing MyAnimeList.net Web API ([API Documentation](http://myanimelist.net/modules.php?go=api))
 * **Framework**: .NET 4.5.2
-* **Contact Info**: [@dance2die](https://twitter.com/dance2die)
+* **Contact Info**: [@SlightEdgeCoder](https://twitter.com/SlightEdgeCoder)
 * **License**: [The MIT License](http://opensource.org/licenses/MIT)
 
 
