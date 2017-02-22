@@ -2,7 +2,7 @@
 {
     public enum Score
     {
-        Appalling,
+        Appalling = 1,
         Horrible,
         VeryBad,
         Bad,
