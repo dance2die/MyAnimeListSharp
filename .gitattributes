@@ -61,3 +61,6 @@
 #*.PDF   diff=astextplain
 #*.rtf   diff=astextplain
 #*.RTF   diff=astextplain
+
+# Sung - 2017.08.17 - Remove PowerShell script from vendor
+*.ps1 linguist-vendored=false
