@@ -63,4 +63,4 @@
 #*.RTF   diff=astextplain
 
 # Sung - 2017.08.17 - Remove PowerShell script from vendor
-MyAnimeListSharp/Project.MyAnimeList/Project.MyAnimeList/_CreateNewNuGetPackage/* linguist-vendored=false
+Project.MyAnimeList/Project.MyAnimeList/* linguist-vendored=false
